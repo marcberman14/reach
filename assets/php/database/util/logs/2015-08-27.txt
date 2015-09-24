@@ -1,0 +1,3 @@
+Time : 22:16:47
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO login_attempts(user_id, time) VALUES(:f, :time)
