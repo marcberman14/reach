@@ -6,179 +6,190 @@
  * Time: 3:12 PM
  */
 
-class Admin extends User  {
-    private $admindob;
-    private $admingender;
-    private $adminstreetnumber;
-    private $adminstreetname;
-    private $adminsuburb;
-    private $admincity;
-    private $admincountry;
-    private $adminpostalcode;
-    private $admincellnumber;
-    private $adminhomenumber;
-    private $adminworknumber;
-    private $adminstaffnumber;
-    private $adminjobdepartment;
-    private $adminjobposition;
-    private $adminmonashemail;
-    private $adminalternativeemail;
-    private $adminaltcontactnum;
+class Admin extends User {
+    private $admin_id;
+    private $dob;
+    private $gender;
+    private $streetnumber;
+    private $streetname;
+    private $suburb;
+    private $city;
+    private $country;
+    private $postalcode;
+    private $cellnumber;
+    private $homenumber;
+    private $worknumber;
+    private $staffnumber;
+    private $jobdepartment;
+    private $jobposition;
+    private $monashemail;
+    private $alternativeemail;
+    private $altcontactnum;
 
-  public function __construct()
+  public function __construct($user_id, $admin_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name,
+                              $dob, $gender, $streetnumber, $streetname, $suburb, $city, $country, $postalcode,
+                              $cellnumber, $homenumber, $worknumber, $staffnumber, $jobdepartment, $jobposition,
+                              $monashemail, $alternativeemail, $altcontactnum)
     {
-        $this->admindob = "Enter Details";
-        $this->admingender="Enter Details";
-        $this->adminstreetnumber ="Enter Details";
-        $this->adminstreetname ="Enter Details";
-        $this->adminsuburb ="Enter Details";
-        $this->admincity ="Enter Details";
-        $this->admincountry ="Enter Details";
-        $this->adminpostalcode = "Enter Details";
-        $this->admincellnumber ="Enter Details";
-        $this->adminhomenumber ="Enter Details";
-        $this->adminworknumber ="Enter Details";
-        $this->adminstaffnumber = "Enter Details";
-        $this->adminjobdepartment ="Enter Details";
-        $this->adminjobposition ="Enter Details";
-        $this->adminmonashemail ="Enter Details";
-        $this->adminalternativeemail ="Enter Details";
-        $this->adminaltcontactnum ="Enter Details";
-    }
-    public  function getAdmindob() {
-        return $this -> admindob;
-    }
-
-    public function setAdmindob($admindob) {
-        $this -> admindob = $admindob;
+        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name);
+        $this->admin_id = $admin_id;
+        $this->dob = $dob;
+        $this->gender= $gender;
+        $this->streetnumber = $streetnumber;
+        $this->streetname = $streetname;
+        $this->suburb = $suburb;
+        $this->city = $city;
+        $this->country = $country;
+        $this->postalcode = $postalcode;
+        $this->cellnumber = $cellnumber;
+        $this->homenumber = $homenumber;
+        $this->worknumber = $worknumber;
+        $this->staffnumber = $staffnumber;
+        $this->jobdepartment = $jobdepartment;
+        $this->jobposition = $jobposition;
+        $this->monashemail = $monashemail;
+        $this->alternativeemail = $alternativeemail;
+        $this->altcontactnum = $altcontactnum;
     }
 
-    public  function getAdmingender() {
-    return $this -> admingender;
+    public  function getAdminID() {
+        return $this -> admin_id;
+    }
+
+    public  function getDob() {
+        return $this -> dob;
+    }
+
+    public function setDob($dob) {
+        $this -> dob = $dob;
+    }
+
+    public  function getGender() {
+    return $this -> gender;
 }
 
-    public  function setAdmingender($admingender) {
-        $this -> admingender= $admingender;
+    public  function setGender($gender) {
+        $this -> gender= $gender;
     }
 
     public  function getAdminstreetnumber() {
-        return $this -> adminstreetnumber;
+        return $this -> streetnumber;
     }
 
-    public  function setAdminstreetnumber($adminstreetnumber) {
-        $this -> adminstreetnumber= $adminstreetnumber;
+    public  function setAdminstreetnumber($streetnumber) {
+        $this -> streetnumber= $streetnumber;
     }
 
     public  function getAdminstreetname() {
-        return $this -> adminstreetname;
+        return $this -> streetname;
     }
 
-    public  function setAdminstreetname($adminstreetname) {
-        $this -> adminstreetname= $adminstreetname;
+    public  function setAdminstreetname($streetname) {
+        $this -> streetname= $streetname;
     }
 
     public  function getAdminsuburb() {
-    return $this -> adminsuburb;
+    return $this -> suburb;
 }
 
-    public function setAdminsuburb($adminsuburb) {
-        $this -> adminsuburb= $adminsuburb;
+    public function setAdminsuburb($suburb) {
+        $this -> suburb= $suburb;
     }
 
     public function getAdmincity() {
-        return $this -> admincity;
+        return $this -> city;
     }
 
-    public function setAdmincity($admincity) {
-        $this -> admincity= $admincity;
+    public function setAdmincity($city) {
+        $this -> city= $city;
     }
 
     public function getAdmincountry() {
-        return $this -> admincountry;
+        return $this -> country;
     }
 
-    public function setAdmincountry($admincountry) {
-        $this -> admincountry= $admincountry;
+    public function setAdmincountry($country) {
+        $this -> country= $country;
     }
 
     public function getAdminpostalcode() {
-        return $this -> adminpostalcode;
+        return $this -> postalcode;
     }
 
-    public  function setAdminpostalcode($adminpostalcode) {
-        $this -> adminpostalcode= $adminpostalcode;
+    public  function setAdminpostalcode($postalcode) {
+        $this -> postalcode= $postalcode;
     }
 
     public  function getAdmincellnumber() {
-        return $this -> admincellnumber;
+        return $this -> cellnumber;
     }
 
-    public function setAdmincellnumber($admincellnumber) {
-        $this -> admincellnumber= $admincellnumber;
+    public function setAdmincellnumber($cellnumber) {
+        $this -> cellnumber= $cellnumber;
     }
 
     public function getAdminhomenumber() {
-        return $this -> adminhomenumber;
+        return $this -> homenumber;
     }
 
-    public  function setAdminhomenumber($adminhomenumber) {
-        $this -> adminhomenumber= $adminhomenumber;
+    public  function setAdminhomenumber($homenumber) {
+        $this -> homenumber= $homenumber;
     }
 
     public  function getAdminworknumber() {
-    return $this -> adminworknumber;
+    return $this -> worknumber;
 }
 
-    public function setAdminworknumber($adminworknumber) {
-        $this -> adminworknumber= $adminworknumber;
+    public function setAdminworknumber($worknumber) {
+        $this -> worknumber= $worknumber;
     }
 
     public function getAdminstaffnumber() {
-        return $this -> adminstaffnumber;
+        return $this -> staffnumber;
     }
 
-    public function setAdminstaffnumber($adminstaffnumber) {
-        $this -> adminstaffnumber= $adminstaffnumber;
+    public function setAdminstaffnumber($staffnumber) {
+        $this -> staffnumber= $staffnumber;
     }
 
     public function getAdminjobdepartment() {
-    return $this -> adminjobdepartment;
+    return $this -> jobdepartment;
 }
 
-    public function setAdminjobdepartment($adminjobdepartment) {
-        $this -> adminjobdepartment= $adminjobdepartment;
+    public function setAdminjobdepartment($jobdepartment) {
+        $this -> jobdepartment= $jobdepartment;
     }
 
     public function getAdminjobposition() {
-        return $this -> adminjobposition;
+        return $this -> jobposition;
     }
 
-    public function setAdminjobposition($adminjobposition) {
-        $this -> adminjobposition= $adminjobposition;
+    public function setAdminjobposition($jobposition) {
+        $this -> jobposition= $jobposition;
     }
 
     public  function getAdminmonashemail() {
-    return $this -> adminmonashemail;
+    return $this -> monashemail;
 }
 
-    public  function setAdminmonashemail($adminmonashemail) {
-        $this -> adminmonashemail= $adminmonashemail;
+    public  function setAdminmonashemail($monashemail) {
+        $this -> monashemail= $monashemail;
     }
 
     public  function getAdminalternativeemail() {
-            return $this -> adminalternativeemail;
+            return $this -> alternativeemail;
     }
 
-    public function setAdminalternativeemail($adminalternativeemail) {
-        $this -> adminalternativeemail= $adminalternativeemail;
+    public function setAdminalternativeemail($alternativeemail) {
+        $this -> alternativeemail= $alternativeemail;
     }
 
     public  function getAdminaltcontactnum() {
-        return $this -> adminaltcontactnum;
+        return $this -> altcontactnum;
     }
 
-    public function setAdminaltcontactnum($adminaltcontactnum) {
-        $this -> adminaltcontactnum = $adminaltcontactnum;
+    public function setAdminaltcontactnum($altcontactnum) {
+        $this -> altcontactnum = $altcontactnum;
     }
 
 

@@ -7,14 +7,14 @@
  */
 
 require_once "Dao.php";
-//require_once "../classes/User.php";
 
-final class UserDao extends Dao {
-    
-    public function studentUpdate($values) {
-		
-            try {
-                $temp = $this->db->query("UPDATE members m JOIN student s ON m.user_id = s.userId
+final class UserDao extends Dao
+{
+    public function studentUpdate($values)
+    {
+
+        try {
+            $temp = $this->db->query("UPDATE members m JOIN student s ON m.user_id = s.userId
                                         SET m.firstname = :fname,
                                             m.lastname = :sname,
                                             m.email = :mail,
@@ -29,20 +29,21 @@ final class UserDao extends Dao {
                                             s.parentnumber = :parno,
                                             s.schoolname = :school
                                         WHERE m.user_id = :userid;", $values);
-                return $temp;
-            } catch (DBException $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            } catch (Exception $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            }
-        } 
-    
-     public function teacherUpdate($values) {
-		
-            try {
-                $temp = $this->db->query("UPDATE members m JOIN teacher t ON m.user_id = t.userId
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function teacherUpdate($values)
+    {
+
+        try {
+            $temp = $this->db->query("UPDATE members m JOIN teacher t ON m.user_id = t.userId
                                         SET m.firstname = :fname,
                                             m.lastname = :sname,
                                             m.email = :mail,
@@ -57,20 +58,21 @@ final class UserDao extends Dao {
                                             t.schoolemployed = :school,
                                             t.teachinggrade = :tgrade
                                         WHERE m.user_id = :userid;", $values);
-                return $temp;
-            } catch (DBException $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            } catch (Exception $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            }
-        } 
-    
-     public function tutorUpdate($values) {
-		
-            try {
-                $temp = $this->db->query("UPDATE members m JOIN tutor t ON m.user_id = t.user_id
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function tutorUpdate($values)
+    {
+
+        try {
+            $temp = $this->db->query("UPDATE members m JOIN tutor t ON m.user_id = t.user_id
                                         SET m.firstname = :fname,
                                             m.lastname = :sname,
                                             m.email = :mail,
@@ -84,92 +86,94 @@ final class UserDao extends Dao {
                                             t.studyarea = :parno,
                                             t.studyyear = :school
                                         WHERE m.user_id = :userid;", $values);
-                return $temp;
-            } catch (DBException $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            } catch (Exception $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            }
-        } 
-    
-    
-    
-    
-    
-    public function passwordUpdate($values){
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+
+    public function passwordUpdate($values)
+    {
         try {
-                $temp = $this->db->query("UPDATE members
+            $temp = $this->db->query("UPDATE members
                                         SET m.password = :pass,
                                             m.salt = :salt
                                         WHERE user_id = :userid;", $values);
-                return $temp;
-            } catch (DBException $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            } catch (Exception $e) {
-                echo "Error finding currency by code:<br/>" . $e->getMessage();
-                return null;
-            }
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
     }
-		
-		
-	public function allDetails($values){
+
+
+    public function allDetails($values)
+    {
 
         try {
             $temp = $this->db->row("SELECT m.user_id, m.firstname, m.lastname, p.permission_name, m.active, m.email
              FROM members m join permission_group p ON p.permission_id = m.permission_id WHERE user_id = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         } catch (Exception $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         }
-	}
-    
-    public function allStudents($values){
+    }
+
+    public function allStudents($values)
+    {
 
         try {
             $temp = $this->db->row("SELECT * from student WHERE userId = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         } catch (Exception $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         }
-	}
-    
-    public function allTeachers($values){
+    }
+
+    public function allTeachers($values)
+    {
 
         try {
             $temp = $this->db->row("SELECT * from teacher WHERE userId = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         } catch (Exception $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         }
-	}
-    
-    public function allTutors($values){
+    }
+
+    public function allTutors($values)
+    {
 
         try {
             $temp = $this->db->row("SELECT * from tutor WHERE user_id = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         } catch (Exception $e) {
-            echo "Error finding member by code:<br/>" . $e->getMessage();
+            echo "Error:<br/>" . $e->getMessage();
             return null;
         }
-	}
-		
+    }
+
 }

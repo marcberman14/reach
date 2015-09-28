@@ -1,9 +1,11 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/UserDao.php";
+require_once "User.php";
 
-class Teacher extends Member {
+class Teacher extends User {
     
-private  $user_id;
+private  $teacher_id;
 private  $schoolemployed;
 private  $teachinggrade;
 private  $yearsexperience;
@@ -21,25 +23,29 @@ private  $country;
 private  $postalcode;
 private  $subjecttaught;
 
-	public function __construct()  {
-		
-      $this-> user_id = "";    
-      $this-> schoolemployed = 'Enter Details';
-	  $this-> teachinggrade = 'Enter Details';
-	  $this-> yearsexperience = 'Enter Details';
-	  $this-> cellnumber = 'Enter Details';
-	  $this-> alternativenumber = 'Enter Details';
-	  $this-> personalemail = 'Enter Details';
-	  $this-> dob = 'Enter Details';
-	  $this-> schooladdress = 'Enter Details';
-	  $this-> schoolcontact = 'Enter Details';
-	  $this-> streetnumber = 'Enter Details';
-	  $this-> streetname = 'Enter Details';
-	  $this-> suburb = 'Enter Details';
-	  $this-> city = 'Enter Details';
-	  $this-> country = 'Enter Details';
-	  $this-> cellnumber = 'Enter Details';
-	  $this-> postalcode = 'Enter Details';
+
+
+	public function __construct($user_id, $teacher_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name,
+                                $schoolemployed, $teachinggrade, $yearsexperience, $cellnumber, $alternativenumber, $personalemail, $dob,
+                                $schooladdress, $schoolcontact, $streetnumber, $streetname, $suburb, $city, $country, $postalcode, $subjecttaught)  {
+        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name);
+        $this-> teacher_id = $teacher_id;
+        $this-> schoolemployed = $schoolemployed;
+        $this-> teachinggrade = $teachinggrade;
+        $this-> yearsexperience = $yearsexperience;
+        $this-> cellnumber = $cellnumber;
+        $this-> alternativenumber = $alternativenumber;
+        $this-> personalemail = $personalemail;
+        $this-> dob = $dob;
+        $this-> schooladdress = $schooladdress;
+        $this-> schoolcontact = $schoolcontact;
+        $this-> streetnumber = $streetnumber;
+        $this-> streetname = $streetname;
+        $this-> suburb = $suburb;
+        $this-> city = $city;
+        $this-> country = $country;
+        $this-> cellnumber = $postalcode;
+        $this-> postalcode = $subjecttaught;
     }
     
     public function pullTeacher($value){
@@ -48,10 +54,9 @@ private  $subjecttaught;
 	//$firstname = $userDetails['firstname'];	
 	return $teacherDetails;
 	}
-    
-    
-    public function getUserID() {		
-        return $this -> user_id;
+
+    public function getTeacherID() {
+        return $this -> teacher_id;
     }
 
 	public function getSchoolemployed() {
@@ -102,14 +107,6 @@ private  $subjecttaught;
         $this -> personalemail = $personalemail;
     }
 	
-	public function getPersonalEmail() {
-        return $this -> personalemail;
-    }
-
-    public function setPersonalEmail($personalemail) {
-        $this -> personalemail = $personalemail;
-    }
-	
 	public function getDob() {
         return $this -> dob;
     }
@@ -138,7 +135,7 @@ private  $subjecttaught;
         return $this -> streetnumber;
     }
 
-    public function setStreetNumber($treetnumber) {
+    public function setStreetNumber($streetnumber) {
         $this -> streetnumber = $streetnumber;
     }
 	
@@ -147,7 +144,7 @@ private  $subjecttaught;
     }
 
     public function setStreetName($streetname) {
-        $this -> streetname = $treetname;
+        $this -> streetname = $streetname;
     }
 	
 	public function getSuburb() {
@@ -189,10 +186,4 @@ private  $subjecttaught;
 	public function setSubjectTaught($subjecttaught) {
         $this -> subjecttaught = $subjecttaught;
     }
-
-    
-
 }
-
-$obj = new User();
-var_dump($obj);

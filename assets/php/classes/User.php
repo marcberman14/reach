@@ -12,9 +12,7 @@ class User {
     private $useractive;
     private $permission_name;
 
-    public function __construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name)  {
-		
-		//$user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name
+    public function __construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name){
        $this-> user_id = $user_id;
        $this-> userfirstname = $userfirstname;
        $this-> userlastname = $userlastname;
