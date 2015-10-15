@@ -1,21 +1,22 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
-header("Content-Type: application/json", true);
-
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/User.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/ProfileDao.php";
+$security = new Security();
+$profiles = new ProfileDao();
+$security->sec_session_start();
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 
-require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
+
+session_cache_limiter('nocache');
+
+header("Content-Type: application/json", true);
+
 $tester = new UserDao();
 
-sec_session_start();
-
-error_reporting(E_ALL);
-ini_set('display errors', 1);
-
-
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user']->getUserID();
 $flag = false;
 
 $firstname =$_POST['firstname'];
@@ -120,10 +121,13 @@ if($stuschoolname != null){
 }
 
 if($password != null and $confirmpaswd != null and $oldpassword !=null and $confirmpaswd = $password){   //potentially separate ifs for error handling
-    $saltst = $mysqli->prepare("SELECT salt from members where user_id = ?");
-    $saltst->bind_param('s', $user_id);
-    $saltst->execute();
-    $saltst->store_result();
+
+$array = array("user_id"=>$user_id);
+
+
+
+    $saltst = $tester->passwprd($array);
+	  
     $saltst->bind_result($salt);
     $saltst->fetch();
     $saltypass = hash('sha512', $oldpassword . $salt);//retrieve password salt from database
@@ -136,7 +140,8 @@ if($password != null and $confirmpaswd != null and $oldpassword !=null and $conf
 
 }
    
-var_dump($setvalues);
+//var_dump($setvalues);
+
 $tester -> studentUpdate ($setvalues);
 
 echo "Jet fuel can't melt steel beams";

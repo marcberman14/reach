@@ -436,6 +436,16 @@ if ($login['response'] == 'error') {?>
                                                         </div>
                                                     </div>
                                                     
+                                                     
+                                            <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-12">
+                                                                <label>Current Subject Taught:</label>
+                                                                <input type="text" value="<?php echo $tdata['teachinggrade']; ?>" class="form-control input-lg" name='teasubtaught' id='teasubtuaght'>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
                                                     
                                             
                                                 <div class="row">

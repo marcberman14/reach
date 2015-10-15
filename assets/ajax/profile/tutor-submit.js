@@ -51,9 +51,6 @@ $().ready(function() {
     $("#tutorprofile").validate({
         // Specify the validation rules
         rules: {
-            tutgender: {
-                required:true
-            },
             tutdob: {
                 required:true
             },
@@ -121,10 +118,6 @@ $().ready(function() {
 
         // Specify the validation error messages
         messages: {
-
-            tutgender: {
-                required: "Please select your gender."
-            },
             tutdob: {
                 required: "Please select your date of birth."
             },

@@ -2,7 +2,9 @@
 include_once 'db_connect.php';
 include_once 'functions.php';
 
-require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Subject.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SubjectDao.php";
+
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
 
 sec_session_start();
 
@@ -21,7 +23,7 @@ if (isset($_POST['code'],$_POST['subject_name'], $_POST['subject_description'], 
     $array = array("subject_code"=>$code,"subject_name"=>$subject_name,"subject_description"=>$subject_description,"subject_category"=>$subject_category,"subject_grade"=>$grade);
 	
 	
-	$subject = new Subject();
+	$subject = new SubjectDao();
 	$tutsub = new TutorSubjectDao();
 	
 	 $array1 = array("subject_code" =>$code);

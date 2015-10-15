@@ -25,10 +25,10 @@ private  $subjecttaught;
 
 
 
-	public function __construct($user_id, $teacher_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name,
+	public function __construct($user_id, $teacher_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender,
                                 $schoolemployed, $teachinggrade, $yearsexperience, $cellnumber, $alternativenumber, $personalemail, $dob,
                                 $schooladdress, $schoolcontact, $streetnumber, $streetname, $suburb, $city, $country, $postalcode, $subjecttaught)  {
-        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name);
+        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender);
         $this-> teacher_id = $teacher_id;
         $this-> schoolemployed = $schoolemployed;
         $this-> teachinggrade = $teachinggrade;

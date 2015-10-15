@@ -17,10 +17,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao
 
 final class SubjectDao extends Dao {
     
-   	public function getSubject($values){
+   	public function getSubject($id){
 
         try {
-            $temp = $this->db->row("SELECT * from subjects WHERE subject_id = :subjectid;", $values);
+            $temp = $this->db->row("SELECT subject_code, subject_name, subject_grade, subject_description, subject_category from subjects WHERE subject_id = :subjectid;", Array("subjectid"=>$id));
+            //$subject_code, $subject_name, $subject_grade, $subject_description, $subject_category
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -32,10 +33,26 @@ final class SubjectDao extends Dao {
 	}
 	
 	
+	public function getSubjectTut(){
+
+        try {
+            $temp = $this->db->query("SELECT * FROM subjects su join tutorsubject tu on su.subject_id = tu.subject_id join members m on tu.tutor_id = m.user_id;");
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+	}
+	
+	
+	
 	public function editSubject($values){
 
         try {
-            $temp = $this->db->query("UPDATE  `reach`.`subjects` SET  `subject_code` = :subject_code,`subject_name` = :subject_name,`subject_grade` = :subject_grade ,`subject_description` = :subject_description, `subject_category` = :subject_category  WHERE  `subjects`.`subject_id` =:subjectid;", $values );
+            $temp = $this->db->query("UPDATE  'reach'.'subjects' SET  'subject_code' = :subject_code,'subject_name' = :subject_name,'subject_grade' = :subject_grade ,'subject_description' = :subject_description, 'subject_category' = :subject_category  WHERE  'subjects'.'subject_id' =:subjectid;", $values );
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -52,7 +69,7 @@ final class SubjectDao extends Dao {
         try {
 			$tutsub = new TutorSubjectDao();	
 	
-            $temp = $this->db->query("INSERT INTO `reach`.`subjects` (`subject_code`, `subject_name`, `subject_grade`, `subject_description`, `subject_category`) VALUES (:subject_code,:subject_name,:subject_grade,:subject_description,:subject_category);",$values);
+            $temp = $this->db->query("INSERT INTO 'reach'.'subjects' ('subject_code', 'subject_name', 'subject_grade', 'subject_description', 'subject_category') VALUES (:subject_code,:subject_name,:subject_grade,:subject_description,:subject_category);",$values);
 			
 			//$sub = $sublesson->add($values,$subjid);
 			
@@ -76,7 +93,7 @@ final class SubjectDao extends Dao {
 	public function deleteSubject($values){
 
         try {
-            $temp = $this->db->query("DELETE FROM `subjects` WHERE `subject_id` = :subjectid;", $values );
+            $temp = $this->db->query("DELETE FROM 'subjects' WHERE 'subject_id' = :subjectid;", $values );
 			//$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
             return $temp;
         } catch (DBException $e) {

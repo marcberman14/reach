@@ -9,7 +9,6 @@
 class Admin extends User {
     private $admin_id;
     private $dob;
-    private $gender;
     private $streetnumber;
     private $streetname;
     private $suburb;
@@ -26,15 +25,14 @@ class Admin extends User {
     private $alternativeemail;
     private $altcontactnum;
 
-  public function __construct($user_id, $admin_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name,
-                              $dob, $gender, $streetnumber, $streetname, $suburb, $city, $country, $postalcode,
+  public function __construct($user_id, $admin_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender,
+                              $dob, $streetnumber, $streetname, $suburb, $city, $country, $postalcode,
                               $cellnumber, $homenumber, $worknumber, $staffnumber, $jobdepartment, $jobposition,
                               $monashemail, $alternativeemail, $altcontactnum)
     {
-        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name);
+        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender);
         $this->admin_id = $admin_id;
         $this->dob = $dob;
-        $this->gender= $gender;
         $this->streetnumber = $streetnumber;
         $this->streetname = $streetname;
         $this->suburb = $suburb;
@@ -62,14 +60,6 @@ class Admin extends User {
 
     public function setDob($dob) {
         $this -> dob = $dob;
-    }
-
-    public  function getGender() {
-    return $this -> gender;
-}
-
-    public  function setGender($gender) {
-        $this -> gender= $gender;
     }
 
     public  function getAdminstreetnumber() {

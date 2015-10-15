@@ -86,9 +86,9 @@ $().ready(function() {
 
         },
 
+
         submitHandler: function(form) {
             formhash(document.getElementById("password"), document.getElementById("loginform"));
-
             $.ajax({
                 url: '/assets/includes/process_login.php',
                 type: "POST",
@@ -100,7 +100,6 @@ $().ready(function() {
                 },
 
                 success: function(data) {
-
                     if (data.response == 'success') {
                         $('#contactSuccess').removeClass('hidden');
                         $('#contactError').addClass('hidden');
@@ -115,7 +114,6 @@ $().ready(function() {
                         } else {
                             window.setTimeout(function(){window.location.href = "/portal/"; }, 3000);
                         }
-
                         if (($('#contactSuccess').offset().top - 80) < $(window).scrollTop()) {
                             $('html, body').animate({
                                 scrollTop: $('#contactSuccess').offset().top - 80

@@ -1,14 +1,11 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/SubjectLessonDao.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Lesson.php";
+$security = new Security();
+$security->sec_session_start();
 
-require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Lesson.php";
-
-sec_session_start();
-
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
+session_cache_limiter('nocache');
 
 header("Content-Type: application/json", true);
 
@@ -28,9 +25,7 @@ if (isset($_POST['lesson_title'],$_POST['lesson_name'], $_POST['lesson_descripti
 	
 	$lesson = new Lesson();
 	$lessonsub = new SubjectLessonDao();
-	
 	 $array1 = array("title" =>$lesson_title);
-	 
 	 $lesson->addLesson($array);
 	 
 	 $lessonsub->add($array1,$selectsub);

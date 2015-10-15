@@ -13,7 +13,7 @@ a:hover {
 }
 
 a:active {
-	color: #005690;
+	color: #9e0b0f;
 }
 
 .alternative-font {
@@ -115,8 +115,8 @@ body.dark .pagination > .active > a:active,
 .pagination > .active > a:focus,
 body.dark .pagination > .active > a:focus,
 .owl-theme .owl-controls .owl-nav [class*="owl-"]:focus {
-	border-color: #005690;
-	background-color: #005690;
+	border-color: #E30F15;
+	background-color: #E30F15;
 }
 
 .progress-bar-primary {
@@ -215,7 +215,7 @@ body.dark .pagination > .active > a:focus,
 
 section.highlight {
 	background-color: #9e0b0f !important;
-	border-color: #005690 !important;
+	border-color: #E30F15 !important;
 }
 
 section.page-top h1 {
@@ -235,8 +235,8 @@ section.toggle.active > label {
 }
 
 section.page-top.custom-product {
-	background-color: #005690;
-	border-top-color: #005f9f;
+	background-color: #9e0b0f;
+	border-top-color: #E30F15;
 }
 
 .feature-box .feature-box-icon {
@@ -273,7 +273,7 @@ section.page-top.custom-product {
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-	background-color: #00538a;
+	background-color: #9e0b0f;
 }
 
 .tabs ul.nav-tabs a,
@@ -378,8 +378,8 @@ section.video blockquote i.fa-quote-left {
 
 #header nav ul.nav-main ul.dropdown-menu:active,
 #header nav ul.nav-main ul.dropdown-menu:focus {
-	border-color: #005690;
-	background-color: #005690;
+	border-color: #9e0b0f;
+	background-color: #9e0b0f;
 }
 
 #header nav ul.nav-main li.dropdown:hover ul.dropdown-menu li > a {
@@ -396,7 +396,7 @@ section.video blockquote i.fa-quote-left {
 	}
 
 	#header.darken-top-border {
-		border-top: 5px solid #005690 !important;
+		border-top: 5px solid #9e0b0f !important;
 	}
 
 	#header.colored .header-top {
@@ -490,7 +490,7 @@ article.post .post-date .day {
 
 .shop ul.products li.product .onsale {
 	background-color: #9e0b0f;
-	border-bottom-color: #004d80;
+	border-bottom-color: #E30F15;
 }
 
 .shop .star-rating span,
@@ -503,8 +503,8 @@ article.post .post-date .day {
 }
 
 #footer .footer-ribbon:before {
-	border-right-color: #00375d;
-	border-left-color: #00375d;
+	border-right-color: #9e0b0f;
+	border-left-color: #9e0b0f;
 }
 
 #footer.light h1,
@@ -525,7 +525,7 @@ article.post .post-date .day {
 }
 
 #footer.color .footer-ribbon:before {
-	border-right-color: #001929;
+	border-right-color: #9e0b0f;
 }
 
 #footer.color .footer-copyright {

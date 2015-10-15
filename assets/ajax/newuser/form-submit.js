@@ -133,6 +133,11 @@ $().ready(function() {
                 email: true
 
             },
+			
+			 gender: {
+
+                required: true,
+            },
 
             usertype: {
 
@@ -150,15 +155,21 @@ $().ready(function() {
 
             firstname: {
 
-                required: "Please enter your first name.",
+                required: "Please enter user's first name.",
 
                 lettersonly: "Please only use English letters, spaces and dashes."
 
             },
+			
+			 gender: {
+
+                required: "Please enter user's gender.",
+
+           },
 
             surname: {
 
-                required: "Please enter your surname",
+                required: "Please enter user's surname",
 
                 lettersonly: "Please only use English letters, spaces and dashes."
 
@@ -166,7 +177,7 @@ $().ready(function() {
 
             email: {
 
-                required: "Please enter your email address.",
+                required: "Please enter user's email address.",
 
                 email: "Please enter a valid email address"
 
@@ -174,7 +185,7 @@ $().ready(function() {
 
             usertype: {
 
-                required: "Please select your user type."
+                required: "Please select user's user type."
 
             },
 

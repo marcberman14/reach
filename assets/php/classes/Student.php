@@ -23,12 +23,12 @@ class Student extends User
     private $schoolname;
     private $grade;
 
-    public function __construct($user_id, $studentID,  $userfirstname, $userlastname, $useremail, $useractive, $permission_name,
+    public function __construct($user_id, $studentID,  $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender,
                                 $streetnumber, $streetname, $suburb, $city, $country, $postalcode,
                                 $homenumber, $cellnumber, $alternativenumber, $parentnumber,
                                 $dob, $schoolname, $grade)
     {
-        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name);
+        parent::__construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender);
         $this->studentID = $studentID;
         $this->streetnumber = $streetnumber;
         $this->streetname = $streetname;

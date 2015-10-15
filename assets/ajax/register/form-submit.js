@@ -94,6 +94,9 @@ $().ready(function() {
             usertype: {
                 required: true
             },
+			 gender: {
+                required: true
+            },
             password: {
                 required: true,
                 password: true,
@@ -122,6 +125,9 @@ $().ready(function() {
             },
             usertype: {
                 required: "Please select your user type."
+            },
+			 gender: {
+                required: "Please enter your gender.",
             },
             password: {
                 required: "Please enter your password.",

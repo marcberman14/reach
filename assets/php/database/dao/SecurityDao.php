@@ -1,12 +1,5 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor. 16 fields
- */
-
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -15,12 +8,32 @@ require_once "Dao.php";
 
 final class SecurityDao extends Dao
 {
-
     public function loginSecurity($email)
     {
 
         try {
-            $temp = $this->db->row("SELECT m.user_id, m.firstname, m.lastname, p.permission_name, m.password, m.salt, m.active FROM members m join permission_group p ON p.permission_id = m.permission_id WHERE m.email = :email;", Array('email' => $email));
+            $temp = $this->db->row("SELECT m.user_id, m.firstname, m.lastname, p.permission_name, m.password, m.salt, m.active, m.profilepicurl, m.gender
+            FROM members m
+            join permission_group p ON p.permission_id = m.permission_id
+            WHERE m.email = :email;", Array('email' => $email));
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function userDetails($user_id)
+    {
+
+        try {
+            $temp = $this->db->row("SELECT m.firstname, m.lastname, p.permission_name, m.password, m.salt, m.active, m.profilepicurl, m.gender, m.email
+            FROM members m
+            join permission_group p ON p.permission_id = m.permission_id
+            WHERE m.user_id = :userid;", Array('userid' => $user_id));
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -66,6 +79,21 @@ final class SecurityDao extends Dao
 
         try {
             $temp = $this->db->row("SELECT p.permission_name FROM members m join permission_group p  ON p.permission_id = m.permission_id  WHERE m.user_id = :userid;", Array('userid' => $user_id));
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function userActive($user_id)
+    {
+
+        try {
+            $temp = $this->db->row("SELECT m.active, m.password FROM members m  WHERE m.user_id = :userid;", Array('userid' => $user_id));
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -142,7 +170,7 @@ final class SecurityDao extends Dao
     {
 
         try {
-            $temp = $this->db->query("INSERT INTO members(permission_id, firstname, lastname, email, password, salt, active, profilepicurl) VALUES (:permissionid,:firstname,:lastname,:email,:password,:salt,:active,:profilepicurl);", $values);
+            $temp = $this->db->query("INSERT INTO members(permission_id, firstname, lastname, email, password, salt, active, profilepicurl, gender) VALUES (:permissionid,:firstname,:lastname,:email,:password,:salt,:active,:profilepicurl,:gender);", $values);
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -172,7 +200,7 @@ final class SecurityDao extends Dao
     {
 
         try {
-            $temp = $this->db->row("SELECT m.user_id, m.firstname, m.lastname, p.permission_name, m.active, m.email, s.studentId ,
+            $temp = $this->db->row("SELECT m.user_id, m.firstname, m.lastname, p.permission_name, m.active, m.email, s.studentId, m.profilepicurl, m.gender,
             s.streetnumber, s.streetname, s.suburb, s.city, s.country, s.postalcode, s.homenumber, s.cellnumber, s.alternativenumber,
             s.parentnumber, s.schoolname, s.grade, s.dob
             FROM members AS m
@@ -193,7 +221,7 @@ final class SecurityDao extends Dao
     {
 
         try {
-            $temp = $this->db->row("SELECT m.user_id, t.tutor_id, m.firstname, m.lastname, m.email, m.active, p.permission_name,
+            $temp = $this->db->row("SELECT m.user_id, t.tutor_id, m.firstname, m.lastname, m.email, m.active, p.permission_name, m.profilepicurl, m.gender,
             t.streetnumber, t.streetname, t.suburb, t.city, t.country, t.postalcode, t.nationality, t.countryresidence,
             t.studyarea, t.studyyear, t.studentnumber, t.personalemail, t.gender, t.monashemail,
             t.cellnumber, t.alternativenumber, t.dob
@@ -215,7 +243,7 @@ final class SecurityDao extends Dao
     {
 
         try {
-            $temp = $this->db->row("SELECT m.user_id, t.teacherId, m.firstname, m.lastname, m.email, m.active, p.permission_name,
+            $temp = $this->db->row("SELECT m.user_id, t.teacherId, m.firstname, m.lastname, m.email, m.active, p.permission_name, m.profilepicurl, m.gender,
             t.schoolemployed, t.teachinggrade, t.yearsexperience, t.cellnumber, t.alternativenumber, t.personalemail, t.dob,
             t.schooladdress, t.schoolcontact, t.streetnumber, t.streetname, t.suburb, t.city, t.country, t.postalcode, t.subjectstaught
             FROM members AS m
@@ -236,14 +264,15 @@ final class SecurityDao extends Dao
     {
 
         try {
-            $temp = $this->db->row("SELECT m.user_id, a.adminId, m.firstname, m.lastname, m.email, m.active, p.permission_name,
-            a.gender, a.dob, a.streetnumber, a.streetname, a.suburb, a.city, a.country, a.postalcode,
+            $temp = $this->db->row("SELECT m.user_id, a.adminId, m.firstname, m.lastname, m.email, m.active, p.permission_name, m.profilepicurl, m.gender,
+            a.dob, a.streetnumber, a.streetname, a.suburb, a.city, a.country, a.postalcode,
             a.homenumber, a.cellphone, a.worknumber, a.staffnumber, a.jobdepartment, a.jobposition,
             a.monashmail, a.alternativeemail, a.altcontactnum
             FROM members AS m
             INNER JOIN permission_group AS p ON p.permission_id = m.permission_id
             INNER JOIN administrator AS a ON a.user_id = m.user_id
             WHERE m.user_id = :userid;", $values);
+
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -252,6 +281,73 @@ final class SecurityDao extends Dao
             echo "Error:<br/>" . $e->getMessage();
             return null;
         }
+    }
+
+    public function insertHash($email, $hash)
+    {
+        try {
+            $values = Array("email"=> $email,"hash"=> $hash);
+            $insert = $this->db->query("UPDATE members SET hash = :hash WHERE email= :email", $values);
+            return $insert;
+        } catch (DBException $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        } catch (Exeption $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        }
+
+    }
+
+    public function verify($email, $hash)
+    {
+        try {
+            $temp = $this->db->row("SELECT m.user_id
+            FROM members as m
+            WHERE m.email=:email
+            AND m.hash=:hash", Array("email"=> $email,"hash"=> $hash));
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        }
+
+    }
+
+    public function updateMember($email, $hash)
+    {
+        try {
+            $update = $this->db->query("UPDATE members SET active=:active WHERE email=:email AND hash=:hash", Array("email"=> $email,"hash"=> $hash, "active"=>"noprofile"));
+            return $update;
+        } catch (DBException $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        }
+
+    }
+
+    public function getEmailHash($email, $userid)
+    {
+        try {
+            $temp = $this->db->row("SELECT m.hash
+            FROM members as m
+            WHERE m.email=:email
+            AND m.user_id=:userid", Array("email"=> $email, "userid"=> $userid));
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+            return null;
+        }
+
     }
 
 }

@@ -4,7 +4,7 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SubjectDao.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
  
-class subject
+class Subject
 {
   private $subject_code;
   private $subject_name;
@@ -12,22 +12,21 @@ class subject
   private $subject_description;
   private $subject_category;
   
-   public function __construct()
+   public function __construct($subject_code, $subject_name, $subject_grade, $subject_description, $subject_category)
     {
-        $this->subject_code = "Enter Details";
-        $this->subject_name="Enter Details";
-        $this->subject_grade ="Enter Details";
-        $this->subject_description ="Enter Details";
-        $this->subject_category ="Enter Details";
+        $this->subject_code = $subject_code;
+        $this->subject_name=$subject_name;
+        $this->subject_grade =$subject_grade;
+        $this->subject_description =$subject_description;
+        $this->subject_category =$subject_category;
         
     }  
 	
 	
 	public function pullSubject($value){
 	  
-	$subject = new SubjectDao();	
+	$subject = new SubjectDao();
 	$subjectDetails = $subject->getSubject(Array('subjectid'=>$value));
-		
 	return $subjectDetails;
 	  
   }
@@ -56,13 +55,14 @@ class subject
   }
   
   
-  public function editSubject($values){
+  public static function editSubject($values){
 	  
 	$subject = new SubjectDao();
 	$subjectDetails = $subject->editSubject($values);
 	//$sublesson = new SubjectLesson();
 	//$sublessoninfo = $sublesson->edit($values);
-	//$firstname = $userDetails['firstname'];	
+	//$firstname = $userDetails['firstname'];
+
 	
 	  
   }

@@ -11,19 +11,21 @@ class User {
     private $useremail;
     private $useractive;
     private $permission_name;
+    private $permission_id;
+    private $picurl;
+    private $gender;
 
-    public function __construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name){
+    public function __construct($user_id, $userfirstname, $userlastname, $useremail, $useractive, $permission_name, $picurl, $gender){
        $this-> user_id = $user_id;
        $this-> userfirstname = $userfirstname;
        $this-> userlastname = $userlastname;
        $this-> useremail = $useremail;
        $this-> useractive = $useractive;
        $this-> permission_name = $permission_name;
+       $this-> picurl = $picurl;
+       $this-> gender = $gender;
     }
-
-    public function getUserID() {		
-        return $this -> user_id;
-    }
+	
 	public function pullUser($value){
 	$user = new UserDao();
 	$userDetails = $user->allDetails(Array('userid'=>$value));
@@ -37,6 +39,11 @@ class User {
      $_SESSION['user'] = $currentUser;
 	}
 
+
+    public function getUserID() {		
+        return $this -> user_id;
+    }
+	
     public function getUserlastname() {
         return $this -> userlastname;
     }
@@ -55,6 +62,18 @@ class User {
 
     public function getPermissionName() {
         return $this -> permission_name;
+    }
+    
+     public function getPermissionID() {
+        return $this -> permission_id;
+    }
+
+    public function getPicUrl() {
+        return $this -> picurl;
+    }
+
+    public function getGender() {
+        return $this -> gender;
     }
 
     public function setUserID($user_id) {
@@ -80,4 +99,13 @@ class User {
     public function setPermissionName($permission_name) {
         $this -> permission_name = $permission_name;
     }
+
+    public function setPicUrl($picurl) {
+        $this -> picurl = $picurl;
+    }
+
+    public function setGender($genderl) {
+        $this -> genderl = $genderl;
+    }
+
 }

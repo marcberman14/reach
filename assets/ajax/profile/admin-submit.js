@@ -51,9 +51,6 @@ $().ready(function() {
     $("#adminprofile").validate({
         // Specify the validation rules
         rules: {
-            admgender: {
-                required:true
-            },
             admdateofbirth: {
                 required:true
             },
@@ -124,10 +121,6 @@ $().ready(function() {
 
         // Specify the validation error messages
         messages: {
-
-            admgender: {
-                required: "Please select your gender."
-            },
             admdob: {
                 required: "Please select your date of birth."
             },

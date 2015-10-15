@@ -1,16 +1,18 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/ProfileDao.php";
+$security = new Security();
+$profiles = new ProfileDao();
+$security->sec_session_start();
+
+session_cache_limiter('nocache');
 
 header("Content-Type: application/json", true);
 
-sec_session_start();
-
-if (isset($_POST['admgender'],$_POST['admdateofbirth'], $_POST['admstreetno'], $_POST['admstreetname'], $_POST['admsuburb'],
+if (isset($_POST['admdateofbirth'], $_POST['admstreetno'], $_POST['admstreetname'], $_POST['admsuburb'],
 $_POST['admcity'], $_POST['admpostcode'], $_POST['admcountry'], $_POST['admhomeno'], $_POST['admcellno'], $_POST['admaltno'],
 $_POST['admmail'], $_POST['admwmail'], $_POST['admworknum'], $_POST['admstaffnum'], $_POST['admworkdepart'], $_POST['admworkpos'])) {
 
-    $admgender = filter_input(INPUT_POST, 'admgender', FILTER_SANITIZE_STRING);
     $admdateofbirth = filter_input(INPUT_POST, 'admdateofbirth', FILTER_SANITIZE_STRING);
     $admstreetno = filter_input(INPUT_POST, 'admstreetno', FILTER_SANITIZE_NUMBER_INT) ;
     $admstreetname = filter_input(INPUT_POST, 'admstreetname', FILTER_SANITIZE_STRING);
@@ -28,58 +30,38 @@ $_POST['admmail'], $_POST['admwmail'], $_POST['admworknum'], $_POST['admstaffnum
     $admworkdepart = filter_input(INPUT_POST, 'admworkdepart', FILTER_SANITIZE_STRING);
     $admworkpos = filter_input(INPUT_POST, 'admworkpos', FILTER_SANITIZE_STRING);
 
-    if (isset($_SESSION['user_id'], $_SESSION['username'],$_SESSION['login_string'])) {
+    if (isset($_SESSION['user_id'], $_SESSION['login_string'])) {
         $admdateofbirth = date("Y-m-d", strtotime($admdateofbirth));
         $user_id = $_SESSION['user_id'];
+        $values = Array ("user_id"=>$user_id,"dob"=>$admdateofbirth,"streetnumber"=>$admstreetno,
+            "streetname"=>$admstreetname,"suburb"=>$admsuburb,"city"=>$admcity,"country"=>$admcountry,"postalcode"=>$admpostcode,"homenumber"=>$admhomeno,
+            "cellphone"=>$admcellno,"worknumber"=>$admworknum,"staffnumber"=>$admstaffnum,"jobdepartment"=>$admworkdepart,
+            "jobposition"=>$admworkpos,"monashmail"=>$admwmail,"alternativeemail"=>$admmail,"altcontactnum"=>$admaltno);
 
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO adminstrator(user_id, gender, dob, streetnumber,
-                                                          streetname, suburb, city, country, postalcode, homenumber,
-                                                           cellphone, worknumber, staffnumber, jobdepartment,
-                                                            jobposition, monashmail, alternativeemail, altcontactnum)
-                                                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"))
-        {
+        $result = $profiles->insertAdminProfile($values);
+        if($result > 0){
+            $active ="active";
+            $values = Array ("user_id"=>$user_id,"active"=>$active);
+            $result = $profiles->updateProfileStatus($values);
 
-            $insert_stmt->bind_param('isssssssssssssssss',$user_id, $admgender, $admdateofbirth, $admstreetno,
-                $admstreetname, $admsuburb, $admcity, $admcountry, $admpostcode,
-                $admhomeno, $admcellno, $admworknum, $admstaffnum, $admworkdepart,
-                $admworkpos, $admwmail, $admmail, $admaltno);
-
-            if ($insert_stmt->execute()) {
-                if ($insert_stmt = $mysqli->prepare("UPDATE members SET active=? WHERE user_id=?")) {
-                    $active ="active";
-                    $insert_stmt->bind_param('si', $active, $user_id);
-                    if ($insert_stmt->execute()) {
-                        $arrResult = array ('response'=>'success');
-                        echo json_encode($arrResult);
-                    } else {
-                        $arrResult = array('response' => 'error', 'reason' => 'An error occured while activating your profile, please contact an administrator to have it activated manually.');
-                        echo json_encode($arrResult);
-                    }
+            if($result > 0){
+                    $arrResult = array ('response'=>'success', 'reason'=>'Your profile has been successfully update, please wait while you are redirected to your portal.');
+                    echo json_encode($arrResult);
                 } else {
-                    echo mysqli_error($mysqli);
-                    $arrResult = array('response' => 'error', 'reason' => 'A fatal error occurred. Please try again later.');
+                    $arrResult = array('response' => 'error', 'reason' => 'An error occured while activating your profile, please contact an administrator to have it activated manually or try again.');
                     echo json_encode($arrResult);
                 }
             } else {
-                echo mysqli_error($mysqli);
-                $arrResult = array ('response'=>'error','reason'=>'You have already completed your profile. Please proceed to your portal to continue.');
+                $arrResult = array ('response'=>'error','reason'=>'Oops, something has happened. Please try again.');
                 echo json_encode($arrResult);
             }
-        } else {
-            echo mysqli_error($mysqli);
-            $arrResult = array('response' => 'error', 'reason' => 'A fatal error occurred. Please try again later.');
-            echo json_encode($arrResult);
-        }
     }
     else {
-        echo mysqli_error($mysqli);
         $arrResult = array('response' => 'error', 'reason' => 'You are not logged in. Please login to continue');
         echo json_encode($arrResult);
     }
 
 }
-
-
 else {
     $arrResult = array ('response'=>'error','reason'=>'Please ensure you have entered all the required fields.');
     echo json_encode($arrResult);

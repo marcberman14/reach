@@ -12,14 +12,15 @@
 
 echo "######################################### Suhasini  Test ##########################################################" . "\xA";
 
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/classes/User.php";
-	$user = new User();
-    var_dump($user->getUserID("1"));
-    var_dump($user->getUserlastname("Manuel"));
-    var_dump($user->getUserfirstname());
-    var_dump($user->getUseremail());
+	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/classes/User.php";
+//	$user = new User();
+   // var_dump($user->getUserID("1"));
+   // var_dump($user->getUserlastname("Manuel"));
+   // var_dump($user->getUserfirstname());
+   // var_dump($user->getUseremail());
     //var_dump($security->login("marc@berDmanz.co.za","Em1cr4m747#"));
 
+   // require_once $_SERVER ['DOCUMENT_ROOT']. "/assets/php/classes/Email.php"
 
 
 

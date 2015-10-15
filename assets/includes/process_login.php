@@ -1,17 +1,17 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+$security = new Security();
+$security->sec_session_start();
 
 session_cache_limiter('nocache');
 
 header("Content-Type: application/json", true);
- 
-sec_session_start(); // Our custom secure way of starting a PHP session.
 
 if (isset($_POST['email'], $_POST['hashedPassword'])) {
     $email = $_POST['email'];
     $password = $_POST['hashedPassword']; // The hashed password.
-    $login = login($email, $password, $mysqli);
+    $login = $security->login($email, $password);
+
     echo json_encode($login);
 
 } else {

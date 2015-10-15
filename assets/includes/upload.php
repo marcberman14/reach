@@ -1,8 +1,17 @@
 <?php 
-include_once 'db_connect.php';
-include_once 'functions.php';
 
-sec_session_start();
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/User.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/ProfileDao.php";
+$security = new Security();
+$profiles = new ProfileDao();
+$security->sec_session_start();
+
+session_cache_limiter('nocache');
+
+header("Content-Type: application/json", true);
+$user = new UserDao();
 
 $target_dir = "../../bin/user-profile/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -48,16 +57,17 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../../bin/user-profile/".$FILENAME)) {
         
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        $user_id = $_SESSION['user_id'];
-        $cur_pic = getProfilePic($mysqli)['url'];
+        $user_id = $_SESSION['user']->getUserID();
+        $cur_pic = $_SESSION['user']->getPicUrl();
         if($cur_pic != "default.png")
         {
             $unlink_target = "../../bin/user-profile/" . $cur_pic;
             unlink($unlink_target);
         }
-        $stmt = $mysqli->prepare("UPDATE members SET profilepicurl =? where user_id=? ");
-        $stmt->bind_param('si', $FILENAME , $user_id);
-        $stmt->execute();
+		
+		$array = array("profilepicurl"=>$FILENAME ,"user_id"=>$user_id);
+		
+		$user->uploadpicurl($array);
         
     } else {
         echo "Sorry, there was an error uploading your file.";

@@ -1,19 +1,24 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
 
-sec_session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/ProfileDao.php";
+
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
+$user = new UserDao();
+$security = new Security();
+$profiles = new ProfileDao();
+$security->sec_session_start();
+session_cache_limiter('nocache');
 
 header("Content-Type: application/json", true);
 
 if (!empty($_POST['teacountry'])) {
-    if (isset($_POST['teagender'],$_POST['teadateofbirth'], $_POST['teastreetno'], $_POST['teastreetname'], $_POST['teasuburb'],
+    if (isset($_POST['teadateofbirth'], $_POST['teastreetno'], $_POST['teastreetname'], $_POST['teasuburb'],
         $_POST['teacity'], $_POST['teapostcode'], $_POST['teacountry'], $_POST['teahomeno'], $_POST['teacellno'], $_POST['teaaltno'],
         $_POST['teamail'], $_POST['teastudy'], $_POST['teaschoolemp'], $_POST['teaexper'], $_POST['teaschooladdress'], $_POST['teaschcon'],
         $_POST['teagrataught'])) {
 
         // Sanitize and validate the data passed in
-        $teagender = filter_input(INPUT_POST, 'teagender', FILTER_SANITIZE_STRING);
         $teadateofbirth = $_POST['teadateofbirth'];
         $teastreetno = filter_input(INPUT_POST, 'teastreetno', FILTER_SANITIZE_NUMBER_INT);
         $teastreetname = filter_input(INPUT_POST, 'teastreetname', FILTER_SANITIZE_STRING);
@@ -32,34 +37,27 @@ if (!empty($_POST['teacountry'])) {
         $teaschcon = filter_input(INPUT_POST, 'teaschcon', FILTER_SANITIZE_NUMBER_INT);
         $teagrataught = filter_input(INPUT_POST, 'teagrataught', FILTER_SANITIZE_NUMBER_INT);
 
-        if (isset($_SESSION['user_id'], $_SESSION['username'],$_SESSION['login_string'])) {
+
+        if (isset($_SESSION['user_id'], $_SESSION['login_string'])) {
+            $profiles = new ProfileDao();
+            $user = new UserDao();
+
             $teadateofbirth = date("Y-m-d", strtotime($teadateofbirth));
             $user_id = $_SESSION['user_id'];
-            // Insert the new user into the database
-            if ($stmt = $mysqli->prepare("INSERT INTO teacher(userId, schoolemployed, teachinggrade, yearsexperience, cellnumber, alternativenumber, personalemail, dob, schooladdress, schoolcontact, streetnumber, streetname, suburb, city, country, postalcode, sujectstaught) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
-                $stmt->bind_param('issssssssssssssss', $user_id, $teaschoolemp, $teagrataught, $teaexper, $teacellno, $teaaltno, $teamail, $teadateofbirth, $teaschooladdress, $teaschcon, $teastreetno, $teastreetname, $teasuburb, $teacity, $teacountry, $teapostcode, $teagrataught);
-                // Execute the prepared query.
-                if ($stmt->execute()) {
-                    if ($stmt = $mysqli->prepare("UPDATE members SET active=? WHERE user_id=?")) {
-                        $active ="active";
-                        $stmt->bind_param('si', $active, $user_id);
-                        if ($stmt->execute()) {
-                            $arrResult = array ('response'=>'success');
-                            echo json_encode($arrResult);
-                        } else {
-                            $arrResult = array('response' => 'error', 'reason' => 'An error occured while activating your profile, please contact an administrator to have it activated manually.');
-                            echo json_encode($arrResult);
-                        }
-                    } else {
-                        $arrResult = array('response' => 'error', 'reason' => 'A fatal error occurred. Please try again later.');
-                        echo json_encode($arrResult);
-                    }
-                } else {
-                    $arrResult = array ('response'=>'error','reason'=>'You have already completed your profile. Please proceed to your portal to continue.');
-                    echo json_encode($arrResult);
-                }
+            $flag = false;
+
+            $array = array("userId"=>$user_id,"schoolemployed"=>$teaschoolemp,"teachinggrade"=>$teagrataught,
+                "yearsexperience"=>$teaexper,"cellnumber"=>$teacellno,"alternativenumber"=>$teaaltno,
+                "personalemail"=>$teamail,"dob"=>$teadateofbirth,"schooladdress"=>$teaschooladdress,
+                "schoolcontact"=>$teaschcon,"streetnumber"=>$teastreetno,"streetname"=>$teastreetname,
+                "suburb"=>$teasuburb,"city"=>$teacity,"country"=>$teacountry,"postalcode"=>$teapostcode,
+                "sujectstaught"=>$teagrataught);
+            if ($user->updateActive(Array("active"=> "active", "userid"=>$user_id)) == 1 && $user->insertTeacher($array) == 1) {
+                $arrResult = array ('response'=>'success');
+                echo json_encode($arrResult);
+
             } else {
-                $arrResult = array ('response'=>'error','reason'=>'Teacher Registration failed, if this problem persists please contact an administrator.');
+                $arrResult = array ('response'=>'error','reason'=>'You have already completed your profile. Please proceed to your portal to continue.');
                 echo json_encode($arrResult);
             }
         } else {

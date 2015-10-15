@@ -1,13 +1,13 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+$security = new Security();
+$security->sec_session_start();
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SubjectDao.php";
 
-require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Subject.php";
-
-sec_session_start();
-
+session_cache_limiter('nocache');
 
 header("Content-Type: application/json", true);
+
 
 if (isset($_POST['subject_id'],$_POST['code'],$_POST['subject_name'], $_POST['subject_description'], $_POST['subject_category'], $_POST['grade'],  $_POST['selecttutor'])) {
     // Sanitize and validate the data passed in
@@ -21,18 +21,14 @@ if (isset($_POST['subject_id'],$_POST['code'],$_POST['subject_name'], $_POST['su
 	$subjectid = $_POST['subject_id'];
 
     $array = array("subject_code"=>$code,"subject_name"=>$subject_name,"subject_grade"=>$grade,"subject_description"=>$subject_description,"subject_category"=>$subject_category,"subjectid"=>$subjectid);
-	
-	
-	$subject = new Subject();
-	$tutsub = new TutorSubjectDao();
-	
-	
-	
-	 $array1 = array("subjectid" =>$subjectid,"tutorid"=>$selecttutor);
+
+    $tutsub = new TutorSubjectDao();
+    $subject = new SubjectDao();
+    $array1 = array("subjectid" =>$subjectid,"tutorid"=>$selecttutor);
+
+	$subject->editSubject($array);
 	 
-	 $subject->editSubject($array);
-	 
-	 $tutsub->edit($array1);
+	$tutsub->edit($array1);
 	
 	
 	header('location:http://vps.bermanz.co.za/portal/subject/view/');

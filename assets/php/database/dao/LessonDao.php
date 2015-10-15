@@ -36,7 +36,7 @@ final class LessonDao extends Dao {
 	public function editLesson($values){
 
         try {
-            $temp = $this->db->query("UPDATE  lesson SET  `lesson_title` =:title,`lesson_name` = :name,`lesson_description` = :description,`lesson_concpet`=:concept,`lesson_material`=:material WHERE  `lesson_id` = :lessonid;", $values );
+            $temp = $this->db->query("UPDATE  lesson SET  lesson_title =:title,lesson_name = :name,lesson_description = :description,lesson_concpet=:concept,lesson_material=:material WHERE  lesson_id = :lessonid;", $values );
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -53,7 +53,7 @@ final class LessonDao extends Dao {
         try {
 			$sublesson = new SubjectLessonDao();	
 	
-            $temp = $this->db->query("INSERT INTO `reach`.`lesson` (`lesson_title`, `lesson_name`, `lesson_description`, `lesson_concpet`, `lesson_material`) VALUES (:title, :name, :description, :concept, :material);",$values);
+            $temp = $this->db->query("INSERT INTO reach.lesson (lesson_title, lesson_name, lesson_description, lesson_concpet, lesson_material) VALUES (:title, :name, :description, :concept, :material);",$values);
 			
 			//$sub = $sublesson->add($values,$subjid);
 			
@@ -77,7 +77,7 @@ final class LessonDao extends Dao {
 	public function deleteLesson($values){
 
         try {
-            $temp = $this->db->query("DELETE FROM `lesson` WHERE `lesson_id` = :lessonid;", $values );
+            $temp = $this->db->query("DELETE FROM lesson WHERE lesson_id = :lessonid;", $values );
 			//$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
             return $temp;
         } catch (DBException $e) {
@@ -88,8 +88,23 @@ final class LessonDao extends Dao {
             return null;
         }
 	}
-	
-		
+
+    public function allLessons(){
+
+        try {
+            $temp = $this->db->query("SELECT * FROM lesson su join subjectlesson tu on su.lesson_id = tu.lesson_id join subjects s on s.subject_id = tu.subject_id ;");
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+
+
 }
 
 

@@ -4,47 +4,28 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/LessonDao.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SubjectLessonDao.php";
 
-
-//$user = new LessonDao();
-
-
- 
 class lesson
 {
   private $lesson_title;
   private $lesson_name;
-  private $lesson_decription;
+  private $lesson_description;
   private $lesson_concept;
   private $lesson_material;
-  public $lesson;
-  public $sublesson;
   
-   public function __construct()
+   public function __construct($lesson_title, $lesson_name, $lesson_description, $lesson_concept, $lesson_material)
     {
-        $this->lesson_title = "Enter Details";
-        $this->lesson_name="Enter Details";
-        $this->lesson_decription ="Enter Details";
-        $this->lesson_concept ="Enter Details";
-        $this->lesson_material ="Enter Details";
+        $this->lesson_title = $lesson_title;
+        $this->lesson_name= $lesson_name;
+        $this->lesson_description = $lesson_description;
+        $this->lesson_concept = $lesson_concept;
+        $this->lesson_material = $lesson_material;
         
-    }  
-	
-  public function pullLesson($value){
-	  
-	$lesson = new LessonDao();	
-	$lessonDetails = $lesson->getLesson(Array('lessonid'=>$value));
-	//$firstname = $userDetails['firstname'];	
-	return $lessonDetails;
-	  
-  }
+    }
   
     public function addLesson($value){
 	  
 	$lesson = new LessonDao();
 	$lessonDetails = $lesson->addLesson($value);
-	//$sublesson = new SubjectLessonDao();	
-	//$sub = $sublesson->add($value);
-	//$firstname = $userDetails['firstname'];	
 	return $lessonDetails;
 	  
   }
@@ -62,7 +43,7 @@ class lesson
   }
   
   
-  public function editLesson($values){
+  public static function editLesson($values){
 	  
 	$lesson = new LessonDao();
 	$lessonDetails = $lesson->editLesson($values);

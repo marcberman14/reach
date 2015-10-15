@@ -1,12 +1,10 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+$security = new Security();
+$security->sec_session_start();
 
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Lesson.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SubjectLessonDao.php";
-
-sec_session_start();
-
 
 header("Content-Type: application/json", true);
 
@@ -23,16 +21,11 @@ if (isset($_POST['id'],$_POST['lesson_title'],$_POST['lesson_name'], $_POST['les
 	
 	
 	$array = array("title" =>$lesson_title, "name" => $lesson_name,"description" => $lesson_description,"concept" => $lesson_concept, "material" =>$lesson_material,"lessonid" =>$lesson_id);
-	
-	
-	$lesson = new Lesson();
+
 	$lessub = new SubjectLessonDao();
 	
-	$lesson->editLesson($array);
-	
+	Lesson::editLesson($array);
 	$array1 = array("subjectid"=>$selectsub,"lessonid" =>$lesson_id);
-	
-	
 	$lessub->edit($array1);
 	
 	header('location:http://vps.bermanz.co.za/portal/lesson/view/');

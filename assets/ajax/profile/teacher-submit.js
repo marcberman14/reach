@@ -53,9 +53,6 @@ $().ready(function() {
     $("#teacherprofile").validate({
         // Specify the validation rules
         rules: {
-            teagender: {
-                required:true,
-            },
             teadateofbirth: {
                 required:true,
             },
@@ -121,10 +118,6 @@ $().ready(function() {
 
         // Specify the validation error messages
         messages: {
-
-            teagender: {
-                required: "Please select your gender.",
-            },
             teadateofbirth: {
                 required: "Please select your date of birth.",
             },

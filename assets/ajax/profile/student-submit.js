@@ -49,9 +49,6 @@ $().ready(function() {
     $("#studentprofile").validate({
         // Specify the validation rules
         rules: {
-            stugender: {
-                required:true,
-            },
             studateofbirth: {
                 required:true,
             },
@@ -110,10 +107,6 @@ $().ready(function() {
 
         // Specify the validation error messages
         messages: {
-
-            stugender: {
-                required: "Please select your gender.",
-            },
             studateofbirth: {
                 required: "Please select your date of birth.",
             },
