@@ -67,8 +67,8 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                         </table>
                     </div>
                 </section>
-                <form method="POST" action="../new/?identity=3&name=Systems Analysis 2">
-                <button class="btn btn-primary push-bottom">Add a Lesson</button>
+                <form method="POST" action="../new/?id=<?php echo urlencode($_GET['id']); ?>&name=<?php urlencode($GET['name']); ?>">
+                    <button class="btn btn-primary push-bottom">Add a Lesson</button>
                 </form>
         </div>
         

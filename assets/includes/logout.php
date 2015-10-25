@@ -1,6 +1,9 @@
 <?php
-include_once 'functions.php';
-sec_session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+$security = new Security();
+$security->sec_session_start();
+
+session_cache_limiter('nocache');
  
 // Unset all session values 
 $_SESSION = array();

@@ -1,5 +1,8 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/User.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/ProfileDao.php";
     require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/View.php";
     $security = new Security();
     $security->sec_session_start();
@@ -9,8 +12,12 @@
     var_dump($security->login("marc@bermanz.co.za", $password));
     echo "Session Dump";
     var_dump($_SESSION);
+    $FILENAME = "9c8502708ca247fdd89eda2354c8e074555a013b23c88692288d9d64e0c345a788443cd23d5f96c8f12ee22f7b40269b2d30de947b2d33bcebaa4a0962603598.png";
+    $array = array("profilepicurl"=>$FILENAME ,"user_id"=>$_SESSION['user_id']);
+    $result = $user->uploadpicurl($array);
+    var_dump($result);
 
-    echo "Tutor Count";
+    /*echo "Tutor Count";
     var_dump($security->tutorCount());
     echo "Teach Count";
     var_dump($security->teacherCount());
@@ -47,5 +54,5 @@
 
     var_dump($views->addStyle(Array("/assets/home-site/vendor/jquery/jquery.js",
         "/assets/home-site/vendor/common/common.js",
-        "/assets/home-site/vendor/jquery.validation/jquery.validation.js")));
+        "/assets/home-site/vendor/jquery.validation/jquery.validation.js")));*/
 ?>

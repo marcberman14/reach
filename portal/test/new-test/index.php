@@ -50,10 +50,10 @@
                         <h2 class="panel-title">Test Creation Wizard</h2>
                     </header>
                     <div class="panel-body">
-                        <form action="/portal/test/new-question/index.php" method="post" name="testcreateform"
-                              id="testcreateform">
-
-                            <div class="panel-body">
+                    
+                    <form class = form-horizontal action="/assets/includes/process_test.php" method="post" name="test" id="testcreateform">   
+                    
+                                <div class="panel-body">
                                 <div class="alert alert-success hidden" id="contactSuccess">Success! A Test has been
                                     successfully created and assigned to a subject.
                                 </div>
@@ -66,15 +66,17 @@
                         <div class="col-md-6">
                             <div class="panel panel-primary">
 
-                                <form class = form-horizontal action="/assets/includes/process_test.php" method="post" name="test" id="test">   
+                                
                                     <div class = "panel panel-body">
                                         
                                         <fieldset>
                                         <div class="col-md-12 col-md-offset-0.5">                                            
                                             <div class="form-group">
+                                            <input type="hidden" value="<?php echo $_REQUEST['id'] ?>"  name="subid" id="subid">
+                                            
                                                 <label class="col-md-3 control-label" for="profileLastName">Enter Test Name</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" value="" class="form-control" name="testname" id="testname">
+                                                        <input type="text" value="" class="form-control" name="test_name" id="test_name">
                                                     </div>              
                                             </div>
                                         </div>

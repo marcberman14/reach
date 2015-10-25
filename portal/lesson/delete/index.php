@@ -1,6 +1,8 @@
  <?php
     include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/View.php";
-    include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Security.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Security.php";	
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/LessonDao.php";
+
 	
     $views = new View();
     $security = new Security();
@@ -14,12 +16,11 @@
 
    
 
-require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Lesson.php";
-
 header("Content-Type: application/json", true);
 
-	$lesson = new Lesson();
-	$lesson->deleteLesson($_REQUEST['id']);
-	header('location:http://vps.bermanz.co.za/portal/lesson/view/');
+	//$lesson = new LessonDao();
+	//$lesson->deleteLesson($_REQUEST['id']);
+	echo $_REQUEST['id'];
+	//header('location:http://vps.bermanz.co.za/portal/lesson/view/');
 
 ?>

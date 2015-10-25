@@ -29,8 +29,7 @@ $data = array();
 $lesson = new LessonDao();
 $lessonDetails = $lesson->getLesson(Array('lessonid'=>$_GET['id']));
 
-$lesson = new Lesson($lessonDetails['lesson_title'], $lessonDetails['lesson_name'], $lessonDetails['lesson_description'],
-    $lessonDetails['lesson_concpet'], $lessonDetails['lesson_material']);
+$lesson = new Lesson($lessonDetails['lesson_title'], $lessonDetails['lesson_name'], $lessonDetails['lesson_description'], $lessonDetails['lesson_concpet'], $lessonDetails['lesson_material'],$lessonDetails['lesson_content'], $lessonDetails['lesson_video']);
 ?>
 
 
@@ -73,27 +72,27 @@ $lesson = new Lesson($lessonDetails['lesson_title'], $lessonDetails['lesson_name
                                     <div class="alert alert-danger hidden" id="contactError">Error!</div>
                                 <!-- start: page 1 -->
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="w3-username">Lesson Title:</label>
+                                    <label class="col-sm-3 control-label" for="w3-lesson_title">Lesson Title:</label>
                                     <div class="col-sm-9">
                                         <input type="text"class="form-control" name="lesson_title" id="lesson_title" value="<?php echo $lesson->getLesson_title(); ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="lesson_name">Lesson Name:</label>
+                                    <label class="col-sm-3 control-label" for="w3-lesson_name">Lesson Name:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="lesson_name" id="lesson_name" value="<?php echo $lesson->getLesson_name();?>">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="lesson_description">Lesson Description:</label>
+                                    <label class="col-sm-3 control-label" for="w3-lesson_description">Lesson Description:</label>
                                     <div class="col-sm-9">
                                         <textarea class="form-control" name="lesson_description" id="lesson_description"><?php echo $lesson->getLesson_description(); ?></textarea>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="lesson_material">Lesson Material:</label>
+                                    <label class="col-sm-3 control-label" for="w3-lesson_material">Lesson Material:</label>
                                     <div class="col-sm-9">
                                         <textarea class="form-control" name="lesson_material" id="lesson_material"><?php echo $lesson->getLesson_material(); ?></textarea>
                                     </div>
@@ -101,9 +100,24 @@ $lesson = new Lesson($lessonDetails['lesson_title'], $lessonDetails['lesson_name
 
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="lesson_concept">Lesson Concept:</label>
+                                    <label class="col-sm-3 control-label" for="w3-lesson_concept">Lesson Concept:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="lesson_concept" id="lesson_concept" value="<?php echo $lesson->getLesson_concept(); ?>">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                                    <label class="sr-only" for="fileToUpload">Select image to upload:</label>
+                                                    <input class="btn btn-primary" type="file" name="fileToUpload" id="fileToUpload" value="<?php echo $lesson->getLesson_video(); ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="btn btn-primary" type="submit" value="<?php echo $lesson->getLesson_file(); ?>" name="submit">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="lesson_video_link">YouTube Link:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" value="<?php echo $lesson->getLesson_video(); ?>" class="form-control" name="lesson_video_link" id="lesson_video_link" >
                                     </div>
                                 </div>
                                 
@@ -111,8 +125,8 @@ $lesson = new Lesson($lessonDetails['lesson_title'], $lessonDetails['lesson_name
 
                                 <!-- start: page 2 -->
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label" for="members">Please 'Select' a subject for your lesson:</label>
-                                    <table class="table table-bordered table-striped" id="members">
+                                    <label class="col-sm-4 control-label" for="selectsub">Please 'Select' a subject for your lesson:</label>
+                                    <table class="table table-bordered table-striped" id="selectsub" name="selectsub">
                                         <thead>
                                         <tr>
                                             <th width="10%">Subject ID</th>
@@ -176,7 +190,7 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
     (function ($) {
         'use strict';
         var datatableInit = function () {
-            var $table = $('#members');
+            var $table = $('#selectsub');
             $table.dataTable({
                 "language": {
                     "emptyTable": "There are no Lessons available to view."

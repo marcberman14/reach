@@ -210,6 +210,36 @@ final class UserDao extends Dao
             return null;
         }
     }
+    
+      public function adminProfileUpdate($values)
+    {
+
+        try {
+            $temp = $this->db->query("UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellnumber = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;", $values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
 
 
 
@@ -349,7 +379,7 @@ final class UserDao extends Dao
     public function uploadpicurl($values)
     {
         try{
-            $temp = $this->db->row("UPDATE members SET profilepicurl = :profilepicurl WHERE user_id= :user_id", $values);
+            $temp = $this->db->query("UPDATE members SET profilepicurl = :profilepicurl WHERE user_id= :user_id", $values);
             return $temp;
 
         }

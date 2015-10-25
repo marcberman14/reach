@@ -34,8 +34,6 @@ if($login['response'] != "error" && $state['response']== 'success') {
                             <i class="fa fa-home"></i>
                         </a>
                     </li>
-                    <!--<li><span>Layouts</span></li>
-                    <li><span>Default</span></li>-->
                 </ol>
 
                 <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>

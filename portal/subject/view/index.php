@@ -57,6 +57,10 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                                 </div>
                             </div>
                         </div>
+
+                        <div class="alert alert-success hidden" id="contactSuccess">Success! You will be redirected shortly.</div>
+                        <div class="alert alert-danger hidden" id="contactError">Error!</div>
+
                         <table class="table table-bordered table-striped mb-none" id="members">
                             <thead>
                             <tr>
@@ -73,6 +77,8 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                             <tbody>
                             </tbody>
                         </table>
+
+                        <a id="6" href="/portal/subject/delete/index.php?id=6&token=f069c1308a5239252a1475d9750d85024f706e7c128024c6fa9d6d378554fbd2&subname=IE+2" onclick="deletesub($(this).attr('id'));" class="on-default"><i class="fa fa-2x fa-trash-o"></i></a>
                     </div>
                 </section>
                 
@@ -91,9 +97,9 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
     "/assets/vendor/modernizr/modernizr.js",
     "/assets/javascripts/theme.js",
     "/assets/javascripts/theme.init.js",
+    "/assets/ajax/deletesubject/form-submit.js",
 	"/assets/vendor/select2/select2.js",
 	"/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
-    "assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
 	"/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"));
         echo $views->addStyle(Array("/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css",
             "/assets/vendor/select2/select2.css"));

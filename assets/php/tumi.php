@@ -12,12 +12,12 @@ ini_set('display_errors',1);
 
 //echo "######################################### Marc Test ##########################################################" . "\xA";
 
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TestDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/database/dao/UserDao.php";
 	//$subject = new Subject();
 	//$tutsubject = new TutorSubjectDao();
-	$user = new UserDao();
+	$user = new TestDao();
 
 	
 	//$userDetails -> firstname;
@@ -25,43 +25,15 @@ ini_set('display_errors',1);
 	
 	//$tutsub = '45';
 	
-	$array = array("userid"=>12);
+	$array = array("testid"=>33);
 	
 	//allTutors, allTeachers, allStudents
 	
-	$mdata = $user->allDetails($array);
+	$mdata = $user->getTest($array);
 	
-	if($mdata!=false){
+	var_dump($mdata);
 	
-		$more1=$user->allTutors($array);
-		$more2=$user->allTeachers($array);
-		$more3=$user->allStudents($array);
-		
-		var_dump($mdata);
-		
-	
-			if($more1!=false){				
-				
-				var_dump($more1);
-				
-			}elseif($more2!=false){
-				
-				var_dump($more2);
-				
-			}elseif($more3!=false){
-				
-				var_dump($more3);
-				
-				}else{
-					
-					echo "This has not completed their profile";
-					
-				}
-	
-	}else{
-		
-		echo "No data found";
-	}
+	var_dump($mdata[0]['test_name']);
 	//$hi = $data['firstname'];	
 	
 	

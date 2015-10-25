@@ -93,8 +93,7 @@ final class SubjectDao extends Dao {
 	public function deleteSubject($values){
 
         try {
-            $temp = $this->db->query("DELETE FROM 'subjects' WHERE 'subject_id' = :subjectid;", $values );
-			//$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
+            $temp = $this->db->query("DELETE FROM subjects WHERE subject_id =:subjectid;", $values );
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();

@@ -105,9 +105,9 @@ if (isset($_POST['firstname'],$_POST['surname'], $_POST['email'], $_POST['userty
         
 
 
-    }else {
-        $arrResult = array ('response'=>'error','reason'=>'A fatal error has occurredhkjhjk, if this problem persists please contact an administrator.');
+    }else { $arrResult = array ('response'=>'error','reason'=>'A fatal error has occurredhkjhjk, if this problem persists please contact an administrator.');
         echo json_encode($arrResult);
+
     }
 
 

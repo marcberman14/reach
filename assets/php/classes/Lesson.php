@@ -11,14 +11,18 @@ class lesson
   private $lesson_description;
   private $lesson_concept;
   private $lesson_material;
+  private $lesson_file;
+  private $lesson_video;
   
-   public function __construct($lesson_title, $lesson_name, $lesson_description, $lesson_concept, $lesson_material)
+   public function __construct($lesson_title, $lesson_name, $lesson_description, $lesson_concept, $lesson_material, $lesson_file, $lesson_video)
     {
         $this->lesson_title = $lesson_title;
         $this->lesson_name= $lesson_name;
         $this->lesson_description = $lesson_description;
         $this->lesson_concept = $lesson_concept;
         $this->lesson_material = $lesson_material;
+		$this->lesson_file = $lesson_file;
+        $this->lesson_video = $lesson_video;
         
     }
   
@@ -52,6 +56,28 @@ class lesson
 	//$firstname = $userDetails['firstname'];	
 	
 	  
+  }
+  
+  
+  public function setLesson_file($newval)
+  {
+      $this->lesson_file = $newval;
+  }
+ 
+  public function getLesson_file()
+  {
+      return $this->lesson_file;
+  }
+  
+  
+  public function setLesson_video($newval)
+  {
+      $this->lesson_video = $newval;
+  }
+ 
+  public function getLesson_video()
+  {
+      return $this->lesson_video;
   }
   
  

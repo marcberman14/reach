@@ -5,6 +5,8 @@
  * Date: 2015/08/20
  * Time: 3:12 PM
  */
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/database/dao/UserDao.php";
+require_once "User.php";
 
 class Admin extends User {
     private $admin_id;
@@ -48,6 +50,13 @@ class Admin extends User {
         $this->monashemail = $monashemail;
         $this->alternativeemail = $alternativeemail;
         $this->altcontactnum = $altcontactnum;
+    }
+    
+    public function pullAdmin($value)
+    {
+        $admin = new UserDao();
+        $adminDetails = $student->allAdmin(Array('userid' => $value));
+        return $adminDetails;
     }
 
     public  function getAdminID() {

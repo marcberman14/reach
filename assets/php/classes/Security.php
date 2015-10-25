@@ -26,36 +26,36 @@ class Security
                 $login_check = hash('sha512', $sec_data['password'] . $user_browser);
                 if ($login_check == $login_string) {
                     if($sec_data['active'] == 'active'){
-                        return $arrResult = array('response' => 'success', 'reason' => 'active', 'active' => $sec_data['active']);
+                        return $arrResult = array('response' => 'success', 'reason' => 'active');
                     } elseif ($sec_data['active'] == 'noprofile') {
                         $script = '<script>
                             window.location.href = "/portal/profile/";
                         </script>';
-                        return $arrResult = array('response' => 'warning', 'script' => $script, 'active' => $sec_data['active']);
+                        return $arrResult = array('response' => 'warning', 'script' => $script);
 
                     } elseif ($sec_data['active'] == 'notapproved') {
                         $script = '<script>
                             window.location.href = "/deny.php";
                         </script>';
-                        return $arrResult = array('response' => 'warning', 'script' => $script, 'active' => $sec_data['active']);
+                        return $arrResult = array('response' => 'warning', 'script' => $script);
 
                     } elseif ($sec_data['active'] == 'inactive') {
                         $script = '<script>
-                            window.location.href = "/deny.php";
+                            window.location.href = "/user/login/";
                         </script>';
-                        return $arrResult = array('response' => 'warning', 'script' => $script, 'active' => $sec_data['active']);
+                        return $arrResult = array('response' => 'warning', 'script' => $script);
 
                     } elseif ($sec_data['active'] == 'invalid') {
                         $script = '<script>
-                            window.location.href = "/deny.php";
+                            window.location.href = "/user/login/";
                         </script>';
-                        return $arrResult = array('response' => 'warning', 'script' => $script, 'active' => $sec_data['active']);
+                        return $arrResult = array('response' => 'warning', 'script' => $script);
 
                     } elseif ($sec_data['active'] == 'emailverify') {
                         $script = '<script>
                             window.location.href = "/user/check.php";
                         </script>';
-                        return $arrResult = array('response' => 'warning', 'script' => $script, 'active' => $sec_data['active']);
+                        return $arrResult = array('response' => 'warning', 'script' => $script);
                     }
                 } else {
                     // Not logged in
@@ -63,14 +63,13 @@ class Security
                 }
             } else {
                 // Not logged in
-                return $arrResult = array('response' => 'error', 'reason' => 'You are not logged in. Please login to continue');
+                return $arrResult = array('response' => 'error', 'reason' => 'An unknown error has occurred, please logout and try again.');
             }
 
         } else {
             // Not logged in
             return $arrResult = array('response' => 'error', 'reason' => 'You are not logged in. Please login to continue');
         }
-
 
     }
 
@@ -127,7 +126,7 @@ class Security
                     $sec_user['jobposition'], $sec_user['monashmail'], $sec_user['alternativeemail'], $sec_user['altcontactnum']);
             }
         } else {
-            $member = new User($user_id, $sec_data['firstname'], $sec_data['lastname'], $sec_data['email'], $sec_data['active'], $sec_data['permission_name'], $sec_data['profilepicurl'], $sec_data['gender']);
+            $member = new User($sec_data['user_id'], $sec_data['firstname'], $sec_data['lastname'], $sec_data['email'], $sec_data['active'], $sec_data['permission_name'], $sec_data['profilepicurl'], $sec_data['gender']);
         }
         if($member != null){
             $_SESSION['user'] = $member;
@@ -189,7 +188,7 @@ class Security
                                 $sec_user['jobposition'], $sec_user['monashmail'], $sec_user['alternativeemail'], $sec_user['altcontactnum']);
                         }
                     } else if ($sec_data['active'] == "noprofile" || $sec_data['active'] == "notapproved" || $sec_data['active'] == "inactive" || $sec_data['active'] == "invalid" || $sec_data['active'] == "emailverify") {
-                        $member = new User($user_id, $sec_data['firstname'], $sec_data['lastname'], $email, $sec_data['active'], $sec_data['permission_name'], $sec_data['profilepicurl'], $sec_data['gender']);
+                        $member = new User($sec_data['user_id'], $sec_data['firstname'], $sec_data['lastname'], $email, $sec_data['active'], $sec_data['permission_name'], $sec_data['profilepicurl'], $sec_data['gender']);
                     }
                     $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
                     $_SESSION['user'] = $member;

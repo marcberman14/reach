@@ -13,6 +13,7 @@ $lesson = new LessonDao();
 
 	header("Content-Type: application/json", true);
 $result = $lesson->allLessons();
+
 if($result > 0)
 {
     $result_array= array();
@@ -29,8 +30,11 @@ if($result > 0)
         $aaData["Lesson Concept"] = $row["lesson_concpet"];
         $aaData["Lesson Material"] = $row["lesson_material"];
         $aaData["Lesson Subject"] = $row["subject_name"];
-        $aaData["Functions"] = ' &nbsp;<a href="../edit/index.php?id='.$row["lesson_id"] .' class="on-default edit-row"><i class="fa fa-2x fa-pencil"></i></a>
-        &nbsp;&nbsp;<a href="../delete/index.php?id='.$row["lesson_id"].'" class="on-default remove-row"><i class="fa fa-2x fa-trash-o"></i></a>';
+        $aaData["Functions"] = ' &nbsp;<a href="../edit/index.php?id='.$lessonId.'" class="on-default edit-row"><i class="fa fa-2x fa-pencil"></i></a>
+        &nbsp;&nbsp;<a href="../delete/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-trash-o"></i></a>
+		
+		
+		&nbsp;&nbsp;<a href="../new-content/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-trash-o"></i></a>';
         array_push($rowarray ,$aaData);
     }
 
