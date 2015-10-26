@@ -35,6 +35,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
+                            <li><span>Subject</span></li>
                             <li><span>Lessons</span></li>
                             <li><span>View</span></li>
                         </ol>
@@ -48,6 +49,15 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                         <h2 class="panel-title">View Lessons</h2>
                     </header>
                     <div class="panel-body">
+                    <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-md">
+                    <form method="POST" action="../new/?id=<?php echo urlencode($_GET['id']); ?>&name=<?php urlencode($_GET['name']); ?>">
+                    <button class="btn btn-primary push-bottom">Add a Lesson</button>
+                </form>
+                 </div>
+                                </div>
+                            </div>
                         <table class="table table-bordered table-striped" id="members">
                             <thead>
                             <tr>
@@ -67,9 +77,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                         </table>
                     </div>
                 </section>
-                <form method="POST" action="../new/?id=<?php echo urlencode($_GET['id']); ?>&name=<?php urlencode($GET['name']); ?>">
-                    <button class="btn btn-primary push-bottom">Add a Lesson</button>
-                </form>
+                
         </div>
         
     </section>

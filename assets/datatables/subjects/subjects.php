@@ -15,7 +15,6 @@ if ($result > 0) {
     $aaData = array();
     $rowarray = array();
     //fetch associative array
-
     foreach ($result as $row) {
         $aaData["Subject ID"] = $row["subject_id"];
         $subjectId = $row["subject_id"];
@@ -27,22 +26,12 @@ if ($result > 0) {
         $aaData["Subject Tutor"] = $row["firstname"] . ' ' . $row["lastname"];
 
         $token = hash('sha256', $row["subject_id"] . $row["subject_name"]);
-
-        $link = '/portal/subject/delete/index.php?id=' . urlencode($row["subject_id"]) . '&token=' . urlencode($token) . '&subname=' . urlencode($row["subject_name"]) .'';
-
-        /*$aaData["Functions"] = '&nbsp;<a href="../viewer/index.php?id='.urlencode($row["subject_id"]).'&name='.urlencode($row["subject_name"]).'" class="on-default edit-row"  title="View"><i class="fa fa-2x fa-eye"></i></a>
-                            &nbsp;<a href="../edit/index.php?id='.urlencode($row["subject_id"]).'&code='.urlencode($row["subject_code"]).'" class="on-default edit-row" title="Edit"><i class="fa fa-2x fa-pencil"></i></a>
-                            &nbsp;<a href="../delete/index.php?id='.urlencode($row["subject_id"]).'" class="on-default remove-row" title="Delete"><i class="fa fa-2x fa-trash-o"></i></a>
-                            ';*/
-        //var_dump($aaData);
         $aaData["Functions"] = '&nbsp;<a href="../viewer/index.php?id=' . urlencode($row["subject_id"]) . '&name=' . urlencode($row["subject_name"]) . '" class="on-default edit-row"  title="View"><i class="fa fa-2x fa-eye"></i></a>
-                                    &nbsp;<a href="../edit/index.php?id=' . urlencode($row["subject_id"]) . '&code=' . urlencode($row["subject_code"]) . '" class="on-default edit-row" title="Edit"><i class="fa fa-2x fa-pencil"></i></a>
-                                    &nbsp;<a id="'. urlencode($row["subject_id"]).'"href="#" onclick="deletefunction("'.$link.'");" class="on-default"><i class="fa fa-2x fa-trash-o"></i></a>
-                                    ';
+        &nbsp;<a href="../edit/index.php?id=' . urlencode($row["subject_id"]) . '&code=' . urlencode($row["subject_code"]) . '" class="on-default edit-row" title="Edit"><i class="fa fa-2x fa-pencil"></i></a>
+        &nbsp;<a href="/portal/subject/delete/index.php?id='. urlencode($row["subject_id"]). '&token=' . urlencode($token) . '&subname=' . urlencode($row["subject_name"]) .'" class="on-default delete-row" title="Edit"><i class="fa fa-2x fa-trash-o"></i></a>';
 
         array_push($rowarray, $aaData);
     }
-
 
     $result_array['aaData'] = $rowarray;
     echo json_encode($result_array);

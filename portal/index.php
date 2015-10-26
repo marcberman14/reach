@@ -48,8 +48,8 @@ if($login['response'] != "error" && $state['response']== 'success') {
     </section>
     </div>
     </section>
-    
-    
+
+
 <?php
 echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
     "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",

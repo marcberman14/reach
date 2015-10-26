@@ -119,7 +119,6 @@ if($login['response'] != "error") {
                                                 <option value=\"inactive\">Deactivate</option>
                                                 <option selected value=\"invalid\">Deny User</option>";
                                             }
-
                                             echo "</select></td>";
                                             ?>
                                             <?php
@@ -179,11 +178,8 @@ if($login['response'] != "error") {
                         scrollTop: $('#contactLoading').offset().top - 200
                     }, 300);
                 }
-
             },
-
             success: function(data) {
-
                 if (data.response == 'success') {
                     $('#contactSuccess').removeClass('hidden');
                     $('#contactError').addClass('hidden');
@@ -196,9 +192,6 @@ if($login['response'] != "error") {
                             scrollTop: $('#contactSuccess').offset().top - 200
                         }, 300);
                     }
-
-
-
                 } else if (data.response == 'error') {
                     $('#contactError').html('Error! ' + data.reason);
                     $('#contactSuccess').addClass('hidden');

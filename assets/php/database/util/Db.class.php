@@ -186,7 +186,29 @@ class DB
 				return NULL;
 			}
 		}
-		
+
+    public function transaction($statement,$values)
+    {
+        $this->pdo->beginTransaction();
+
+
+        try{
+            $this->query($statement,$values);
+            //We've got this far without an exception, so commit the changes.
+            $this->pdo->commit();
+
+        }
+//Our catch block will handle any exceptions that are thrown.
+        catch(Exception $e){
+            //An exception has occured, which means that one of our database queries
+            //failed.
+            //Print out the error message.
+            echo $e->getMessage();
+            //Rollback the transaction.
+            $this->pdo->rollBack();
+        }
+    }
+
       /**
        *  Returns the last inserted id.
        *  @return string

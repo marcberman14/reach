@@ -76,7 +76,23 @@
                                             
                                                 <label class="col-md-3 control-label" for="profileLastName">Enter Test Name</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" value="" class="form-control" name="test_name" id="test_name">
+                                                        <input type="text" value="" placeholder="Enter test name" class="form-control" name="test_name" id="test_name">
+                                                    </div>              
+                                            </div>
+                                            <div class="form-group">
+                                            <input type="hidden" value="<?php echo $_REQUEST['id'] ?>"  name="subid" id="subid">
+                                            
+                                                <label class="col-md-3 control-label" for="test_description">Enter Test Description</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" value="" placeholder="Enter description"class="form-control" name="test_description" id="test_description">
+                                                    </div>              
+                                            </div>
+                                            <div class="form-group">
+                                            <input type="hidden" value="<?php echo $_REQUEST['id'] ?>"  name="subid" id="subid">
+                                            
+                                                <label class="col-md-3 control-label" for="test_marks">Enter Test Marks</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" value="" placeholder="Enter marks" class="form-control" name="test_marks" id="test_marks">
                                                     </div>              
                                             </div>
                                         </div>

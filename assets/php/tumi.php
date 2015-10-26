@@ -17,7 +17,7 @@ ini_set('display_errors',1);
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/database/dao/UserDao.php";
 	//$subject = new Subject();
 	//$tutsubject = new TutorSubjectDao();
-	$user = new TestDao();
+	$ques = new TestDao();
 
 	
 	//$userDetails -> firstname;
@@ -25,15 +25,21 @@ ini_set('display_errors',1);
 	
 	//$tutsub = '45';
 	
-	$array = array("testid"=>33);
+	$array = array("testid"=>54);
 	
 	//allTutors, allTeachers, allStudents
 	
-	$mdata = $user->getTest($array);
+	//$mdata = $ques->viewQuestions($array);
 	
-	var_dump($mdata);
+	//var_dump($mdata);
 	
-	var_dump($mdata[0]['test_name']);
+	$test = $ques->test($array);
+	
+	$marks = $test['test_marks'];
+	
+	echo $marks;
+	
+	//var_dump($mdata[0]['test_name']);
 	//$hi = $data['firstname'];	
 	
 	

@@ -1,0 +1,547 @@
+Time : 18:47:18
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`reach`.`teacher`, CONSTRAINT `teacher_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `members` (`user_id`))
+Raw SQL : DELETE FROM `reach`.`members` WHERE `members`.`user_id` =:userid;
+
+Time : 17:39:19
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE tutorsubject SET tutor_id =  :tutorid WHERE subject_id =:subjectid;
+
+Time : 17:37:34
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE tutorsubject SET tutor_id =  :tutorid WHERE subject_id =:subjectid;
+
+Time : 17:36:11
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE tutorsubject SET tutor_id =  :tutorid WHERE subject_id =:subjectid;
+
+Time : 16:24:43
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from question where question_id =:questid
+
+Time : 15:58:29
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''reach'.'subjects' SET  'subject_code' = ?,'subject_name' = ?,'subject_grade' = ' at line 1
+Raw SQL : UPDATE 'reach'.'subjects' SET  'subject_code' = :subject_code,'subject_name' = :subject_name,'subject_grade' = :subject_grade ,'subject_description' = :subject_description, 'subject_category' = :subject_category  WHERE  'subjects'.'subject_id' =:subjectid;
+
+Time : 15:47:06
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''reach'.'subjects' SET  'subject_code' = ?,'subject_name' = ?,'subject_grade' = ' at line 1
+Raw SQL : UPDATE 'reach'.'subjects' SET  'subject_code' = :subject_code,'subject_name' = :subject_name,'subject_grade' = :subject_grade ,'subject_description' = :subject_description, 'subject_category' = :subject_category  WHERE  'subjects'.'subject_id' =:subjectid;
+
+Time : 13:11:11
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 13:10:31
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 13:09:53
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 13:08:11
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 13:06:23
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 13:05:58
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT t.tutor_id FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+Time : 13:05:24
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+Time : 13:05:12
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+Time : 13:03:58
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+Time : 13:00:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:59:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:57:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:57:11
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:57:05
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:57:03
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:56:22
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:54:56
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM' at line 5
+Raw SQL : INSERT INTO subjects
+            (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+            (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+
+Time : 12:52:24
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:48:58
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@mytutor, @last_id);
+        COMMIT;
+
+Time : 12:48:43
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@tutorid, @last_id);
+        COMMIT;
+
+Time : 12:48:40
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT t.tutor_id INTO @mytutor FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = :user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@tutorid, @last_id);
+        COMMIT;
+
+Time : 12:43:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        SELECT @tutorid = t.tutor_id FROM tutor t JOIN members m ON m.user_id = t.user_id WHERE m.user_id = t.user_id;
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (@tutorid, @last_id);
+        COMMIT;
+
+Time : 12:41:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subjec' at line 2
+Raw SQL : START TRANSACTION;
+        INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @last_id);
+        COMMIT;
+
+Time : 12:36:30
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_3` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutorid, :subject_id);
+
+Time : 12:35:30
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_3` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutorid, :subject_id);
+
+Time : 12:31:21
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutorid, :subject_id);
+
+Time : 12:29:27
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO  `reach`.`tutorsubject` (`tutor_id` ,`subject_id`) VALUES (:tutorid, :subject_id);
+
+Time : 12:29:11
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO  `reach`.`tutorsubject` (`tutor_id` ,`subject_id`) VALUES (:tutorid, :subject_id);
+
+Time : 12:28:37
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO  `reach`.`tutorsubject` (`tutor_id` ,`subject_id`) VALUES (:tutorid, :subject_id);
+
+Time : 12:28:00
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO  `reach`.`tutorsubject` (`tutor_id` ,`subject_id`) VALUES (:tutorid, :subject_id);
+
+Time : 12:27:50
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO  `reach`.`tutorsubject` (`tutor_id` ,`subject_id`) VALUES (:tutorid, :subject_id);
+
+Time : 12:21:03
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id , subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 12:19:23
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO tutorsubject (tutor_id , subject_id) VALUES (:tutor_id, :subjectid);
+
+Time : 12:18:49
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO tutorsubject (tutor_id , subject_id) VALUES (:tutor_id, @latestid);
+
+Time : 12:18:42
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO tutorsubject (tutor_id , subject_id) VALUES (:tutor_id, @latestid);
+
+Time : 12:17:08
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO tutorsubject (tutor_id , subject_id) VALUES (:tutor_id, @latestid);
+
+Time : 12:16:29
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO subjects (subject_code, subject_name, subject_grade, subject_description, subject_category) VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+Time : 12:07:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @latestid = LAST_INSERT_ID();
+        INSERT INTO tutorsubject (tutor_id , ' at line 2
+Raw SQL : INSERT INTO subjects (subject_code, subject_name, subject_grade, subject_description, subject_category) VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+        SET @latestid = LAST_INSERT_ID();
+        INSERT INTO tutorsubject (tutor_id , subject_id) VALUES (:tutor_id, @latestid);
+
+Time : 12:06:29
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @latestid = LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+        (tu' at line 4
+Raw SQL : INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+        SET @latestid = LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @latestid);
+
+Time : 12:03:08
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @last_id =
+         LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+  ' at line 4
+Raw SQL : INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+        SET @last_id =
+         LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @last_id);
+
+Time : 12:02:14
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @last_id =
+         LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+  ' at line 4
+Raw SQL : INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+        SET @last_id =
+         LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @last_id);
+
+Time : 12:02:03
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @last_id = LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+        (tut' at line 4
+Raw SQL : INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+        SET @last_id = LAST_INSERT_ID();
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @last_id);
+
+Time : 12:00:53
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @last_id = LAST_INSERT_ID();
+
+        INSERT INTO tutorsubject
+        (t' at line 5
+Raw SQL : INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @last_id);
+
+Time : 11:58:14
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET @last_id = LAST_INSERT_ID();
+
+        INSERT INTO tutorsubject
+        (t' at line 5
+Raw SQL : INSERT INTO subjects
+        (subject_code, subject_name, subject_grade, subject_description, subject_category)
+        VALUES (:subject_code, :subject_name, :subject_grade, :subject_description, :subject_category);
+
+        SET @last_id = LAST_INSERT_ID();
+
+        INSERT INTO tutorsubject
+        (tutor_id , subject_id)
+        VALUES (:tutor_id, @last_id);
+
+Time : 11:54:42
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, :subject_id);
+
+Time : 11:40:49
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, :subject_id);
+
+Time : 11:40:40
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, :subject_id);
+
+Time : 11:40:38
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, :subject_id);
+
+Time : 11:40:15
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, :subject_id);
+
+Time : 11:35:53
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:33:42
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'subject_id' cannot be null
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:33:13
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'subject_id' cannot be null
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:26:21
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:25:00
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:24:27
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:24:09
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_1` FOREIGN KEY (`tutorsubject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:23:13
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_3` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:21:45
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_3` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject
+                (tutor_id , subject_id)
+                VALUES (:tutor_id, @last_id);
+
+Time : 11:20:33
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+
+Time : 11:19:00
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+
+Time : 11:18:50
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+
+Time : 11:18:24
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+
+Time : 00:07:47
+SQLSTATE[HY000]: General error: 2030 This command is not supported in the prepared statement protocol yet
+Raw SQL : START TRANSACTION;
+
+Time : 00:07:09
+SQLSTATE[HY000]: General error: 2030 This command is not supported in the prepared statement protocol yet
+Raw SQL : BEGIN;

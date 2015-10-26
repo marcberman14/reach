@@ -22,8 +22,6 @@ if($state['response']== 'warning'){
 include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
 include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
 ?>
-
-            
             <!-- begin: breadcrumbs -->
             <section role="main" class="content-body">
                 <header class="page-header">
@@ -77,30 +75,27 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                             <tbody>
                             </tbody>
                         </table>
-
-                        <a id="6" href="/portal/subject/delete/index.php?id=6&token=f069c1308a5239252a1475d9750d85024f706e7c128024c6fa9d6d378554fbd2&subname=IE+2" onclick="deletesub($(this).attr('id'));" class="on-default"><i class="fa fa-2x fa-trash-o"></i></a>
                     </div>
                 </section>
                 
 
                 
-        </div>
+        
     </section>
 <?php
-echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
-    "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
-    "/assets/vendor/bootstrap/js/bootstrap.js",
-    "/assets/vendor/nanoscroller/nanoscroller.js",
-    "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
-    "/assets/vendor/magnific-popup/magnific-popup.js",
-    "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
-    "/assets/vendor/modernizr/modernizr.js",
-    "/assets/javascripts/theme.js",
-    "/assets/javascripts/theme.init.js",
-    "/assets/ajax/deletesubject/form-submit.js",
-	"/assets/vendor/select2/select2.js",
-	"/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
-	"/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"));
+    echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
+        "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
+        "/assets/vendor/bootstrap/js/bootstrap.js",
+        "/assets/vendor/nanoscroller/nanoscroller.js",
+        "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
+        "/assets/vendor/magnific-popup/magnific-popup.js",
+        "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
+        "/assets/vendor/modernizr/modernizr.js",
+        "/assets/vendor/select2/select2.js",
+        "/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
+        "/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js",
+        "/assets/javascripts/theme.js",
+        "/assets/javascripts/theme.init.js"));
         echo $views->addStyle(Array("/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css",
             "/assets/vendor/select2/select2.css"));
     } else {
@@ -139,7 +134,6 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
             datatableInit();
         });
     }).apply( this, [ jQuery ]);
-
 </script>
 </body>
 </html>

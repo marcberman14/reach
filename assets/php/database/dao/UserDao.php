@@ -297,7 +297,6 @@ final class UserDao extends Dao
         }
     }
 
-
     public function passwordUpdate($values)
     {
         try {

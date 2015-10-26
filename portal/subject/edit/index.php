@@ -64,6 +64,9 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
                         <h2 class="panel-title">Subject Creation Wizard</h2>
                     </header>
                     <div class="panel-body">
+
+                            <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
+                            <div class="alert alert-danger hidden" id="contactError">Error!</div>
                             <form action="/assets/includes/process_subedit.php" method="post" name="subeditform" id="subeditform">
                                 <div class="alert alert-success hidden" id="contactSuccess">Success! A subject has been successfully create and assigned to a tutor.</div>
                                 <div class="alert alert-danger hidden" id="contactError">Error!</div>
@@ -97,7 +100,7 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
 
 
                                     <div class="col-sm-9">
-                                        <input type="hidden"   name="subject_id" id="subject_id" value="<?php echo $_REQUEST['id']; ?>">
+                                        <input type="hidden"   name="subject_id" id="subject_id" value="<?php echo urldecode($_REQUEST['id']); ?>">
                                     </div>
 
                                 </div>
@@ -114,8 +117,9 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
                                     </div>
                                 </div>
                             <!-- end: page 1 -->
+                                <!-- start: page 2 -->
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="members">Please 'Select' a tutor for your subject:</label>
+                                    <label for="members">Please 'Select' a tutor for your subject:</label>
                                     <table class="table table-bordered table-striped" id="members">
                                         <thead>
                                         <tr>
@@ -147,18 +151,20 @@ if (isset($_GET['id']) && isset($_GET['code'])) {
 </section>
 <?php
 echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
-"/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
-"/assets/vendor/bootstrap/js/bootstrap.js",
-"/assets/vendor/nanoscroller/nanoscroller.js",
-"/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
-"/assets/vendor/magnific-popup/magnific-popup.js",
-"/assets/vendor/jquery-placeholder/jquery.placeholder.js",
-"/assets/vendor/modernizr/modernizr.js",
-"/assets/javascripts/theme.js",
-"/assets/javascripts/theme.init.js",
-"/assets/vendor/select2/select2.js",
-"/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
-"/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"));
+        "/assets/vendor/jquery-validation/jquery.validate.min.js",
+        "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
+        "/assets/vendor/bootstrap/js/bootstrap.js",
+        "/assets/vendor/nanoscroller/nanoscroller.js",
+        "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
+        "/assets/vendor/magnific-popup/magnific-popup.js",
+        "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
+        "/assets/vendor/modernizr/modernizr.js",
+        "/assets/vendor/select2/select2.js",
+        "/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
+        "/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js",
+        "/assets/javascripts/theme.js",
+        "/assets/javascripts/theme.init.js",
+        "/assets/ajax/subjectedit/form-submit.js" ));
 echo $views->addStyle(Array("/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css",
     "/assets/vendor/select2/select2.css"));
 } else {

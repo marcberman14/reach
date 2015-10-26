@@ -9,8 +9,8 @@ $security = new Security();
 $security->sec_session_start();
 $login = $security->login_check();
 $state = $security->userActiveState();
-$title = "Dashboard";
-$page_heading = "Dashboard";
+$title = "Subject";
+$page_heading = "New Subject";
 $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
@@ -115,7 +115,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
 
                             <!-- start: page 2 -->
                            <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="members">Please 'Select' a tutor for your subject:</label>
+                                    <label for="members">Please 'Select' a tutor for your subject:</label>
                                     <table class="table table-bordered table-striped" id="members">
                                         <thead>
                                         <tr>
@@ -159,19 +159,21 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
 <!-- Vendor -->
 <?php
 echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
-"/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
-    "/assets/vendor/bootstrap/js/bootstrap.js",
-    "/assets/vendor/nanoscroller/nanoscroller.js",
-    "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
-    "/assets/vendor/magnific-popup/magnific-popup.js",
-    "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
-    "/assets/vendor/modernizr/modernizr.js",
-    "/assets/javascripts/theme.js",
-    "/assets/javascripts/theme.init.js",
-	"/assets/vendor/select2/select2.js",
-	"/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
-    "/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
-	"/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"));
+        "/assets/vendor/jquery-validation/jquery.validate.min.js",
+        "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
+        "/assets/vendor/bootstrap/js/bootstrap.js",
+        "/assets/vendor/nanoscroller/nanoscroller.js",
+        "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
+        "/assets/vendor/magnific-popup/magnific-popup.js",
+        "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
+        "/assets/vendor/modernizr/modernizr.js",
+        "/assets/vendor/select2/select2.js",
+        "/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
+        "/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js",
+        "/assets/javascripts/theme.js",
+        "/assets/javascripts/theme.init.js",
+        "/assets/ajax/subjectcreate/form-submit.js"
+        ));
         echo $views->addStyle(Array("/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css",
             "/assets/vendor/select2/select2.css"));
      }else {

@@ -47,12 +47,13 @@
                     <table class="table table-bordered table-striped" id="members">
                         <thead>
                         <tr>
-                            <th width="10%">User ID</th>
-                            <th width="20%">First Name</th>
-                            <th width="20%">Last Name</th>
-                            <th width="20%">Email</th>
-                            <th width="15%">User Type</th>
-                            <th width="15%">Active</th>
+                            <th>User ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>User Type</th>
+                            <th>Active</th>
+                            <th>Functions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -107,7 +108,8 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
                     { "mData": "Last Name" },
                     { "mData": "Email" },
                     { "mData": "User Type" },
-                    { "mData": "Active" }
+                    { "mData": "Active" },
+                    { "mData": "Functions" }
                 ]
             });
         };

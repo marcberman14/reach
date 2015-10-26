@@ -126,7 +126,7 @@ class Security
                     $sec_user['jobposition'], $sec_user['monashmail'], $sec_user['alternativeemail'], $sec_user['altcontactnum']);
             }
         } else {
-            $member = new User($sec_data['user_id'], $sec_data['firstname'], $sec_data['lastname'], $sec_data['email'], $sec_data['active'], $sec_data['permission_name'], $sec_data['profilepicurl'], $sec_data['gender']);
+            $member = new User($user_id, $sec_data['firstname'], $sec_data['lastname'], $sec_data['email'], $sec_data['active'], $sec_data['permission_name'], $sec_data['profilepicurl'], $sec_data['gender']);
         }
         if($member != null){
             $_SESSION['user'] = $member;
