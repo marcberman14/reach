@@ -21,7 +21,7 @@ final class LessonAssetDao extends Dao {
    	public function getAsset($values){
 
         try {
-            $temp = $this->db->row("SELECT * from lesson_assets WHERE file_id = :fileid;", $values);
+            $temp = $this->db->row("SELECT * from lesson_assets WHERE lesson_id = :lessonid;", $values);
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -35,7 +35,7 @@ final class LessonAssetDao extends Dao {
     public function getAssetUrl($values){
 
         try {
-            $temp = $this->db->row("SELECT url from lesson_assets WHERE file_id = :fileid;", $values);
+            $temp = $this->db->row("SELECT url from lesson_assets WHERE lesson_id = :lessonid;", $values);
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -80,10 +80,25 @@ final class LessonAssetDao extends Dao {
         }
 	}
 	
-	public function deleteAsset($values){
+	public function deleteVideo($values){
 
         try {
-            $temp = $this->db->query("DELETE FROM lesson_assets WHERE file_id = :fileid;", $values );
+            $temp = $this->db->query("DELETE FROM lesson_assets WHERE lesson_id = :lessonid and type = 'video';", $values );
+			//$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+	}
+    
+    public function deletePdf($values){
+
+        try {
+            $temp = $this->db->query("DELETE FROM lesson_assets WHERE lesson_id = :lessonid and type = 'pdf';", $values );
 			//$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
             return $temp;
         } catch (DBException $e) {

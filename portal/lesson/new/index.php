@@ -96,20 +96,6 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                                 </div>
                                     
                                     
-                                <div class="form-group">
-                                                    <label class="sr-only" for="fileToUpload">Select image to upload:</label>
-                                                    <input class="btn btn-primary" type="file" name="fileToUpload" id="fileToUpload">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
-                                </div>
-                                    
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="lesson_video_link">YouTube Link:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" value="" class="form-control" name="lesson_video_link" id="lesson_video_link" placeholder="Enter the video link of the lesson to create">
-                                    </div>
-                                </div>
 
                                 
                                 <!-- end: page 1 -->

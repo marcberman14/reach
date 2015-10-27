@@ -800,11 +800,25 @@ html.dark .radio-primary input[type="radio"]:checked + label:after,
 }
 
 .datepicker table tr td span:hover {
-	background: #9e0b0f;
+	background: #9e0b0f !important;
+}
+
+.datepicker table tr td span.active.active {
+	color: #FFF !important;
+	background-color: #9e0b0f !important;
+	border-color: #670b0c !important;
 }
 
 .datepicker table tr td.day:hover {
-	background: #9e0b0f;
+	color: #FFF !important;
+	background-color: #9e0b0f !important;
+	border-color: #670b0c !important;
+}
+
+.datepicker table tr td.active.active {
+	color: #FFF !important;
+	background-color: #9e0b0f !important;
+	border-color: #670b0c !important;
 }
 
 .datepicker table tfoot tr th:hover {
@@ -833,11 +847,11 @@ html.dark .datepicker.datepicker-primary table tbody tr td.day.active,
 }
 
 .datepicker.datepicker-primary table thead tr:first-child th:hover {
-	background-color: #006699;
+	background-color: #9e0b0f;
 }
 
 .datepicker.datepicker-primary table thead tr:last-child {
-	background-color: #0099e6;
+	background-color: #9e0b0f;
 }
 
 .datepicker.datepicker-primary table thead tr:last-child th:hover {

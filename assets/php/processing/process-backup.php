@@ -15,14 +15,14 @@ header("Content-Type: application/json", true);
 
 if (isset($_POST['backup'])) {
     
-    $now = date('d-m-Y');
+    $now = date('Y-m-d-G-i-s');
     $dbserver = "localhost";
     $dbname = "reach";
     $dbuser = "reach";
     $dbpass = "Reach2015#";
-    $backupfile = "/var/www/html/portal/backup/backup.sql";
-
-
+    $backupfile = "/var/www/html/portal/backup/backup_".$now.'.sql';
+    $backuparray = array ("bfile" => $backupfile, "now" => $now);
+    $backup -> backupDatabase($backuparray);
     $results = exec("mysqldump --allow-keywords --opt -u$dbuser -p$dbpass $dbname > $backupfile");
     
     

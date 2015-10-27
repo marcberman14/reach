@@ -14,12 +14,12 @@ $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring"
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
 $asset = new LessonAssetDao();
-$videoUrlArray = $asset->getAssetUrl(array("fileid"=>17));
+$videoUrlArray = $asset->getAssetUrl(array("fileid"=>20));
 $videoUrl = $videoUrlArray['url'];
 urldecode($videoUrl);
 
 $asset = new LessonAssetDao();
-$pdfUrlArray = $asset->getAssetUrl(array("fileid"=>17));
+$pdfUrlArray = $asset->getAssetUrl(array("fileid"=>19));
 $pdfUrl = $pdfUrlArray['url'];
 urldecode($pdfUrl);
 
@@ -65,8 +65,8 @@ if($login['response'] != "error" && $state['response']== 'success') {
 
         <div class = "col-md-12">
 	        	                <div class="embed-responsive embed-responsive-4by3">
-        <iframe class="embed-responsive-item" src="<?php echo $_SERVER['DOCUMENT_ROOT']."/bin/lesson-content/".$pdfUrl.".pdf" ?> " type="application/pdf">
-  <p>Alternative text - include a link <a href="myfile.pdf">to the PDF!</a></p>
+        <iframe class="embed-responsive-item" src="/bin/lesson-content/<?php echo $pdfUrl; ?> " type="application/pdf">
+  <p>Alternative text - include a link <a href="<?php echo $_SERVER['DOCUMENT_ROOT']."/bin/lesson-content/".$pdfUrl; ?>">to the PDF!</a></p>
 </iframe>
         </div>    
          	                </div>

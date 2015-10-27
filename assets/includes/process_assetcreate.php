@@ -22,14 +22,37 @@ if(isset($_POST['lesson_video_name'], $_POST['lesson_video_link']))
     
     $yArray = array("lessonid" => $lesson_id, "type" => 'video', "url" => $lesson_video, "filename" => $video_name);
 
-    $result = $assets->addAsset($yArray);
-    if($result == 1){
-        $arrResult = array ('response'=>'success','reason'=>'The video content has been succesfully uploaded.');
-        echo json_encode($arrResult);
-    } else {
-        $arrResult = array ('response'=>'error','reason'=>'The lesson could not be uploaded. Please try again.');
-        echo json_encode($arrResult);
+    $check = $assets->getAsset(array("lessonid"=>$lesson_id));
+  
+    
+    if($check <= 0){
+           $result = $assets->addAsset($yArray);
+        if($result == 1){
+            $arrResult = array ('response'=>'success','reason'=>'The video content has been succesfully uploaded.');
+            echo json_encode($arrResult);
+        } else {
+            $arrResult = array ('response'=>'error','reason'=>'The lesson could not be uploaded. Please try again.');
+            echo json_encode($arrResult);
+        } 
+    }else{
+       // $pdfUrlArray = $assets->getAssetUrl(array("lessonid"=>$lesson_id));
+       // $pdfUrl = $pdfUrlArray['url'];
+      //  urldecode($pdfUrl);
+      //  $unlink_target = "../../bin/lesson-content/" . $pdfUrl;
+      //  unlink($unlink_target);
+        $assets->deleteVideo(array("lessonid"=>$lesson_id));
+
+        $result = $assets->addAsset($yArray);
+        if($result == 1){
+            $arrResult = array ('response'=>'success','reason'=>'The video content has been succesfully uploaded.');
+            echo json_encode($arrResult);
+        } else {
+            $arrResult = array ('response'=>'error','reason'=>'The lesson could not be uploaded. Please try again.');
+            echo json_encode($arrResult);
+        } 
     }
+
+    
 } else {
         $arrResult = array ('response'=>'error','reason'=>'Please ensure you have entered all the required fields.');
         echo json_encode($arrResult);

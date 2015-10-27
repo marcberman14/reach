@@ -32,7 +32,8 @@ final class UserDao extends Dao
                                             s.alternativenumber = :altno,
                                             s.parentnumber = :parno,
                                             s.schoolname = :school,
-											s.grade = :grade
+											s.grade = :grade,
+											s.dob =:dob
                                         WHERE m.user_id = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
@@ -97,7 +98,8 @@ final class UserDao extends Dao
 											t.country = :country,
                                             t.postalcode = :pcode,                                                                     
 											t.subjectstaught = :subjecttaught,
-											t.personalemail = :pmail
+											t.personalemail = :pmail,
+											t.dob =:dob
                                         WHERE m.user_id = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
@@ -161,8 +163,45 @@ final class UserDao extends Dao
 											t.nationality = :nationality,
 											t.countryresidence = :res,
 											t.studentnumber = :tutstuno,
-											t.monashemail = :mmail
+											t.monashemail = :mmail,
+											t.dob =:dob
                                         WHERE m.user_id = :userid;", $values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function adminUpdate($values)
+    {
+        try {
+            $temp = $this->db->query("UPDATE members m JOIN administrator a ON m.user_id = a.user_id SET
+                        m.firstname = :fname,
+                        m.lastname = :sname,
+                        m.email = :mail,
+                        m.active = :active,
+                        m.gender = :gender,
+                        a.dob=:dob,
+                        a.streetnumber=:streetnumber,
+                        a.streetname=:streetname,
+                        a.suburb=:suburb,
+                        a.city=:city,
+                        a.country=:country,
+                        a.postalcode=:postalcode,
+                        a.homenumber=:homenumber,
+                        a.cellphone=:cellphone,
+                        a.worknumber=:worknumber,
+                        a.staffnumber=:staffnumber,
+                        a.jobdepartment=:jobdepartment,
+                        a.jobposition=:jobposition,
+                        a.monashmail=:monashemail,
+                        a.alternativeemail=:altemail,
+                        a.altcontactnum=:altcontactnum
+                        WHERE m.user_id = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -354,6 +393,21 @@ final class UserDao extends Dao
 
         try {
             $temp = $this->db->row("SELECT * from tutor WHERE user_id = :userid;", $values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function allAdministrators($values)
+    {
+
+        try {
+            $temp = $this->db->row("SELECT * from administrator WHERE user_id = :userid;", $values);
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();

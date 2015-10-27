@@ -2582,7 +2582,7 @@ include($_SERVER['DOCUMENT_ROOT']."/assets/php/views/header-home.php");
                                                     <div class="col-md-6">
                                                         <label>Country:</label>
                                                         <br>
-                                                        <select class="form-control" data-plugin-multiselect
+                                                        <select class="form-control multiselect" data-plugin-multiselect
                                                                 data-plugin-options='{ "enableCaseInsensitiveFiltering": true }'
                                                                 name="admcountry" id="admcountry">
                                                             <option value="">Select a country</option>

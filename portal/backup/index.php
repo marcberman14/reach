@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/View.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Security.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/BackupDao.php";
 
 $views = new View();
 $security = new Security();
@@ -11,6 +12,8 @@ $title = "Backup and Restore";
 $page_heading = "Backup and Restore";
 $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
+$back = new BackupDao;
+$backArray = $back -> returnDatabase();
 
 if($login['response'] != "error" && $state['response']== 'success') {
     $security->refreshUser($_SESSION['user_id']);
@@ -61,6 +64,7 @@ if($login['response'] != "error" && $state['response']== 'success') {
             </div>
         </form>
     </div>
+
     
 <!-- end: breadcrumbs -->
     
@@ -74,16 +78,23 @@ if($login['response'] != "error" && $state['response']== 'success') {
                 <div class="form-group">
                     <div class="col-md-6">
                         <i class="fa fa-database fa-2x"></i>
-                        <input type="text" value="restore" class="hidden" name="restore"
-                               id="restore">
-                        <input type="submit" value="Restore Database"
+                                               <input type="submit" value="Restore Database"
                                class="btn btn-lg btn-primary push-bottom" id="submit"
                                name="submit">
+                        <select id="restoreselect" name="restoreselect">
+                            <option value="" disabled="disabled" selected="selected">Select Backup Restore Point</option>
+                            <option value="<?php echo $backArray[count($backArray ) - 1]['backup_file']; ?>"><?php echo $backArray[count($backArray ) - 1]['backup_date']; ?></option>
+                            <option value="<?php echo $backArray[count($backArray ) - 2]['backup_file']; ?>"><?php echo $backArray[count($backArray ) - 2]['backup_date']; ?></option>
+                            <option value="<?php echo $backArray[count($backArray ) - 3]['backup_file']; ?>"><?php echo $backArray[count($backArray ) - 3]['backup_date']; ?></option>                              
+                            <option value="<?php echo $backArray[count($backArray ) - 4]['backup_file']; ?>"><?php echo $backArray[count($backArray ) - 4]['backup_date']; ?></option>
+                            <option value="<?php echo $backArray[count($backArray ) - 5]['backup_file']; ?>"><?php echo $backArray[count($backArray ) - 5]['backup_date']; ?></option>
+                        </select>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+    
 
     <!-- end: page -->
 </section>
