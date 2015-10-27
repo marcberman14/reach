@@ -2311,27 +2311,16 @@ if($permis == 1){
                                 </div>';
 
 								echo '<div class="form-group">
-                                    <label class="col-sm-3 control-label" for="w3-dob">Date of Birth:</label>
+                                    <label class="col-sm-3 control-label" for="w3-dob">Postal Code:</label>
                                     <div class="col-sm-9">
-
-
-
-									<input type="text"class="form-control" name="dob" id="dob" value="'.$profile['dob'].'">
-
-
-
+									<input type="text"class="form-control" name="dob" id="dob" value="'.$profile['postalcode'].'">
                                     </div>
                                 </div>';
 
 								echo '<div class="form-group">
                                     <label class="col-sm-3 control-label" for="w3-teaschooladdress">School Address:</label>
                                     <div class="col-sm-9">
-
-
 									<input type="text"class="form-control" name="teaschooladdress" id="teaschooladdress" value="'.$profile['schooladdress'].'">
-
-
-
                                     </div>
                                 </div>';
 
