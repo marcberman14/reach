@@ -97,7 +97,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
 <!--Questions to Answer-->
 
 <div class="panel-body">
-
+<form method="POST" action="../question/question.php?id=<?php echo $_GET['id'];  ?>&quest=<?php echo ($questionnumber+1);?>">
 
     <fieldset>
         <div class="col-md-12 col-md-offset-0.5">
@@ -127,7 +127,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
         </div>
     </fieldset>
 
-    <form method="POST" action="../question/question.php?id=<?php echo $_GET['id'];  ?>&quest=<?php echo ($questionnumber+1);?>">
+    
         <button class="btn btn-primary push-bottom">Next Question <i class="fa fa-plus"></i></button>
     </form>
     

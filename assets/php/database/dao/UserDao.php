@@ -99,11 +99,6 @@ final class UserDao extends Dao
 											t.subjectstaught = :subjecttaught,
 											t.personalemail = :pmail
                                         WHERE m.user_id = :userid;", $values);
-
-
-
-
-
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -133,11 +128,6 @@ final class UserDao extends Dao
                                             t.city = :city,
                                             t.postalcode = :pcode                                                                     
                                         WHERE m.user_id = :userid;", $values);
-
-
-
-
-
             return $temp;
         } catch (DBException $e) {
             echo "Error:<br/>" . $e->getMessage();
@@ -185,7 +175,6 @@ final class UserDao extends Dao
     
     public function tutorProfileUpdate($values)
     {
-
         try {
             $temp = $this->db->query("UPDATE members m JOIN tutor t ON m.user_id = t.user_id
                                         SET m.firstname = :fname,
