@@ -163,7 +163,6 @@ if (isset($_POST['firstname'], $_POST['surname'], $_POST['email'])) {
 
             $array = array("fname" => $firstname, "sname" => $lastname, "mail" => $email, "workno" => $worknumber, "strno" => $streetnumber, "strname" => $streetname, "suburb" => $suburb, "city" => $city, "pcode" => $postalcode, "homeno" => $homenumber , "cellno" => $cellnumber, "jobdept" => $jobdepartment, "jobpos" => $jobposition, "altemail" => $alternativeemail, "userid" => $id);
             
-           var_dump($array);
 
             $result = $user->adminProfileUpdate($array);
             if($result > 0){

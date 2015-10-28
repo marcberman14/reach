@@ -302,7 +302,7 @@
                                     <div class="panel-footer">
                                         <div class="row">
                                             <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                                 <button type="reset" class="btn btn-default">Reset</button>
                                             </div>
                                         </div>
@@ -336,7 +336,7 @@
                                     <div class="panel-footer">
                                         <div class="row">
                                             <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                                 <button type="reset" class="btn btn-default">Reset</button>
                                             </div>
                                         </div>

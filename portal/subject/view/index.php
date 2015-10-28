@@ -62,7 +62,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                             </div>
                         </div>
 
-                        <div class="alert alert-success hidden" id="contactSuccess">Success! You will be redirected shortly.</div>
+                        <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
                         <div class="alert alert-danger hidden" id="contactError">Error!</div>
 
                         <table class="table table-bordered table-striped mb-none" id="members">

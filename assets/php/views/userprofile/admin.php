@@ -182,8 +182,11 @@
                             <input id="profileupload" name="profileupload[]" type="file" class="file-loading">
                         </form>
 
+                        <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
+                        <div class="alert alert-danger hidden" id="contactError">Error!</div>
+
                         <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php"
-                              method="post" name="studentprofile" id="studentprofile">
+                              method="post" name="admform" id="admform">
                             <h4 class="mb-xlg">Personal Information</h4>
                             <fieldset>
 
@@ -324,7 +327,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>
@@ -462,6 +465,8 @@
 </section>
 </div>
 </section>
+
+<?php echo $views->addScript(Array("/assets/ajax/userprofile/admin.js")) ?>
 
 </body>
 </html>

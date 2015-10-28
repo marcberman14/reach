@@ -183,7 +183,7 @@
                         </form>
 
                         <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php"
-                              method="post" name="studentprofile" id="studentprofile">
+                              method="post" name="tutorform" id="tutorform">
                             <h4 class="mb-xlg">Personal Information</h4>
                             <fieldset>
 
@@ -370,7 +370,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>
@@ -379,7 +379,7 @@
 
                         <hr class="dotted tall">
                         <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post"
-                              name="studentprofile" id="studentprofile">
+                              name="paswword" id="passwors">
                             <h4 class="mb-xlg">Change Password</h4>
                             <fieldset class="mb-xl">
                                 <div class="form-group">
@@ -408,7 +408,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>

@@ -232,7 +232,7 @@
 
                                     <div class="col-md-8">
                                         <input type="text" value="<?php echo $_SESSION['user']->getStreetName() ?>"
-                                               class="form-control" name="eastreetname" id="eastreetname">
+                                               class="form-control" name="teastreetname" id="teastreetname">
                                     </div>
                                 </div>
 
@@ -318,7 +318,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>
@@ -356,7 +356,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>

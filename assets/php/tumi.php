@@ -15,27 +15,40 @@ ini_set('display_errors',1);
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/AnswerDao.php";
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/ResultDao.php";
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/QuestionDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TestDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/database/dao/UserDao.php";
 	//$subject = new Subject();
 	//$tutsubject = new TutorSubjectDao();
-	$ans = new AnswerDao();
+	//$tes = new TestDao();
 	
-	$que = new QuestionDao();
+	//$ans = new AnswerDao();
 	
-	$res = new ResultDao();
+	//$que = new QuestionDao();
 	
-	$array1 = array("testid"=>55);
+	//$res = new ResultDao();
 	
-	$array2 = array("testid"=>56,"user"=>107);
+	//$array1 = array("testid"=>56);
 	
-	$question = $que->getTestQuestion($array1);
+	//$array2 = array("testid"=>56,"user"=>107);
 	
-	$answer = $ans->getAnswers($array2);
+	//$question = $que->getTestQuestion($array1);
 	
-	$result = $res->viewTestResult($array2);
+	//$answer = $ans->getAnswers($array2);
 	
+	//$result = $res->viewTestResult($array2);
 	
+	//$test = $tes->test($array1);
+	
+	$test = new TestDao();
+	
+	$subid = 81;
+
+$array = array("subjectid"=>$subid);
+
+
+
+$tests = $test->getSubjTest($array);
 
 	
 	//$userDetails -> firstname;
@@ -55,11 +68,13 @@ ini_set('display_errors',1);
 	
 	//$marks = $test['test_marks'];
 	
-	var_dump($question);
+	//var_dump($question);
 	
-	var_dump($answer);
+	//var_dump($answer);
 	
-	var_dump($result);
+	//var_dump($result);
+	
+	var_dump($test);
 	
 	//var_dump($mdata[0]['test_name']);
 	//$hi = $data['firstname'];	

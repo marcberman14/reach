@@ -27,6 +27,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->user_profile($_SESSION['user']->getPer
     echo $views->addStyle(Array("/assets/vendor/bootstrap-fileinput-master/css/fileinput.css"));
 
     echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
+        "/assets/vendor/jquery-validation/jquery.validate.min.js",
         "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
         "/assets/vendor/bootstrap/js/bootstrap.js",
         "/assets/vendor/nanoscroller/nanoscroller.js",

@@ -61,7 +61,7 @@
                     <li class="nav-parent">
                         <a>
                             <i class="fa fa-database" aria-hidden="true"></i>
-                            <span>Database</span>
+                            <span>Database Management</span>
                         </a>
                         <ul class="nav nav-children">
 
@@ -74,7 +74,7 @@
                     <li class="nav-parent">
                         <a>
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>Users</span>
+                            <span>Profile</span>
                         </a>
                         <ul class="nav nav-children">
                             <li>
