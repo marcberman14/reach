@@ -54,10 +54,11 @@ final class SubjectDao extends Dao {
 
         try {
             $temp = $this->db->query("SELECT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
-                                        FROM subjects sub
-                                        LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
-                                        LEFT JOIN student st ON st.studentId = e.student_id
-                                        WHERE sub.subject_id = e.subject_id;",$values);
+                                      FROM subjects sub
+                                      LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                      LEFT JOIN student st ON st.studentId = e.student_id
+                                      WHERE sub.subject_id = e.subject_id
+                                      AND st.studentId = :studid;",$values);
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();

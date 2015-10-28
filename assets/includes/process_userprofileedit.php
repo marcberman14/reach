@@ -50,6 +50,8 @@ if (isset($_POST['firstname'], $_POST['surname'], $_POST['email'])) {
 
 
             $array = array("fname" => $firstname, "sname" => $lastname, "mail" => $email, "strno" => $streetnumber, "strname" => $streetname, "suburb" => $suburb, "city" => $city, "pcode" => $postalcode, "homeno" => $homenumber, "cellno" => $cellnumber, "altno" => $altnumber, "parno" => $parentno, "school" => $schoolname, "userid" => $id);
+            
+            
 
             $result = $user->studentProfileUpdate($array);
 

@@ -47,42 +47,8 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                 </header>
                 <!-- end: breadcrumbs -->
                 <!-- start: page -->
-                <section class="panel">
-                    <header class="panel-heading">
-                        <h2 class="panel-title">View Subjects</h2>
-                    </header>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-md">
-                                    <form method="POST" action="../new/">
-                                        <button class="btn btn-primary push-bottom">Add a Subject <i class="fa fa-plus"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
-                        <div class="alert alert-danger hidden" id="contactError">Error!</div>
-
-                        <table class="table table-bordered table-striped mb-none" id="members">
-                            <thead>
-                            <tr>
-                                <th width="10%">Subject ID</th>
-                                <th width="10%">Subject Code</th>
-                                <th width="20%">Subject Name</th>
-                                <th width="10%">Subject Grade</th>
-                                <th width="20%">Subject Description</th>
-                                <th width="20%">Subject Category</th>
-                                <th width="20%">Subject Tutor</th>
-                                <th width="20%">Functions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+                
+               <!--End: page -->
     </section>
 <?php
     echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
@@ -121,7 +87,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                 bProcessing: true,
                 sAjaxSource: "/assets/datatables/subjects/subjects.php",
                 "aoColumns": [
-                    { "mData": "Subject ID" },
+
                     { "mData": "Subject Code" },
                     { "mData": "Subject Name" },
                     { "mData": "Subject Grade" },
