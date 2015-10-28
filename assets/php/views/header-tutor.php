@@ -49,65 +49,6 @@
 
         <!-- start: search & user box -->
         <div class="header-right">
-            <ul class="notifications">
-
-                <li>
-                    <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
-                        <i class="fa fa-bell"></i>
-                            <span class="badge"><?php
-                                $tutorCount = $security->tutorCount();
-                                $teacherCount = $security->teacherCount();
-                                $adminCount = $security->adminCount();
-                                print_r($tutorCount + $teacherCount + $adminCount); ?></span>
-                    </a>
-
-                    <div class="dropdown-menu notification-menu">
-                        <div class="notification-title">
-                            <span class="pull-right label label-default"><?php print_r($tutorCount + $teacherCount + $adminCount); ?></span>
-                            Pending Approvals
-                        </div>
-
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <div class="image">
-                                            <i class="fa fa-graduation-cap bg-info"></i>
-                                        </div>
-                                        <span class="title">Tutors</span>
-                                        <span class="message">Awaiting approval: <?php print_r($tutorCount); ?></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <div class="image">
-                                            <i class="fa fa-book bg-info"></i>
-                                        </div>
-                                        <span class="title">Teachers</span>
-                                        <span class="message">Awaiting approval: <?php print_r($teacherCount); ?></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="clearfix">
-                                        <div class="image">
-                                            <i class="fa fa-star bg-info"></i>
-                                        </div>
-                                        <span class="title">Administrator</span>
-                                        <span class="message">Awaiting approval: <?php print_r($adminCount); ?></span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <hr />
-
-                            <div class="text-right">
-                                <a href="/portal/users/approve/" class="view-more">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-
             <span class="separator"></span>
             <div id="userbox" class="userbox">
 
@@ -127,13 +68,7 @@
                     <ul class="list-unstyled">
                         <li class="divider"></li>
                         <li>
-                            <a role="menuitem" tabindex="-1" href="/portal/userprofile/"><i class="fa fa-user"></i> My Profile</a>
-                        </li>
-                        <li>
-                            <a role="menuitem" tabindex="-1" href="/portal/subject/"><i class="fa fa-bar-chart"></i> My Subjects</a>
-                        </li>
-                        <li>
-                            <a role="menuitem" tabindex="-1" href="/portal/result/"><i class="fa fa-pie-chart"></i> Results</a>
+                            <a role="menuitem" tabindex="-1" href="/portal/userprofile/"><i class="fa fa-user"></i>Profile</a>
                         </li>
                         <li>
                             <a role="menuitem" tabindex="-1" href="/assets/includes/logout.php"><i class="fa fa-power-off"></i> Logout</a>

@@ -182,9 +182,6 @@
                             <input id="profileupload" name="profileupload[]" type="file" class="file-loading">
                         </form>
 
-                        <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
-                        <div class="alert alert-danger hidden" id="contactError">Error!</div>
-
                         <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php"
                               method="post" name="admform" id="admform">
                             <h4 class="mb-xlg">Personal Information</h4>
@@ -336,7 +333,7 @@
 
                         <hr class="dotted tall">
                         <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post"
-                              name="studentprofile" id="studentprofile">
+                              name="password" id="password">
                             <h4 class="mb-xlg">Change Password</h4>
                             <fieldset class="mb-xl">
                                 <div class="form-group">
@@ -365,7 +362,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>
@@ -466,7 +463,8 @@
 </div>
 </section>
 
-<?php echo $views->addScript(Array("/assets/ajax/userprofile/admin.js")) ?>
+<?php echo $views->addScript(Array("/assets/ajax/userprofile/admin.js",
+                                  "/assets/ajax/userprofile/password.js")) ?>
 
 </body>
 </html>

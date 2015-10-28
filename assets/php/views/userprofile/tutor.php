@@ -379,7 +379,7 @@
 
                         <hr class="dotted tall">
                         <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post"
-                              name="paswword" id="passwors">
+                              name="paswword" id="password">
                             <h4 class="mb-xlg">Change Password</h4>
                             <fieldset class="mb-xl">
                                 <div class="form-group">

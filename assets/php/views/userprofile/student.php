@@ -198,7 +198,7 @@
                                 </form>
 
 
-                                <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php" method="post" name="studentprofile" id="studentprofile">
+                                <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php" method="post" name="studentform" id="studentform">
                                     <h4 class="mb-xlg">Personal Information</h4>
                                     <fieldset>
                                         
@@ -310,7 +310,7 @@
                                 </form>
                                     
                                     <hr class="dotted tall">
-                                    <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post" name="studentprofile" id="studentprofile">
+                                    <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post" name="password" id="password">
                                     <h4 class="mb-xlg">Change Password</h4>
                                     <fieldset class="mb-xl">
                                         <div class="form-group">

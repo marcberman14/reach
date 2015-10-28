@@ -126,13 +126,7 @@
                     <ul class="list-unstyled">
                         <li class="divider"></li>
                         <li>
-                            <a role="menuitem" tabindex="-1" href="/portal/userprofile/"><i class="fa fa-user"></i> My Profile</a>
-                        </li>
-                        <li>
-                            <a role="menuitem" tabindex="-1" href="/portal/subject/"><i class="fa fa-bar-chart"></i> My Subjects</a>
-                        </li>
-                        <li>
-                            <a role="menuitem" tabindex="-1" href="/portal/result/"><i class="fa fa-pie-chart"></i> Results</a>
+                            <a role="menuitem" tabindex="-1" href="/portal/userprofile/"><i class="fa fa-user"></i>Profile</a>
                         </li>
                         <li>
                             <a role="menuitem" tabindex="-1" href="/assets/includes/logout.php"><i class="fa fa-power-off"></i> Logout</a>

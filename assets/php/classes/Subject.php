@@ -100,7 +100,6 @@ class Subject
                         <div class="toggle-content">
                             <h3>Description:</h3>
                             <p>'.$subject['subject_description'].'</p>
-                            <a class="btn btn-primary" href="/assets/includes/process_enrolment.php?id='.urlencode($subject["subject_id"]).'&studentid='.urlencode($_SESSION['user']->getStudentID()).'">Enrol in this subject</a>
                         </div>
                      </section>';
             }

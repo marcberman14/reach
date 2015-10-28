@@ -29,7 +29,7 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/subject/view/">View Subjects</a>
+                                <a href="/portal/subject/enrol/">View Subjects</a>
                             </li>
 
                         </ul>

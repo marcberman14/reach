@@ -280,7 +280,7 @@
                         <a href="#" class="fa fa-times"></a>
                     </div>
 
-                    <h2 class="panel-title">My Enrolments</h2>
+                    <h2 class="panel-title">My Subjects</h2>
                     <p class="panel-subtitle">Below are a list of the units you are currently enrolled in.</p>
                 </header>
                 <div class="panel-body">
@@ -291,9 +291,6 @@
                                 echo Subject::myEnrolGenerate();
                                 ?>
 
-                                <?php
-                                echo Subject::enrolGenerate();
-                                ?>
 
                             </div>
                         </div>

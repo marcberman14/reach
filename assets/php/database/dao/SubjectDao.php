@@ -36,9 +36,7 @@ final class SubjectDao extends Dao {
 
         try {
             $temp = $this->db->query("SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category
-                                      FROM subjects AS s
-                                      JOIN enrolment AS e ON s.subject_id = e.subject_id
-                                      JOIN student AS st ON st.studentId = e.student_id
+                                      FROM subjects  AS s, student AS st, enrolment AS e
                                       WHERE e.student_id <> :studid;",$values);
             return $temp;
         } catch (DBException $e) {
@@ -53,9 +51,12 @@ final class SubjectDao extends Dao {
     public function myEnrolments($values){
 
         try {
-            $temp = $this->db->query("SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, st.grade, s.subject_description, s.subject_category
-FROM subjects AS s
-JOIN student AS st ON st.studentid = :studid
+            $temp = $this->db->query("SELECT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                        FROM subjects sub
+                                        LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                        LEFT JOIN student st ON st.studentId = e.student_id
+                                        WHERE sub.subject_id = e.subject_id
+
 ",$values);
             return $temp;
         } catch (DBException $e) {

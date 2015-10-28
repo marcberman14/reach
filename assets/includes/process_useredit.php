@@ -210,4 +210,4 @@ if (isset($_GET['type'], $_GET['id'])) {
     echo json_encode($arrResult);
 }
 
-?>/////////////////
+?>
