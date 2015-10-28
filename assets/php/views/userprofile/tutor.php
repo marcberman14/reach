@@ -184,6 +184,12 @@
 
                         <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php"
                               method="post" name="tutorform" id="tutorform">
+
+                            <div style="margin-top: 20px;">
+                                <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
+                                <div class="alert alert-danger hidden" id="contactError">Error!</div>
+                            </div>
+
                             <h4 class="mb-xlg">Personal Information</h4>
                             <fieldset>
 
@@ -380,6 +386,8 @@
                         <hr class="dotted tall">
                         <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post"
                               name="paswword" id="password">
+                            <div class="alert alert-success hidden" id="passwordSuccess">Success!</div>
+                            <div class="alert alert-danger hidden" id="passwordError">Error!</div>
                             <h4 class="mb-xlg">Change Password</h4>
                             <fieldset class="mb-xl">
                                 <div class="form-group">
@@ -408,7 +416,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="pswsubmit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>

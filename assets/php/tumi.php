@@ -13,8 +13,8 @@ ini_set('display_errors',1);
 //echo "######################################### Marc Test ##########################################################" . "\xA";
 
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/AnswerDao.php";
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/ResultDao.php";
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/QuestionDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TestDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/EnrolmentDao.php";
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/StudentDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/database/dao/UserDao.php";
@@ -39,16 +39,36 @@ ini_set('display_errors',1);
 	//$result = $res->viewTestResult($array2);
 	
 	//$test = $tes->test($array1);
+	//$subid = 81;
 	
 	$student = new StudentDao();
 	
-	$subid = 81;
+	$enrolment = new EnrolmentDao();
+	
+	$test = new TestDao();
+	
+	
 
-$array = array("user"=>99);
+$array = array("user"=>100);
 
 
 
 $tests = $student->getStudent($array);
+
+$studentid = $tests['studentId'];
+
+$array = array("user"=>$studentid);
+
+
+$enrol = $enrolment->getEnrol($array);
+
+
+$subjectid = $enrol[0]['subject_id'];
+
+$array = array("subjectid"=>$subjectid);
+
+$testing = $test->getSubjTest($array);
+
 
 	
 	//$userDetails -> firstname;
@@ -74,7 +94,7 @@ $tests = $student->getStudent($array);
 	
 	//var_dump($result);
 	
-	var_dump($tests);
+	var_dump($testing);
 	
 	//var_dump($mdata[0]['test_name']);
 	//$hi = $data['firstname'];	

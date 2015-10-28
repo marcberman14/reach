@@ -8,6 +8,7 @@
     <meta name="description" content="<?php echo $description; ?>">
 
     <?php $views = new View();
+
     echo $views->addMeta(Array("width=device-width, initial-scale=1.0"));
     echo $views->addStyle(Array("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light","https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
         "/assets/home-site/vendor/bootstrap/bootstrap.css",
@@ -19,16 +20,6 @@
         "/assets/home-site/vendor/rs-plugin/css/settings.css",
         "/assets/home-site/vendor/circle-flip-slideshow/css/component.css",
         "/assets/home-site/css/skins/default.css"));
-
-    echo $views->addScript(Array("/assets/home-site/vendor/jquery/jquery.js",
-        "/assets/home-site/vendor/bootstrap/bootstrap.js",
-        "/assets/home-site/vendor/common/common.js",
-        "/assets/home-site/vendor/jquery.validation/jquery.validation.js",
-        "/assets/home-site/js/theme.js",
-        "/assets/home-site/vendor/modernizr/modernizr.js",
-        "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
-        "/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js",
-        "/assets/home-site/js/theme.init.js"));
     ?>
     <link rel="shortcut icon" href="/assets/img/favicon.ico">
 </head>

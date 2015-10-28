@@ -34,7 +34,7 @@
                                 <a href="/portal/subject/enrol/">Add Enrolments</a>
                             </li>
                             <li>
-                                <a href="/portal/subject/enrol/">View Enrolments</a>
+                                <a href="/portal/subject/enrol/view/">View Enrolments</a>
                             </li>
 
                         </ul>
@@ -47,7 +47,7 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/test/view-tests/">View Tests</a>
+                                <a href="/portal/test/view-tests/studenttest.php">View Tests</a>
                             </li>
 
                         </ul>

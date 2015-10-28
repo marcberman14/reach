@@ -184,6 +184,12 @@
 
                         <form class="form-horizontal" action="/assets/includes/process_userprofileedit.php"
                               method="post" name="admform" id="admform">
+
+                            <div style="margin-top: 20px;">
+                                <div class="alert alert-success hidden" id="contactSuccess">Success!</div>
+                                <div class="alert alert-danger hidden" id="contactError">Error!</div>
+                            </div>
+
                             <h4 class="mb-xlg">Personal Information</h4>
                             <fieldset>
 
@@ -333,7 +339,9 @@
 
                         <hr class="dotted tall">
                         <form class="form-horizontal" action="/assets/includes/process_editpassword.php" method="post"
-                              name="password" id="password">
+                              name="studentprofile" id="studentprofile">
+                            <div class="alert alert-success hidden" id="passwordSuccess">Success!</div>
+                            <div class="alert alert-danger hidden" id="passwordError">Error!</div>
                             <h4 class="mb-xlg">Change Password</h4>
                             <fieldset class="mb-xl">
                                 <div class="form-group">
@@ -362,7 +370,7 @@
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-md-9 col-md-offset-3">
-                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="pswsubmit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </div>
                                 </div>
@@ -463,8 +471,7 @@
 </div>
 </section>
 
-<?php echo $views->addScript(Array("/assets/ajax/userprofile/admin.js",
-                                  "/assets/ajax/userprofile/password.js")) ?>
+<?php echo $views->addScript(Array("/assets/ajax/userprofile/admin.js")) ?>
 
 </body>
 </html>

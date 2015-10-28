@@ -12,6 +12,15 @@ $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutori
 $security->refreshUser($_SESSION['user_id']);
 include($_SERVER['DOCUMENT_ROOT']."/assets/php/views/header-home.php");
 ?>
+<?php echo $views->addScript(Array("/assets/home-site/vendor/jquery/jquery.js",
+    "/assets/home-site/vendor/bootstrap/bootstrap.js",
+    "/assets/home-site/vendor/common/common.js",
+    "/assets/home-site/vendor/jquery.validation/jquery.validation.js",
+    "/assets/home-site/js/theme.js",
+    "/assets/home-site/vendor/modernizr/modernizr.js",
+    "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
+    "/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js",
+    "/assets/home-site/js/theme.init.js")); ?>
     <div role="main" class="main push-top">
         <div class="container">
             <div class="row">
@@ -3065,6 +3074,8 @@ include($_SERVER['DOCUMENT_ROOT']."/assets/php/views/header-home.php");
                                     </div>
                                 </form>
 
+
+
                                 <!--AJAX Login View + validation-->
                                 <script type="text/JavaScript" src="/assets/ajax/profile/admin-submit.js"></script>
 
@@ -3112,7 +3123,6 @@ include($_SERVER['DOCUMENT_ROOT']."/assets/php/views/header-home.php");
 
                             <?php }
                             ?>
-
                         </div>
                     </div>
                 </div>
