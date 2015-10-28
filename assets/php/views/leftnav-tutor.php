@@ -29,11 +29,12 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/subject/new/">New Subject</a>
-                            </li>
-                            <li>
                                 <a href="/portal/subject/view/">View Subjects</a>
                             </li>
+                            <li>
+                                <a href="/portal/subject/new/">New Subject</a>
+                            </li>
+
 
                         </ul>
                     </li>

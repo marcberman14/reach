@@ -51,7 +51,9 @@ if($usertype == "Teacher"){
 	}elseif($usertype == "Student"){
 		
 		$perm = 1;
-	}
+	}elseif($usertype == "Administrator"){
+        $perm = 4;
+    }
 
 
 if($login['response'] != "error") {
@@ -572,11 +574,13 @@ if($login['response'] != "error") {
 
                                 </div>
                             </div>';
-
-
-
-
-                                     }?>
+                                    }elseif($perm == 4 && $profile != false){
+                                         var_dump($profile);
+                                     }
+                    
+                    
+                    
+                    ?>
 
 
                 </div>

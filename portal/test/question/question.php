@@ -113,19 +113,19 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                 	<input type="hidden" name="questid" id="questid" value="<?php echo $mdata[$questionnumber]['question_id'] ;?>"></input>
                 
                     <label for="optradio1"></label>
-                    <input type="radio" name="optradio1" id="a1" value="<?php echo $mdata[$questionnumber]['correctanswer'] ;?>">1.<?php echo $mdata[$questionnumber]['correctanswer'] ;?></input>
+                    <input type="radio" name="optradio1" id="a1" value="<?php echo $mdata[$questionnumber]['correctanswer'] ;?>">1 : <?php echo $mdata[$questionnumber]['correctanswer'] ;?></input>
                 </div>
                 <div class="radio">
                     <label for="optradio2"></label>
-                    <input type="radio" name="optradio1" id="a2" value="<?php echo $mdata[$questionnumber]['wronganswer1'] ;?>">2.<?php echo $mdata[$questionnumber]['wronganswer1'] ;?></input>
+                    <input type="radio" name="optradio1" id="a2" value="<?php echo $mdata[$questionnumber]['wronganswer1'] ;?>">2 : <?php echo $mdata[$questionnumber]['wronganswer1'] ;?></input>
                 </div>
                 <div class="radio">
                     <label for="optradio3"></label>
-                    <input type="radio" name="optradio1" id="a3" value="<?php echo $mdata[$questionnumber]['wronganswer2'] ;?>">3.<?php echo $mdata[$questionnumber]['wronganswer2'] ;?></input>
+                    <input type="radio" name="optradio1" id="a3" value="<?php echo $mdata[$questionnumber]['wronganswer2'] ;?>">3 : <?php echo $mdata[$questionnumber]['wronganswer2'] ;?></input>
                 </div>
                 <div class="radio">
                     <label for="optradio4"></label>
-                    <input type="radio" name="optradio1" id="a4" value="<?php echo $mdata[$questionnumber]['wronganswer3'] ;?>">4.<?php echo $mdata[$questionnumber]['wronganswer3'] ;?></input>
+                    <input type="radio" name="optradio1" id="a4" value="<?php echo $mdata[$questionnumber]['wronganswer3'] ;?>">4 : <?php echo $mdata[$questionnumber]['wronganswer3'] ;?></input>
                 </div>
             </div>
         </div>

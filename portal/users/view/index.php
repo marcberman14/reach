@@ -48,7 +48,16 @@ if($login['response'] != "error" && $state['response']== 'success') {
                     <header class="panel-heading">
                         <h2 class="panel-title">Users Summary</h2>
                     </header>
+
                     <div class="panel-body">
+
+                    <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-md">
+                                    <a class="btn btn-primary" href="../new/">Create a user <i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     <table class="table table-bordered table-striped" id="members">
                         <thead>
                         <tr>
