@@ -115,7 +115,7 @@
                                                 <div class="input-group mb-md">
                                                     <input class="form-control" type="text">
                                                     <div class="input-group-btn">
-                                                        <button type="button" class="btn btn-primary" tabindex="-1">Add</button>
+                                                        <button type="submit" class="btn btn-primary" tabindex="-1">Add</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -15,7 +15,7 @@ ini_set('display_errors',1);
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/AnswerDao.php";
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/ResultDao.php";
 	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/QuestionDao.php";
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TestDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/StudentDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/database/dao/UserDao.php";
 	//$subject = new Subject();
@@ -40,15 +40,15 @@ ini_set('display_errors',1);
 	
 	//$test = $tes->test($array1);
 	
-	$test = new TestDao();
+	$student = new StudentDao();
 	
 	$subid = 81;
 
-$array = array("subjectid"=>$subid);
+$array = array("user"=>99);
 
 
 
-$tests = $test->getSubjTest($array);
+$tests = $student->getStudent($array);
 
 	
 	//$userDetails -> firstname;
@@ -74,7 +74,7 @@ $tests = $test->getSubjTest($array);
 	
 	//var_dump($result);
 	
-	var_dump($test);
+	var_dump($tests);
 	
 	//var_dump($mdata[0]['test_name']);
 	//$hi = $data['firstname'];	
