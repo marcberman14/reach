@@ -13,6 +13,12 @@ $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring"
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
 if($login['response'] != "error" && $state['response']== 'success') {
+
+    $acl = $security->accessRights(Array("Student","Tutor","Teacher","Administrator"));
+    if($acl['response']== 'error'){
+        echo $acl['script'];
+    }
+
     $security->refreshUser($_SESSION['user_id']);
 
     if($state['response']== 'warning'){
@@ -59,6 +65,7 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
     "/assets/vendor/magnific-popup/magnific-popup.js",
     "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
     "/assets/vendor/modernizr/modernizr.js",
+    "/assets/vendor/jquery-easypiechart/jquery.easypiechart.js",
     "/assets/javascripts/theme.js",
     "/assets/javascripts/theme.init.js"));
     } else {

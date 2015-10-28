@@ -24,80 +24,29 @@
 
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-briefcase" aria-hidden="true"></i>
-                            <span>Subject Management</span>
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <span>Subject Content</span>
                         </a>
                         <ul class="nav nav-children">
                             <li>
                                 <a href="/portal/subject/view/">View Subjects</a>
                             </li>
-                            <li>
-                                <a href="/portal/subject/new/">New Subject</a>
-                            </li>
-                            <li>
-                                <a href="/portal/subject/edit/">Edit Subject</a>
-                            </li>
-                            <li>
-                                <a href="/portal/subject/delete/">Delete Subject</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-parent">
-                        <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <span>User Management</span>
-                        </a>
-                        <ul class="nav nav-children">
-                            <li>
-                                <a href="/portal/users/view/">View Users</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/new/">New Users</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/edit/">Edit Users</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/activate/">Activate/Deactivate Users</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/approve/">User Approval</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/password-reset/">Reset Users Password</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-parent">
-                        <a>
-                            <i class="fa fa-gears" aria-hidden="true"></i>
-                            <span>Settings and Permissions</span>
-                        </a>
-                        <ul class="nav nav-children">
-                            <li>
-                                <a href="/portal/settings/user-groups/">User Groups</a>
-                            </li>
-                            <li>
-                                <a href="/portal/settings/page-view/">Page View Permissions</a>
-                            </li>
 
                         </ul>
                     </li>
 
+
+
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-gears" aria-hidden="true"></i>
-                            <span>Users</span>
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>My Profile</span>
                         </a>
                         <ul class="nav nav-children">
                             <li>
                                 <a href="/portal/userprofile/">View Profile</a>
                             </li>
-                            <li>
-                                <a href="/portal/userprofile/edit/">Edit Profile</a>
-                            </li>
+
                         </ul>
                     </li>
 

@@ -87,7 +87,7 @@ $mdata = $question->getTestQuestion(array("testid"=>$testid));
                                         
                                         
                                         
-                                        <section class="panel">
+                         <section class="panel">
                     <header class="panel-heading">
                         <h2 class="panel-title"><?php echo $_REQUEST['testname']; ?>'s Questions</h2>
                     </header>

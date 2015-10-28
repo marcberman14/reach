@@ -27,7 +27,7 @@ if (isset($_POST['question'],$_GET['id'],$_POST['answer1'], $_POST['answer2'],  
     $answer1 = filter_input(INPUT_POST, 'answer1', FILTER_SANITIZE_STRING);
     $answer2 = filter_input(INPUT_POST, 'answer2', FILTER_SANITIZE_STRING);
     $answer3 = filter_input(INPUT_POST, 'answer3', FILTER_SANITIZE_STRING);
-    $answer4 = filter_input(INPUT_POST, 'answer4', FILTER_SANITIZE_STRING);8
+    $answer4 = filter_input(INPUT_POST, 'answer4', FILTER_SANITIZE_STRING);
 	$canswer = filter_input(INPUT_POST, 'canswer', FILTER_SANITIZE_STRING);
 	$bestanswer;
 

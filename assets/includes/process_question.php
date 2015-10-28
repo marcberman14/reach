@@ -29,7 +29,7 @@ if(isset($_POST["question_id"],$_POST["question"],$_POST["wanswer"],$_POST["wans
     $array = array("question" =>$question, "Wrong Answer" => $wanswer,"Wrong answer 1" => $wanswer1,"Wrong answer 2" => $wanswer2, "Wrong answer 3" =>$wanswer3,"Correct answer3" =>$canswer);
 
 
-{
+
     $tester = new TestDao();
     $testobj = $tester->pullTest(array('testid' => $test_id));
     if($testobj != null){
@@ -38,12 +38,12 @@ if(isset($_POST["question_id"],$_POST["question"],$_POST["wanswer"],$_POST["wans
 		
 		header('location:http://vps.bermanz.co.za/portal/test/new-test/index.php');
 		
-    }
+
 }
 
 
 }else{
-$arrResult = array ('response'=>'error','reason'=>'A fatal error has occurredhkjhjk, if this problem persists please contact an administrator.');
+$arrResult = array ('response'=>'error','reason'=>'A fatal error has occurred, if this problem persists please contact an administrator.');
 echo json_encode($arrResult);
 }
 ?>

@@ -14,12 +14,12 @@ $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring"
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
 $asset = new LessonAssetDao();
-$videoUrlArray = $asset->getAssetUrl(array("fileid"=>20));
+$videoUrlArray = $asset->getVideoUrl(array("lessonid"=>5));
 $videoUrl = $videoUrlArray['url'];
 urldecode($videoUrl);
 
 $asset = new LessonAssetDao();
-$pdfUrlArray = $asset->getAssetUrl(array("fileid"=>19));
+$pdfUrlArray = $asset->getPdfUrl(array("lessonid"=>5));
 $pdfUrl = $pdfUrlArray['url'];
 urldecode($pdfUrl);
 
@@ -56,11 +56,15 @@ if($login['response'] != "error" && $state['response']== 'success') {
 
         <!-- start: page -->
         
+         <h3>Lesson Video</h3>
+        
                 <div class = "col-md-12">
 	                <div class="embed-responsive embed-responsive-16by9">        
 							<iframe title="YouTube video player" class="embed-responsive-item" type="text/html" src=" <?php echo $videoUrl ?>" allowFullScreen></iframe>
 	            </div>
         		</div>
+        
+        <h3>Lesson Content</h3>
        
 
         <div class = "col-md-12">

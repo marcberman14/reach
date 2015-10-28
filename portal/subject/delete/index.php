@@ -16,6 +16,11 @@ $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutori
 if($login['response'] != "error" && $state['response']== 'success') {
     $security->refreshUser($_SESSION['user_id']);
 
+    $acl = $security->accessRights(Array("Administrator"));
+    if($acl['response']== 'error'){
+        echo $acl['script'];
+    }
+
     if($state['response']== 'warning'){
         echo $state['script'];
     }

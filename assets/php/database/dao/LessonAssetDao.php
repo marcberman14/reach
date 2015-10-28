@@ -32,10 +32,24 @@ final class LessonAssetDao extends Dao {
         }
 	}
     
-    public function getAssetUrl($values){
+    public function getVideoUrl($values){
 
         try {
-            $temp = $this->db->row("SELECT url from lesson_assets WHERE lesson_id = :lessonid;", $values);
+            $temp = $this->db->row("SELECT url from lesson_assets WHERE lesson_id = :lessonid and type = 'video';", $values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+	}
+    
+    public function getPdfUrl($values){
+
+        try {
+            $temp = $this->db->row("SELECT url from lesson_assets WHERE lesson_id = :lessonid and type = 'pdf';", $values);
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();

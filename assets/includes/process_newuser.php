@@ -1,6 +1,8 @@
 <?php
-include_once 'db_connect.php';
-include_once 'functions.php';
+include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Security.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SecurityDao.php";
+$security = new Security();
+$security->sec_session_start();
 
 require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/UserDao.php";
 $user = new UserDao();
@@ -62,7 +64,7 @@ if (isset($_POST['firstname'],$_POST['surname'], $_POST['email'], $_POST['userty
 
         // Create salted password 
         $password = hash('sha512', $randomString . $random_salt);
-        $active = "noprofile";
+        $active = "emailverify";
         $profilepic = "default.png";
         // Insert the new user into the database
 		
@@ -90,27 +92,30 @@ if (isset($_POST['firstname'],$_POST['surname'], $_POST['email'], $_POST['userty
                     $headerRep = "From: marc@bermanz.co.za <marc@bermanz.co.za>";
                     $subjectRep = "Reach Account Creation";
                     $messageRep = "Your Account has been created. Your password is: " . $randomString;
-                    mail($email, $subjectRep, $messageRep, $headerRep);
-                    $arrResult = array ('response'=>'success');
-                    echo json_encode($arrResult);
-                    
+                    mail($email, $subject, $message, $header);
+
+                    $hash = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
+                    $sec_login = new SecurityDao();
+                    $sec_login->insertHash($email, $hash);
+                    $emailsent = $security->sendEmail($email, $hash);
+                    if($emailsent){
+                        $arrResult = array ('response'=>'success','reason'=>'User has been succesfully created.');
+                        echo json_encode($arrResult);
+                    }
+                    else{
+                        $arrResult = array ('response'=>'error','reason'=>'Activation email failed to send.');
+                        echo json_encode($arrResult);
+                    }
                 }
                 else{
-                    $arrResult = array ('response'=>'error','reason'=>'"Email failed to send.');
-                echo json_encode($arrResult);
-                    echo json_encode($arrResult);                  
+                    $arrResult = array ('response'=>'error','reason'=>'Notification Email failed to send.');
+                    echo json_encode($arrResult);
                 }
-                
             }
-        
-
-
-    }else { $arrResult = array ('response'=>'error','reason'=>'A fatal error has occurredhkjhjk, if this problem persists please contact an administrator.');
+    }else {
+        $arrResult = array ('response'=>'error','reason'=>'A fatal error has occurred, if this problem persists please contact an administrator.');
         echo json_encode($arrResult);
-
     }
-
-
 } else {
     $arrResult = array ('response'=>'error','reason'=>'Please ensure you have entered all the required fields.');
     echo json_encode($arrResult);

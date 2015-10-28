@@ -143,54 +143,7 @@ if($permis == 1){
 
                                     <?php
 
-									if($user->getUserActive() == "active"){
-                                                    echo '<select class="form-control input" name="active" id="active">
-													<option selected value="active">Activated</option>
-                                                    <option value="noprofile">Approve - No Profile</option>
-                                                    <option value="notapproved">Approval Pending</option>
-                                                    <option value="inactive">Deactivated</option>
-                                                    <option value="invalid">Deny User</option> </select>';
-                                                } elseif ($user->getUserActive()== "inactive") {
-                                                    echo '<select class="form-control input" name="active" id="active">
-                                                    <option value="active">Activated</option>
-                                                    <option value="noprofile">Approve - No Profile</option>
-                                                    <option value="notapproved">Approval Pending</option>
-                                                    <option selected value="inactive">Deactivated</option>
-                                                    <option value="invalid">Deny User</option>
-													</select>';
-                                                } elseif ($user->getUserActive() == "noprofile") {
-                                                    echo '<select class="form-control input" name="active" id="active">
-                                                    <option value="active">Activated</option>
-                                                    <option selected value="noprofile">Approve - No Profile</option>
-                                                    <option value="notapproved">Approval Pending</option>
-                                                    <option value="inactive">Deactivated</option>
-                                                    <option value="invalid">Deny User</option>
-													</select>';
-                                                } elseif ($user->getUserActive() == "notapproved") {
-                                                    echo '<select class="form-control input" name="active" id="active">
-                                                    <option value="active">Activated</option>
-                                                    <option value="noprofile">Approve - No Profile</option>
-                                                    <option selected value="notapproved">Approval Pending</optionselected>
-                                                    <option value="inactive">Deactivated</option>
-                                                    <option value="invalid">Deny User</option>
-													</select>';
-                                                } elseif ($user->getUserActive() == "invalid") {
-                                                    echo ' <select class="form-control input" name="active" id="active">
-                                                    <option value="active">Activated</option>
-                                                    <option value="noprofile">Approve - No Profile</option>
-                                                    <option value="notapproved">Approval Pending</option>
-                                                    <option value="inactive">Deactivate</option>
-                                                    <option selected value="invalid">Deny User</option>
-													</select>';
-                                                }else {
-                                                    echo ' <select class="form-control input" name="active" id="active">
-                                                    <option value="active">Activated</option>
-                                                    <option value="noprofile">Approve - No Profile</option>
-                                                    <option value="notapproved">Approval Pending</option>
-                                                    <option value="inactive">Deactivate</option>
-                                                    <option selected value="invalid">Deny User</option>
-													</select>';
-                                                }
+
 									 ?>
                                     </div>
                                 </div>

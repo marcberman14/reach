@@ -32,6 +32,55 @@ final class SubjectDao extends Dao {
         }
 	}
 
+    public function enrolmentGetAllSubs($values){
+
+        try {
+            $temp = $this->db->query("SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category
+                                      FROM subjects AS s
+                                      JOIN enrolment AS e ON s.subject_id = e.subject_id
+                                      JOIN student AS st ON st.studentId = e.student_id
+                                      WHERE e.student_id <> :studid;",$values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function myEnrolments($values){
+
+        try {
+            $temp = $this->db->query("SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, st.grade, s.subject_description, s.subject_category
+FROM subjects AS s
+JOIN student AS st ON st.studentid = :studid
+",$values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function enrolStudent($values){
+
+        try {
+            $temp = $this->db->query("INSERT INTO enrolment (subject_id, student_id) VALUES (:subid, :studentid);",$values);
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
 	
 	public function getSubjectTut(){
 

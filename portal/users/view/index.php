@@ -6,16 +6,21 @@
     $security = new Security();
     $security->sec_session_start();
     $login = $security->login_check();
-    $security->refreshUser($_SESSION['user_id']);
+    $state = $security->userActiveState();
     $title = "Users";
     $page_heading = "View Users";
     $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
     $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
-    if($login['response'] != "error") {
-        include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
+if($login['response'] != "error" && $state['response']== 'success') {
+    $security->refreshUser($_SESSION['user_id']);
 
-        include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
+    if($state['response']== 'warning'){
+        echo $state['script'];
+    }
+
+    include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
+    include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
 ?>
             <!-- begin: breadcrumbs -->
             <section role="main" class="content-body">

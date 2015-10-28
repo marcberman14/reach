@@ -1,7 +1,7 @@
 $().ready(function() {
 
     $.validator.addMethod("lettersonly", function(value, element) {
-        return this.optional(element) || /^[a-zA-Z\s\-\.]+$/i.test(value);
+        return this.optional(element) || /^[a-zA-Z\s\-\._~\-!@#\$%\^&\*\(\)]+$/i.test(value);
     });
 
     $.validator.addMethod("alphanumeric", function(value, element) {
@@ -10,18 +10,6 @@ $().ready(function() {
 
     $.validator.addMethod("addresses", function(value, element) {
         return this.optional(element) || /^[a-zA-Z0-9\-]+$/i.test(value);
-    });
-
-    $.validator.addMethod("exactlength", function(value, element, param) {
-        return this.optional(element) || value.length == param;
-    });
-
-    $.validator.addMethod("password", function(value, element) {
-        return this.optional(element) || /^[a-zA-Z0-9!@#$%^&*()_+={};:|<>?]*$/i.test(value);
-    });
-
-    $.validator.addMethod("passwordrules", function(value, element) {
-        return this.optional(element) || /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/i.test(value);
     });
 
     /****************************************
@@ -65,7 +53,6 @@ $().ready(function() {
             },
             subject_description: {
                 required: true,
-                lettersonly: true
             },
             subject_category: {
                 required: true,

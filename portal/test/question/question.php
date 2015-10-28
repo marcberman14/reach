@@ -3,6 +3,8 @@ include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/View.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Security.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/SubjectDao.php";
 
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/QuestionDao.php";
+
 $views = new View();
 $security = new Security();
 $security->sec_session_start();
@@ -23,7 +25,7 @@ if($state['response']== 'warning'){
 include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
 include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
 	
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/QuestionDao.php";
+	
 	
 	
 	$questionnumber = $_GET['quest'];
@@ -97,7 +99,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
 <!--Questions to Answer-->
 
 <div class="panel-body">
-<form method="POST" action="../question/question.php?id=<?php echo $_GET['id'];  ?>&quest=<?php echo ($questionnumber+1);?>">
+<form method="POST" action="/assets/includes/process_answer.php?id=<?php echo $_GET['id'];  ?>&quest=<?php echo ($questionnumber+1);?>">
 
     <fieldset>
         <div class="col-md-12 col-md-offset-0.5">
@@ -108,29 +110,31 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                 <h4><?php echo $mdata[$questionnumber]['question'] ;?></h4>
                 </fieldset>
                 <div class="radio">
+                	<input type="hidden" name="questid" id="questid" value="<?php echo $mdata[$questionnumber]['question_id'] ;?>"></input>
+                
                     <label for="optradio1"></label>
-                    <input type="radio" name="optradio1">1.<?php echo $mdata[$questionnumber]['correctanswer'] ;?></input>
+                    <input type="radio" name="optradio1" id="a1" value="<?php echo $mdata[$questionnumber]['correctanswer'] ;?>">1.<?php echo $mdata[$questionnumber]['correctanswer'] ;?></input>
                 </div>
                 <div class="radio">
                     <label for="optradio2"></label>
-                    <input type="radio" name="optradio2">2.<?php echo $mdata[$questionnumber]['wronganswer1'] ;?></input>
+                    <input type="radio" name="optradio1" id="a2" value="<?php echo $mdata[$questionnumber]['wronganswer1'] ;?>">2.<?php echo $mdata[$questionnumber]['wronganswer1'] ;?></input>
                 </div>
                 <div class="radio">
                     <label for="optradio3"></label>
-                    <input type="radio" name="optradio3">3.<?php echo $mdata[$questionnumber]['wronganswer2'] ;?></input>
+                    <input type="radio" name="optradio1" id="a3" value="<?php echo $mdata[$questionnumber]['wronganswer2'] ;?>">3.<?php echo $mdata[$questionnumber]['wronganswer2'] ;?></input>
                 </div>
                 <div class="radio">
                     <label for="optradio4"></label>
-                    <input type="radio" name="optradio4">4.<?php echo $mdata[$questionnumber]['wronganswer3'] ;?></input>
+                    <input type="radio" name="optradio1" id="a4" value="<?php echo $mdata[$questionnumber]['wronganswer3'] ;?>">4.<?php echo $mdata[$questionnumber]['wronganswer3'] ;?></input>
                 </div>
             </div>
         </div>
     </fieldset>
 
-    
-        <button class="btn btn-primary push-bottom">Next Question <i class="fa fa-plus"></i></button>
+    	
+        <?php if($questionnumber+1 < count($mdata)){ echo '<button name="button" id="button" value="next" class="btn btn-primary push-bottom">Next Question <i class="fa fa-plus"></i></button>';}else{ echo '<button name="button" id="button" value="submit" class="btn btn-primary push-bottom">Submit Questions</button>';} ?>
     </form>
-    
+
     </div>
     
     <?php 

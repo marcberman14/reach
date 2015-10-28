@@ -30,7 +30,7 @@
         "/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js",
         "/assets/home-site/js/theme.init.js"));
     ?>
-
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
 </head>
 <body>
 

@@ -69,6 +69,46 @@ class Subject
 
     }
 
+    public static function enrolGenerate()
+    {
+        $subject = new SubjectDao();
+        $subs = $subject->enrolmentGetAllSubs(Array("studid"=>$_SESSION['user']->getStudentID()));
+        if($subs > 0) {
+            foreach ($subs as $subject) {
+                echo '<section class="toggle">
+                        <label>'.$subject['subject_code'].' - '.$subject['subject_name'].'</label>
+                        <div class="toggle-content">
+                            <h3>Description:</h3>
+                            <p>'.$subject['subject_description'].'</p>
+                            <a class="btn btn-primary" href="/assets/includes/process_enrolment.php?id='.urlencode($subject["subject_id"]).'&studentid='.urlencode($_SESSION['user']->getStudentID()).'">Enrol in this subject</a>
+                        </div>
+                     </section>';
+            }
+        } else {
+            echo '<p>No subjects are available for you to enrol in, please try again later</p>';
+        }
+    }
+
+    public static function myEnrolGenerate()
+    {
+        $subject = new SubjectDao();
+        $subs = $subject->myEnrolments(Array("studid"=>$_SESSION['user']->getStudentID()));
+        if($subs > 0) {
+            foreach ($subs as $subject) {
+                echo '<section class="toggle">
+                        <label>'.$subject['subject_code'].' - '.$subject['subject_name'].'</label>
+                        <div class="toggle-content">
+                            <h3>Description:</h3>
+                            <p>'.$subject['subject_description'].'</p>
+                            <a class="btn btn-primary" href="/assets/includes/process_enrolment.php?id='.urlencode($subject["subject_id"]).'&studentid='.urlencode($_SESSION['user']->getStudentID()).'">Enrol in this subject</a>
+                        </div>
+                     </section>';
+            }
+        } else {
+            echo '<p>No subjects are available for you to enrol in, please try again later</p>';
+        }
+    }
+
 
     public function setSubject_code($newval)
     {

@@ -12,12 +12,30 @@ ini_set('display_errors',1);
 
 //echo "######################################### Marc Test ##########################################################" . "\xA";
 
-	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TestDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/AnswerDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/ResultDao.php";
+	require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/QuestionDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/database/dao/TutorSubjectDao.php";
 	//require_once $_SERVER['DOCUMENT_ROOT']."/assets-new/php/database/dao/UserDao.php";
 	//$subject = new Subject();
 	//$tutsubject = new TutorSubjectDao();
-	$ques = new TestDao();
+	$ans = new AnswerDao();
+	
+	$que = new QuestionDao();
+	
+	$res = new ResultDao();
+	
+	$array1 = array("testid"=>55);
+	
+	$array2 = array("testid"=>56,"user"=>107);
+	
+	$question = $que->getTestQuestion($array1);
+	
+	$answer = $ans->getAnswers($array2);
+	
+	$result = $res->viewTestResult($array2);
+	
+	
 
 	
 	//$userDetails -> firstname;
@@ -25,7 +43,7 @@ ini_set('display_errors',1);
 	
 	//$tutsub = '45';
 	
-	$array = array("testid"=>54);
+	
 	
 	//allTutors, allTeachers, allStudents
 	
@@ -33,11 +51,15 @@ ini_set('display_errors',1);
 	
 	//var_dump($mdata);
 	
-	$test = $ques->test($array);
 	
-	$marks = $test['test_marks'];
 	
-	echo $marks;
+	//$marks = $test['test_marks'];
+	
+	var_dump($question);
+	
+	var_dump($answer);
+	
+	var_dump($result);
 	
 	//var_dump($mdata[0]['test_name']);
 	//$hi = $data['firstname'];	

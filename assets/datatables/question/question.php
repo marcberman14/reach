@@ -1,6 +1,5 @@
 <?php
 
-
 require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/classes/Security.php";
 $security = new Security();
 $security->sec_session_start();

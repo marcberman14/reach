@@ -20,7 +20,7 @@
 
     echo $views->addScript(Array("/assets/home-site/vendor/modernizr/modernizr.js"));
     ?>
-
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
 </head>
 <body>
 

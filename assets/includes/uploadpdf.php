@@ -57,18 +57,48 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["documentupload"]["tmp_name"][0], "../../bin/lesson-content/".$FILENAME)) {
+        $assets = new LessonAssetDao();
 
         $lesson_id = $_GET['id'];
         $array = array("lessonid"=>$lesson_id ,"type"=>$fileType, "url"=> $FILENAME, "filename" => $_FILES["documentupload"]["name"][0]);
-        $result = $lesson->addAsset($array);
-        if($result == 1){
-            echo json_encode(Array("success" => "Your document successfully uploaded has been uploaded."));
-            exit;
-        } else {
-            $unlink_target = "../../bin/lesson-content/" . $FILENAME;
-            echo json_encode(Array("error" => "Your file could not be uploaded", "errorkeys"=>"[0]"));
-            exit;
+        
+        $check = $assets->getAsset(array("lessonid"=>$lesson_id));
+        if($check <= 0)
+        {
+            
+            $result = $lesson->addAsset($array);
+            if($result == 1)
+            {
+                echo json_encode(Array("success" => "Your document successfully uploaded has been uploaded."));
+                exit;
+            }else 
+            {
+                $unlink_target = "../../bin/lesson-content/" . $FILENAME;
+                echo json_encode(Array("error" => "Your file could not be uploaded", "errorkeys"=>"[0]"));
+                exit;
+            }
+            
+        }else
+        {
+            $pdfUrlArray = $assets->getPdfUrl(array("lessonid"=>$lesson_id));
+            $pdfUrl = $pdfUrlArray['url'];
+            urldecode($pdfUrl);
+            $unlink_target = "../../bin/lesson-content/" . $pdfUrl;
+            unlink($unlink_target);
+            $assets->deletePdf(array("lessonid"=>$lesson_id));
+            
+            $result = $lesson->addAsset($array);
+            if($result == 1){
+                echo json_encode(Array("success" => "Your document successfully uploaded has been uploaded."));
+                exit;
+        } else 
+            {
+                $unlink_target = "../../bin/lesson-content/" . $FILENAME;
+                echo json_encode(Array("error" => "Your file could not be uploaded", "errorkeys"=>"[0]"));
+                exit;
+            }
         }
+       
     } else {
         echo json_encode(Array("error" => "Sorry, there was an error uploading your file.", "errorkeys"=>"[0]"));
         exit;

@@ -34,7 +34,7 @@ if($result > 0)
         &nbsp;&nbsp;<a href="../delete/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-trash-o"></i></a>
 		
 		
-		&nbsp;&nbsp;<a href="../new-content/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-trash-o"></i></a>';
+		&nbsp;&nbsp;<a href="../new-content/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-file-o"></i></a>';
         array_push($rowarray ,$aaData);
     }
 

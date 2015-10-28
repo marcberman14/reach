@@ -15,6 +15,12 @@ $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring"
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
 if($login['response'] != "error" && $state['response']== 'success') {
+
+$acl = $security->accessRights(Array("Tutor","Administrator"));
+    if($acl['response']== 'error'){
+        echo $acl['script'];
+    }
+
 $security->refreshUser($_SESSION['user_id']);
 
 if($state['response']== 'warning'){

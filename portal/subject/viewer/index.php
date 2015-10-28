@@ -17,14 +17,18 @@ $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring"
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
 if($login['response'] != "error" && $state['response']== 'success') {
-$security->refreshUser($_SESSION['user_id']);
+    $acl = $security->accessRights(Array("Tutor","Teacher","Administrator"));
+    if($acl['response']== 'error') {
+        echo $acl['script'];
+    }
+    $security->refreshUser($_SESSION['user_id']);
 
-if($state['response']== 'warning'){
-    echo $state['script'];
-}
+    if($state['response']== 'warning'){
+        echo $state['script'];
+    }
 
-include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
-include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
+    include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
+    include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
 ?>
 
         <!-- begin: breadcrumbs -->

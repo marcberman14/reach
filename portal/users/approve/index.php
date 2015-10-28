@@ -5,18 +5,21 @@ include_once $_SERVER['DOCUMENT_ROOT']."/assets/php/classes/Security.php";
 $views = new View();
 $security = new Security();
 $security->sec_session_start();
-//$state = $security->userActiveState();
 $login = $security->login_check();
+$state = $security->userActiveState();
 $title = "Approve Users";
 $page_heading = "Approve users";
 $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
-//if($login['response'] != "error" && $state['response']['success']) {
-if($login['response'] != "error") {
+if($login['response'] != "error" && $state['response']== 'success') {
     $security->refreshUser($_SESSION['user_id']);
-    include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
 
+    if($state['response']== 'warning'){
+        echo $state['script'];
+    }
+
+    include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
     include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
 ?>
 
@@ -56,111 +59,82 @@ if($login['response'] != "error") {
                         </div>
                         <div class="alert alert-danger hidden" id="contactError">Error!</div>
 
-                        <form method="post" name="subcreateform" id="subcreateform">
 
-                            <table class="table table-no-more table-bordered table-striped mb-none" id="members">
-                                <thead>
-                                <tr>
-                                    <th width="5%">User ID</th>
-                                    <th width="20%">First Name</th>
-                                    <th width="20%">Last Name</th>
-                                    <th width="20%">Email</th>
-                                    <th width="10%">User Type</th>
-                                    <th width="25%">Approve</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                if($stmt = "SELECT m.user_id, m.firstname, m.lastname, m.email, p.permission_name, m.active FROM members m join permission_group p
-                                        ON m.permission_id = p.permission_id") {
-                                    if ($result = $mysqli->query($stmt)) {
+                        <table class="table table-no-more table-bordered table-striped mb-none" id="members">
+                            <thead>
+                            <tr>
+                                <th width="5%">User ID</th>
+                                <th width="20%">First Name</th>
+                                <th width="20%">Last Name</th>
+                                <th width="20%">Email</th>
+                                <th width="10%">User Type</th>
+                                <th width="25%">Approve</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                                        //fetch associative array
-                                        while ($row = $result->fetch_assoc() ){
-                                            echo "<tr>";
-                                            echo "<td data-title=\"User ID\" id=\"" . $row["user_id"] . "\">" . $row["user_id"] . "</td>";
-                                            echo "<td data-title=\"First Name\">" . $row["firstname"] . "</td>";
-                                            echo "<td data-title=\"Last Name\">" . $row["lastname"] . "</td>";
-                                            echo "<td data-title=\"Email\">" . $row["email"] . "</td>";
-                                            echo "<td data-title=\"User Type\">" . $row["permission_name"] . "</td>";
-                                            echo "<td data-title=\"Approve\"><select class=\"form-control\" name=\"usertype\" id=\"".$row["user_id"]."\"onchange=\"autosave(this.id,$(this).val( ))\">";
-                                            if($row["active"] == "active"){
-                                                echo "<option selected value=\"active\">Activated</option>
-                                                <option value=\"noprofile\">Approve - No Profile</option>
-                                                <option value=\"notapproved\">Approval Pending</option>
-                                                <option value=\"inactive\">Deactivated</option>
-                                                <option value=\"invalid\">Deny User</option>";
-                                            } elseif ($row["active"] == "inactive") {
-                                                echo "
-                                                <option value=\"active\">Activated</option>
-                                                <option value=\"noprofile\">Approve - No Profile</option>
-                                                <option value=\"notapproved\">Approval Pending</option>
-                                                <option selected value=\"inactive\">Deactivated</option>
-                                                <option value=\"invalid\">Deny User</option>";
-                                            } elseif ($row["active"] == "noprofile") {
-                                                echo "
-                                                <option value=\"active\">Activated</option>
-                                                <option selected value=\"noprofile\">Approve - No Profile</option>
-                                                <option value=\"notapproved\">Approval Pending</option>
-                                                <option value=\"inactive\">Deactivated</option>
-                                                <option value=\"invalid\">Deny User</option>";
-                                            } elseif ($row["active"] == "notapproved") {
-                                                echo "
-                                                <option value=\"active\">Activated</option>
-                                                <option value=\"noprofile\">Approve - No Profile</option>
-                                                <option selected value=\"notapproved\">Approval Pending</optionselected>
-                                                <option value=\"inactive\">Deactivated</option>
-                                                <option value=\"invalid\">Deny User</option>";
-                                            } elseif ($row["active"] == "invalid") {
-                                                echo "
-                                                <option value=\"active\">Activated</option>
-                                                <option value=\"noprofile\">Approve - No Profile</option>
-                                                <option value=\"notapproved\">Approval Pending</option>
-                                                <option value=\"inactive\">Deactivate</option>
-                                                <option selected value=\"invalid\">Deny User</option>";
-                                            }
-                                            echo "</select></td>";
-                                            ?>
-                                            <?php
-                                            echo "</tr>";
-                                        }
-                                    }
-                                } else{
-                                    echo "A Fatal error has occoured, Please try again or contact an administrator.";
-                                }
-                                ?>
-                                </tbody>
-                            </table>
-                        </form>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
                 <!-- end: page -->
         </section>
     </div>
 </section>
-<?php } ?>
-<!-- Vendor -->
-<script src="/assets/vendor/jquery/jquery.js"></script>
-<script src="/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.js"></script>
-<script src="/assets/vendor/nanoscroller/nanoscroller.js"></script>
-<script src="/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="/assets/vendor/magnific-popup/magnific-popup.js"></script>
-<script src="/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-<script src="/assets/vendor/modernizr/modernizr.js"></script>
+<?php
+echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
+    "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
+    "/assets/vendor/bootstrap/js/bootstrap.js",
+    "/assets/vendor/nanoscroller/nanoscroller.js",
+    "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
+    "/assets/vendor/magnific-popup/magnific-popup.js",
+    "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
+    "/assets/vendor/modernizr/modernizr.js",
+	"/assets/vendor/select2/select2.js",
+ 	"/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js",
+	"/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js",
+    "/assets/javascripts/theme.js",
+    "/assets/javascripts/theme.init.js"));
+    echo $views->addStyle(Array("/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css",
+    "/assets/vendor/select2/select2.css"));
+    }  else {
+        ?>
+        <script>
+            window.location.href = "/user/login/";
+        </script>
+    <?php
+    }
+?>
 
+<script>
+    (function( $ ) {
+        'use strict';
+        var datatableInit = function() {
 
+            var $table = $('#members');
+            $table.dataTable({
+                bProcessing: true,
+                sAjaxSource: "/assets/datatables/users/approve.php",
+                "aoColumns": [
+                    { "mData": "User ID" },
+                    { "mData": "First Name" },
+                    { "mData": "Last Name" },
+                    { "mData": "Email" },
+                    { "mData": "User Type" },
+                    { "mData": "Approve" }
+                ]
+            });
+        };
 
-<!-- Theme Base, Components and Settings -->
-<script src="/assets/javascripts/theme.js"></script>
+        $(function() {
+            datatableInit();
+        });
 
-<!-- Theme Initialization Files -->
-<script src="/assets/javascripts/theme.init.js"></script>
+    }).apply( this, [ jQuery ]);
+</script>
 
 <script>
     function autosave(inputid,values) {
-        console.log(inputid);
-        console.log(values);
         var userdetails = {userid : inputid, active : values};
 
         $.ajax({
@@ -181,6 +155,7 @@ if($login['response'] != "error") {
             },
             success: function(data) {
                 if (data.response == 'success') {
+                    $('#contactSuccess').html('<strong>Success!</strong> ' + data.reason);
                     $('#contactSuccess').removeClass('hidden');
                     $('#contactError').addClass('hidden');
                     $('#contactLoading').addClass('hidden');
@@ -193,7 +168,7 @@ if($login['response'] != "error") {
                         }, 300);
                     }
                 } else if (data.response == 'error') {
-                    $('#contactError').html('Error! ' + data.reason);
+                    $('#contactError').html('<strong>Error!</strong> ' + data.reason);
                     $('#contactSuccess').addClass('hidden');
                     $('#contactError').removeClass('hidden');
                     $('#contactLoading').addClass('hidden');

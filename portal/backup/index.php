@@ -16,6 +16,10 @@ $back = new BackupDao;
 $backArray = $back -> returnDatabase();
 
 if($login['response'] != "error" && $state['response']== 'success') {
+    $acl = $security->accessRights(Array("Administrator"));
+    if($acl['response']== 'error'){
+        echo $acl['script'];
+    }
     $security->refreshUser($_SESSION['user_id']);
 
     if($state['response']== 'warning'){

@@ -214,7 +214,7 @@
                             </fieldset>
 
                             <hr class="dotted tall">
-                            <h4 class="mb-xlg">Teacher Information</h4>
+                            <h4 class="mb-xlg">Admin Information</h4>
 
                             <fieldset>
 

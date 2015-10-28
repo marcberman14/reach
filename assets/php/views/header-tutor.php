@@ -28,6 +28,7 @@
         "/assets/vendor/morris/morris.css",
         "/assets/stylesheets/colours/default.css"));
     ?>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
 
 </head>
 <body>

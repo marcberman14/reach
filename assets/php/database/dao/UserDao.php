@@ -252,7 +252,7 @@ final class UserDao extends Dao
                                             a.suburb = :suburb,
                                             a.city = :city,
                                             a.postalcode = :pcode,
-                                            a.cellnumber = :cellno,
+                                            a.cellphone = :cellno,
                                             a.worknumber = :workno,	
                                             a.homenumber = :homeno,
                                             a.jobdepartment = :jobdept,											
@@ -456,7 +456,7 @@ final class UserDao extends Dao
         try
         {
             $temp = $this->db->query("INSERT INTO members(permission_id, firstname, lastname, email, password, salt, active, profilepicurl, gender) values
-            (:permissionid, :firstname, :lastname, :email, :password, : salt, :active, :profilepicurl, :gender)", $values);
+            (:permissionid, :firstname, :lastname, :email, :password, :salt, :active, :profilepicurl, :gender)", $values);
             return $temp;
         }
         catch (DBException $e) {
@@ -564,9 +564,7 @@ FROM members m join permission_group p  ON m.permission_id = p.permission_id");
         }
 
     }
-	
-	
-	
+
 	public function deleteStudent($value){
         try
         {
@@ -586,7 +584,36 @@ FROM members m join permission_group p  ON m.permission_id = p.permission_id");
 
     }
 
+    public function userApprovalList(){
+        try {
+            $temp = $this->db->query("SELECT m.user_id, m.firstname, m.lastname, m.email, p.permission_name, m.active
+                                      FROM members m
+                                      join permission_group p
+                                      ON m.permission_id = p.permission_id");
+            return $temp;
+        }
+        catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
 
+    public function userApprovalUpdate($values){
+        try {
+            $temp = $this->db->query("UPDATE members SET active = :active WHERE user_id = :userid",$values);
+            return $temp;
+        }
+        catch (DBException $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
 
 
 }

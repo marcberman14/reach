@@ -25,7 +25,7 @@ class Security
                 // If the user exists get variables from result.
                 $login_check = hash('sha512', $sec_data['password'] . $user_browser);
                 if ($login_check == $login_string) {
-                    if($sec_data['active'] == 'active'){
+                    if ($sec_data['active'] == 'active') {
                         return $arrResult = array('response' => 'success', 'reason' => 'active');
                     } elseif ($sec_data['active'] == 'noprofile') {
                         $script = '<script>
@@ -69,6 +69,26 @@ class Security
         } else {
             // Not logged in
             return $arrResult = array('response' => 'error', 'reason' => 'You are not logged in. Please login to continue');
+        }
+
+    }
+
+    public static function accessRights($values)
+    {
+        if (isset($_SESSION['user_id'], $_SESSION['login_string'])) {
+            $user_id = $_SESSION['user_id'];
+            $login_string = $_SESSION['login_string'];
+            // Get the user-agent string of the user.
+            $user_browser = $_SERVER['HTTP_USER_AGENT'];
+            $perm = $_SESSION['user']->getPermissionName();
+            if (in_array($perm,$values)) {
+                return array('response' => 'success', 'reason' => 'approved');
+            } else {
+                return array('response' => 'error', 'script' => '<script>window.location.href = "/portal/deny.php";</script>');
+
+            }
+        } else {
+            return array('response' => 'error', 'reason' => 'You are not logged in. Please login to continue');
         }
 
     }

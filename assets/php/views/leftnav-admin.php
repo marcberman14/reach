@@ -17,43 +17,29 @@
                     <li>
                         <a href="/portal/">
                             <i class="fa fa-home" aria-hidden="true"></i>
-                            <span><?php echo $page_heading; ?></span>
+                            <span>Dashoard</span>
 
                         </a>
                     </li>
 
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-briefcase" aria-hidden="true"></i>
+                            <i class="fa fa-book" aria-hidden="true"></i>
                             <span>Subject Management</span>
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/subject/view/">View Subjects</a>
-                            </li>
-                            <li>
                                 <a href="/portal/subject/new/">New Subject</a>
                             </li>
                             <li>
-                                <a href="/portal/subject/edit/">Edit Subject</a>
+                                <a href="/portal/subject/view/">View Subjects</a>
                             </li>
-                            <li>
-                                <a href="/portal/subject/delete/">Delete Subject</a>
-                            </li>
+
+
                         </ul>
                     </li>
 
-                   <li class="nav-parent">
-                        <a>
-                            <i class="fa fa-briefcase" aria-hidden="true"></i>
-                            <span>Lesson Management</span>
-                        </a>
-                        <ul class="nav nav-children">
-                            <li>
-                                <a href="/portal/subject/view/">View Lesson</a>
-                            </li>                            
-                        </ul>
-                    </li>
+
                     
                     <li class="nav-parent">                    
                         <a>
@@ -64,36 +50,21 @@
                             <li>
                                 <a href="/portal/users/view/">View Users</a>
                             </li>
-                            <li>
-                                <a href="/portal/users/new/">New Users</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/edit/">Edit Users</a>
-                            </li>
-                            <li>
-                                <a href="/portal/users/activate/">Activate/Deactivate Users</a>
-                            </li>
+
                             <li>
                                 <a href="/portal/users/approve/">User Approval</a>
                             </li>
-                            <li>
-                                <a href="/portal/users/password-reset/">Reset Users Password</a>
-                            </li>
+
                         </ul>
                     </li>
 
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-gears" aria-hidden="true"></i>
-                            <span>Settings and Permissions</span>
+                            <i class="fa fa-database" aria-hidden="true"></i>
+                            <span>Database</span>
                         </a>
                         <ul class="nav nav-children">
-                            <li>
-                                <a href="/portal/settings/user-groups/">User Groups</a>
-                            </li>
-                            <li>
-                                <a href="/portal/settings/page-view/">Page View Permissions</a>
-                            </li>
+
                             <li>
                                 <a href="/portal/backup/">Backup & Restore Database</a>
                             </li>
@@ -102,16 +73,14 @@
 
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-gears" aria-hidden="true"></i>
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <span>Users</span>
                         </a>
                         <ul class="nav nav-children">
                             <li>
                                 <a href="/portal/userprofile/">View Profile</a>
                             </li>
-                            <li>
-                                <a href="/portal/userprofile/edit/">Edit Profile</a>
-                            </li>
+
                         </ul>
                     </li>
 

@@ -20,6 +20,7 @@
         "/assets/home-site/vendor/circle-flip-slideshow/css/component.css",
         "/assets/home-site/css/skins/default.css"));
     ?>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
 
 </head>
 <body>
