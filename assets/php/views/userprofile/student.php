@@ -375,9 +375,13 @@
                         </div>
                     </div>
                 </aside>
-                <!-- end: page -->
-            </section>
-        </div>
-    </section>
+    <!-- end: page -->
+</section>
+</div>
+</section>
 
+<?php echo $views->addScript(Array("/assets/ajax/userprofile/student.js",
+                                  "/assets/ajax/userprofile/password.js")) ?>
 
+</body>
+</html>

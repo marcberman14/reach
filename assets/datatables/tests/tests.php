@@ -43,7 +43,7 @@ if($tests > 0)
 		&nbsp;<a href="../quiz/index.php?id=' . urlencode($row["test_id"]) .'&testname=' . urlencode($row["test_name"]) .'" class="on-default edit-row"  title="View"><i class="fa fa-2x fa-eye"></i></a>
 		 &nbsp;<a href="../edit/index.php?id='. urlencode($row["test_id"]) .'" class="on-default edit-row" title="Edit"><i class="fa fa-2x fa-pencil"></i></a>
         &nbsp;&nbsp;<a href="../delete/index.php?id='. urlencode($row["test_id"]) .'" class="on-default remove-row" title="Delete"><i class="fa fa-2x fa-trash-o"></i></a>
-		
+
 		 &nbsp;&nbsp;<a href="../question/question.php?id=' . urlencode($row["test_id"]) .'&quest=' . urlencode(0) .'" class="on-default remove-row" title="Take"><i class="fa fa-2x fa-comment"></i></a>';
        array_push($rowarray ,$aaData);
     }
@@ -54,6 +54,7 @@ if($tests > 0)
     //$result_array['aaData'] = '';
     echo json_encode($result_array );
 }
+
 
 
 ?>

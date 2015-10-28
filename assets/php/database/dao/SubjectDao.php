@@ -35,9 +35,11 @@ final class SubjectDao extends Dao {
     public function enrolmentGetAllSubs($values){
 
         try {
-            $temp = $this->db->query("SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category
-                                      FROM subjects  AS s, student AS st, enrolment AS e
-                                      WHERE e.student_id <> :studid;",$values);
+            $temp = $this->db->query("SELECT DISTINCT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                        FROM student st, subjects sub
+                                        LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                        WHERE sub.subject_id NOT IN (SELECT subject_id FROM enrolment WHERE student_id = :studid)
+                                        AND st.grade = :grade;",$values);
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -55,9 +57,7 @@ final class SubjectDao extends Dao {
                                         FROM subjects sub
                                         LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
                                         LEFT JOIN student st ON st.studentId = e.student_id
-                                        WHERE sub.subject_id = e.subject_id
-
-",$values);
+                                        WHERE sub.subject_id = e.subject_id;",$values);
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();

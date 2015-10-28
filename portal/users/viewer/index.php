@@ -575,7 +575,170 @@ if($login['response'] != "error") {
                                 </div>
                             </div>';
                                     }elseif($perm == 4 && $profile != false){
-                                         var_dump($profile);
+                                        // var_dump($profile);
+                            
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Tutor ID:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['tutor_id'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">User ID:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['user_id'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Date of Birth:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['dob'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Cellphone Number:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['cellnumber'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Alternative Number:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['alternativenumber'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Street Number:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['streetnumber'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Street Name:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['streetname'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Suburb:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['suburb'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">City:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['city'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Country:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['country'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Nationality:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['nationality'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Country of Residence:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['countryresidence'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Study Area:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['studyarea'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Study Year:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['studyyear'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Student Number:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['studentnumber'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Personal Email:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['personalemail'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Gender:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['gender'].'
+
+                                </div>
+                            </div>';
+                                         
+                            echo '<div class="form-group">
+                                <label class="col-sm-3 control-label" for="w3-username">Monash Email:</label>
+                                <div class="col-sm-9">
+
+                                '.$profile['monashemail'].'
+
+                                </div>
+                            </div>';
+                                         
                                      }
                     
                     

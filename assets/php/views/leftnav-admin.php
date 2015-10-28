@@ -55,6 +55,9 @@
                             <li>
                                 <a href="/portal/users/approve/">User Approval</a>
                             </li>
+                            <li>
+                                <a href="/portal/test/result/">Student Marks</a>
+                            </li>
 
                         </ul>
                     </li>

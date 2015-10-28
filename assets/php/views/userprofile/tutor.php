@@ -508,7 +508,8 @@
 </section>
 </div>
 </section>
-
+<?php echo $views->addScript(Array("/assets/ajax/userprofile/tutor.js",
+                                  "/assets/ajax/userprofile/password.js")) ?>
 </body>
 </html>
 

@@ -39,6 +39,19 @@
                         </ul>
                     </li>
 
+                    <li class="nav-parent">
+                        <a>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>User Management</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li>
+                                <a href="/portal/test/result/"> View Students Grades</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
 
                     <li class="nav-parent">
                         <a>

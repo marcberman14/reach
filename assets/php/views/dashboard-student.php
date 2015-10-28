@@ -290,9 +290,8 @@
                                 <?php
                                 echo Subject::myEnrolGenerate();
                                 ?>
-
-
                             </div>
+
                         </div>
                     </div>
                 </div>

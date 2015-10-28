@@ -42,28 +42,32 @@
             <!-- end: breadcrumbs -->
 
             <!-- start: page -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">Test</div>
-                            <form class = form-horizontal method="post" name=test>
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-primary">
+
+
                                 <div class = "panel panel-body">
 
-                                    <h4>Instructions for Taking a Test</h4>
+                                <h6>Instructions to Take test</h6>
+                                    <header>Take your time and think about your answers carefully!</header>
 
-                                      <h6>You are about to take a Test</h6>
-                                      <h6>Grading Method: Highest Grade</h6>
 
-                                    < <form method="POST" action="../quiz/index.php">
-                                        <button class="btn btn-primary push-bottom">Take Test <i class="fa"></i></button>
-                                    </form>
+
+                                </div>
+                                <div class="panel-panel-footer">
+                                    <button type="button" class="btn btn-primary">Start Test</button>
+                                </div>
+
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
 
+            </div>
             <!-- end: page -->
         </section>
     </div>

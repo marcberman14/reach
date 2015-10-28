@@ -31,7 +31,23 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/subject/enrol/">View Enrolments</a>
+                                <a href="/portal/subject/enrol/">Add Enrolments</a>
+                            </li>
+                            <li>
+                                <a href="/portal/subject/view/">View Enrolments</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-parent">
+                        <a>
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <span>Assessment</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li>
+                                <a href="/portal/test/view-tests/">View Tests</a>
                             </li>
 
                         </ul>
@@ -44,7 +60,7 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/test/result/">View Results</a>
+                                <a href="/portal/test/result/index.php/">View Results</a>
                             </li>
                         </ul>
                     </li>

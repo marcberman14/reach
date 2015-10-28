@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-md">
-                                        <form method="POST" action="../new-test/index.php?id=<?php echo urlencode($_REQUEST['subjectid']) ?>">
+                                        <form method="POST" action="../new-test/index.php?id=<?php echo urlencode($_GET['subjectid']) ?>">
                                             <button class="btn btn-primary push-bottom">Add a Test <i class="fa fa-plus"></i></button>
                                         </form>
                                     </div>
@@ -131,7 +131,7 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
                     "emptyTable": "There are no Tests available to view."
                 },
                 bProcessing: true,
-                sAjaxSource:  "/assets/datatables/tests/tests.php?subjectid=<?php echo urlencode($_GET['subjectid']) ?>",
+                sAjaxSource:  "/assets/datatables/tests/tests.php?subjectid=<?php echo urlencode($_REQUEST['subjectid']) ?>",
                 "aoColumns": [
                     { "mData": "Test Name"},
 					{ "mData": "Test Description"},

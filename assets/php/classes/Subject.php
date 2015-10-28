@@ -72,7 +72,7 @@ class Subject
     public static function enrolGenerate()
     {
         $subject = new SubjectDao();
-        $subs = $subject->enrolmentGetAllSubs(Array("studid"=>$_SESSION['user']->getStudentID()));
+        $subs = $subject->enrolmentGetAllSubs(Array("studid"=>$_SESSION['user']->getStudentID(),"grade"=>$_SESSION['user']->getGrade()));
         if($subs > 0) {
             foreach ($subs as $subject) {
                 echo '<section class="toggle">
