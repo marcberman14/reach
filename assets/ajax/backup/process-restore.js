@@ -11,7 +11,7 @@ $().ready(function() {
 
                 beforeSend: function() {
                     document.getElementById("submit").value= "Processing...";
-                    $("#submit").prop('disabled', true); // disable button
+                    $("#submitrestore").prop('disabled', true); // disable button
                 },
 
                 success: function(data) {
@@ -20,12 +20,11 @@ $().ready(function() {
                         $('#contactError').addClass('hidden');
                         $('#contactSuccess').html("<strong>Success!</strong> " +data.reason);
 
-                        $('#submit').addClass('hidden');
-                        $('#paragraph').addClass('hidden');
-
                         document.getElementById("submit").value= "Restore";
 
-                        $("#submit").prop('disabled', false); // disable button
+                        window.setTimeout(function(){window.location.href = "/portal/backup/"; }, 3000);
+
+                        $("#submitrestore").prop('disabled', false); // disable button
                         if (($('#contactSuccess').offset().top - 80) < $(window).scrollTop()) {
                             $('html, body').animate({
                                 scrollTop: $('#contactSuccess').offset().top - 80
@@ -38,11 +37,8 @@ $().ready(function() {
                         $('#contactSuccess').addClass('hidden');
                         $('#contactError').removeClass('hidden');
 
-                        $('#submit').addClass('hidden');
-                        $('#paragraph').addClass('hidden');
-
                         document.getElementById("submit").value= "Restore";
-                        $("#submit").prop('disabled', false); // disable button
+                        $("#submitrestore").prop('disabled', false); // disable button
 
                         if (($('#contactError').offset().top - 80) < $(window).scrollTop()) {
                             $('html, body').animate({

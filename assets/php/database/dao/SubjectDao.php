@@ -50,6 +50,21 @@ final class SubjectDao extends Dao {
         }
     }
 
+    public function enrolmentGetAllSubsTeacher(){
+
+        try {
+            $temp = $this->db->query("SELECT DISTINCT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, sub.subject_description, sub.subject_category
+                                      FROM subjects sub;");
+            return $temp;
+        } catch (DBException $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        } catch (Exception $e) {
+            echo "Error finding member by code:<br/>" . $e->getMessage();
+            return null;
+        }
+    }
+
     public function myEnrolments($values)
     {
 

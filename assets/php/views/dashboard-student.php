@@ -44,7 +44,7 @@
                                         <li>
                                             <div class="checkbox-custom checkbox-default">
                                                 <input checked="" id="todoListItem1" class="todo-check" type="checkbox">
-                                                <label class="todo-label line-through" for="todoListItem1"><span>Lorem ipsum dolor sit amet</span></label>
+                                                <label class="todo-label line-through" for="todoListItem1"><span>Complete Test 1</span></label>
                                             </div>
                                             <div class="todo-actions">
                                                 <a class="todo-remove" href="#">
@@ -55,7 +55,7 @@
                                         <li>
                                             <div class="checkbox-custom checkbox-default">
                                                 <input id="todoListItem2" class="todo-check" type="checkbox">
-                                                <label class="todo-label" for="todoListItem2"><span>Lorem ipsum dolor sit amet</span></label>
+                                                <label class="todo-label" for="todoListItem2"><span>Finish my Maths Homework</span></label>
                                             </div>
                                             <div class="todo-actions">
                                                 <a class="todo-remove" href="#">

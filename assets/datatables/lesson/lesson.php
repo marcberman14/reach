@@ -25,13 +25,13 @@ if($result > 0)
         $aaData["Lesson ID"] = $row["lesson_id"];
         $lessonId = $row["lesson_id"];
         $aaData["Lesson Title"] = $row["lesson_title"];
-        $aaData["Lesson Name"] = '<a href="/portal/lesson/content/index.php">'.$row["lesson_name"].'</a>';
+        $aaData["Lesson Name"] = '<a href="/portal/lesson/content/index.php?lessonid='.$row["lesson_id"].'">'.$row["lesson_name"].'</a>';
         $aaData["Lesson Description"] = $row["lesson_description"];
         $aaData["Lesson Concept"] = $row["lesson_concpet"];
         $aaData["Lesson Material"] = $row["lesson_material"];
         $aaData["Lesson Subject"] = $row["subject_name"];
         $aaData["Functions"] = ' &nbsp;<a href="../edit/index.php?id='.$lessonId.'" class="on-default edit-row"><i class="fa fa-2x fa-pencil"></i></a>
-        &nbsp;&nbsp;<a href="../delete/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-trash-o"></i></a>
+
 		
 		
 		&nbsp;&nbsp;<a href="../new-content/index.php?id='.$lessonId.'" class="on-default remove-row"><i class="fa fa-2x fa-file-o"></i></a>';

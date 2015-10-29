@@ -18,8 +18,6 @@ if (isset($_POST['restoreselect'])) {
     $filename = $_POST['restoreselect'];
     $restorefile = $filename;
     
-    var_dump($filename);
-    
     $results = exec("mysql -u $dbuser -p$dbpass --add-drop-table $dbname < $restorefile");
 
     $arrResult = array ('response'=>'success','reason'=>'Database has been restored up on the server.');

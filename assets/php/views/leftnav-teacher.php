@@ -17,7 +17,7 @@
                     <li>
                         <a href="/portal/">
                             <i class="fa fa-home" aria-hidden="true"></i>
-                            <span><?php echo $page_heading; ?></span>
+                            <span>Dashboard</span>
 
                         </a>
                     </li>
@@ -29,7 +29,7 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/subject/enrol/">View Subjects</a>
+                                <a href="/portal/subject/enrol/teacher.php">View Subjects</a>
                             </li>
 
                         </ul>

@@ -33,9 +33,7 @@
                             <li>
                                 <a href="/portal/subject/enrol/">Add Enrolments</a>
                             </li>
-                            <li>
-                                <a href="/portal/subject/enrol/view">View Enrolments</a>
-                            </li>
+                           
 
                         </ul>
                     </li>

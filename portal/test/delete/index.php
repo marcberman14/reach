@@ -19,7 +19,7 @@ $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutori
 header("Content-Type: application/json", true);
 
 $test = new TestDao();
-$test->deleteTest(Array("test_id"=>$_GET['id']));
+$test->deleteTest(Array("test_id"=>isset($_GET['id'])));
 header('location:http://vps.bermanz.co.za/portal/test/view-tests/');
 
 ?>

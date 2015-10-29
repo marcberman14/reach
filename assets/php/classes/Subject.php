@@ -89,6 +89,26 @@ class Subject
         }
     }
 
+    public static function enrolGenerateTeacher()
+    {
+        $subject = new SubjectDao();
+        $subs = $subject->enrolmentGetAllSubsTeacher();
+        if($subs > 0) {
+            foreach ($subs as $subject) {
+                echo '<section class="toggle">
+                        <label>'.$subject['subject_code'].' - '.$subject['subject_name'].'</label>
+                        <div class="toggle-content">
+                            <h3>Description:</h3>
+                            <p>'.$subject['subject_description'].'</p>
+                            <a class="btn btn-primary" href="/portal/subject/viewer/index.php?id='.urlencode($subject['subject_id']).'&name='.urlencode($subject['subject_name']).'">View in this subject</a>
+                        </div>
+                     </section>';
+            }
+        } else {
+            echo '<p>No subjects are available for you to enrol in, please try again later</p>';
+        }
+    }
+
     public static function myEnrolGenerate()
     {
         $subject = new SubjectDao();

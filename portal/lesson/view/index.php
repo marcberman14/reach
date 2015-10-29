@@ -52,7 +52,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                     <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-md">
-                    <form method="POST" action="../new/index.php?id = <?php echo urlencode($_GET['id']); ?>&?name= <?php urlencode($_GET['name']); ?>">
+                    <form method="POST" action="../new/index.php?id = <?php echo urlencode(isset($_GET['id'])); ?>&?name= <?php urlencode(isset($_GET['name'])); ?>">
                     <button class="btn btn-primary push-bottom">Add a Lesson</button>
                 </form>
                  </div>
@@ -99,7 +99,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
             "/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"));
         echo $views->addStyle(Array("/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css",
             "/assets/vendor/select2/select2.css"));
-        $link = "\"/assets/datatables/lesson/lesson.php?identity=\"". $_GET['identity'] ."\"&name=\"".$_GET['name']."\"";
+        $link = "\"/assets/datatables/lesson/lesson.php?identity=\"". isset($_GET['id']) ."\"&name=\"".isset($_GET['name'])."\"";
     } else {
         ?>
         <script>

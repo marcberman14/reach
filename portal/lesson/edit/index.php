@@ -10,8 +10,8 @@ $security = new Security();
 $security->sec_session_start();
 $login = $security->login_check();
 $state = $security->userActiveState();
-$title = "Dashboard";
-$page_heading = "Dashboard";
+$title = "Edit Lesson";
+$page_heading = "Edit Lesson";
 $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
@@ -103,21 +103,6 @@ $lesson = new Lesson($lessonDetails['lesson_title'], $lessonDetails['lesson_name
                                     <label class="col-sm-3 control-label" for="w3-lesson_concept">Lesson Concept:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="lesson_concept" id="lesson_concept" value="<?php echo $lesson->getLesson_concept(); ?>">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                                    <label class="sr-only" for="fileToUpload">Select image to upload:</label>
-                                                    <input class="btn btn-primary" type="file" name="fileToUpload" id="fileToUpload" value="<?php echo $lesson->getLesson_video(); ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="btn btn-primary" type="submit" value="<?php echo $lesson->getLesson_file(); ?>" name="submit">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="lesson_video_link">YouTube Link:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" value="<?php echo $lesson->getLesson_video(); ?>" class="form-control" name="lesson_video_link" id="lesson_video_link" >
                                     </div>
                                 </div>
                                 

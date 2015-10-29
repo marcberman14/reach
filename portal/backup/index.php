@@ -77,14 +77,14 @@ if($login['response'] != "error" && $state['response']== 'success') {
         <div class="alert alert-danger hidden" id="contactError"><strong>Error!</strong>
         </div>
         <form action="/assets/php/processing/process-restore.php" method="POST"
-              name="backupform" id="backupform">
+              name="restoreform" id="restoreform">
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-6">
                         <i class="fa fa-database fa-2x"></i>
                                                <input type="submit" value="Restore Database"
-                               class="btn btn-lg btn-primary push-bottom" id="submit"
-                               name="submit">
+                               class="btn btn-lg btn-primary push-bottom" id="submitrestore"
+                               name="submitrestore">
                         <select id="restoreselect" name="restoreselect">
                             <option value="" disabled="disabled" selected="selected">Select Backup Restore Point</option>
                             <option value="<?php echo $backArray[count($backArray ) - 1]['backup_file']; ?>"><?php echo $backArray[count($backArray ) - 1]['backup_date']; ?></option>

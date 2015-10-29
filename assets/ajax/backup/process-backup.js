@@ -19,12 +19,8 @@ $().ready(function() {
                         $('#contactSuccess').removeClass('hidden');
                         $('#contactError').addClass('hidden');
                         $('#contactSuccess').html("<strong>Success!</strong> " +data.reason);
-
-                        $('#submit').addClass('hidden');
-                        $('#paragraph').addClass('hidden');
-
                         document.getElementById("submit").value= "backup";
-
+                        window.setTimeout(function(){window.location.href = "/portal/backup/"; }, 3000);
                         $("#submit").prop('disabled', false); // disable button
                         if (($('#contactSuccess').offset().top - 80) < $(window).scrollTop()) {
                             $('html, body').animate({
@@ -37,10 +33,6 @@ $().ready(function() {
                         $('#contactError').html("<strong>Error!</strong> " +data.reason);
                         $('#contactSuccess').addClass('hidden');
                         $('#contactError').removeClass('hidden');
-
-                        $('#submit').addClass('hidden');
-                        $('#paragraph').addClass('hidden');
-
                         document.getElementById("submit").value= "backup";
                         $("#submit").prop('disabled', false); // disable button
 

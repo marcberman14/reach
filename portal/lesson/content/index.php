@@ -14,12 +14,12 @@ $keywords = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring"
 $description = "Monash South Africa, MSA, REACH, R.E.A.CH, Online, Video, Tutoring";
 
 $asset = new LessonAssetDao();
-$videoUrlArray = $asset->getVideoUrl(array("lessonid"=>5));
+$videoUrlArray = $asset->getVideoUrl(array("lessonid"=>$_GET['lessonid']));
 $videoUrl = $videoUrlArray['url'];
 urldecode($videoUrl);
 
 $asset = new LessonAssetDao();
-$pdfUrlArray = $asset->getPdfUrl(array("lessonid"=>5));
+$pdfUrlArray = $asset->getPdfUrl(array("lessonid"=>$_GET['lessonid']));
 $pdfUrl = $pdfUrlArray['url'];
 urldecode($pdfUrl);
 
@@ -57,6 +57,7 @@ if($login['response'] != "error" && $state['response']== 'success') {
         <!-- start: page -->
         
          <h3>Lesson Video</h3>
+         <p>Video-based content for this Lesson</p>
         
                 <div class = "col-md-12">
 	                <div class="embed-responsive embed-responsive-16by9">        
@@ -65,6 +66,7 @@ if($login['response'] != "error" && $state['response']== 'success') {
         		</div>
         
         <h3>Lesson Content</h3>
+        <p>A PDF document conatining the text-based content for the lesson. Available for download</p>
        
 
         <div class = "col-md-12">
