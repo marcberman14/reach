@@ -77,7 +77,8 @@ final class LessonDao extends Dao {
 	public function deleteLesson($values){
 
         try {
-            $temp = $this->db->query("DELETE FROM lesson WHERE lesson_id = :lessonid;", $values );
+            $temp = $this->db->query("DELETE FROM lesson
+                                      WHERE lesson_id = :lessonid;", $values );
 			//$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
             return $temp;
         } catch (DBException $e) {
@@ -92,7 +93,9 @@ final class LessonDao extends Dao {
     public function allLessons(){
 
         try {
-            $temp = $this->db->query("SELECT * FROM lesson su join subjectlesson tu on su.lesson_id = tu.lesson_id join subjects s on s.subject_id = tu.subject_id ;");
+            $temp = $this->db->query("SELECT * FROM lesson su
+                                      join subjectlesson tu on su.lesson_id = tu.lesson_id
+                                      join subjects s on s.subject_id = tu.subject_id ;");
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();

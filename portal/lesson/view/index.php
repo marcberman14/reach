@@ -52,7 +52,7 @@ include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getP
                     <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-md">
-                    <form method="POST" action="../new/?id=<?php echo urlencode($_GET['id']); ?>&name=<?php urlencode($_GET['name']); ?>">
+                    <form method="POST" action="../new/index.php?id = <?php echo urlencode($_GET['id']); ?>&?name= <?php urlencode($_GET['name']); ?>">
                     <button class="btn btn-primary push-bottom">Add a Lesson</button>
                 </form>
                  </div>

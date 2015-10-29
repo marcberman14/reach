@@ -18,8 +18,8 @@
 
 header("Content-Type: application/json", true);
 
-	//$lesson = new LessonDao();
-	//$lesson->deleteLesson($_REQUEST['id']);
+	$lesson = new LessonDao();
+	$lesson->deleteLesson($_REQUEST['id']);
 	echo $_REQUEST['id'];
 	//header('location:http://vps.bermanz.co.za/portal/lesson/view/');
 

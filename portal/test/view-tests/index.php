@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-md">
-                                        <form method="POST" action="../new-test/index.php?id=<?php echo urlencode($_GET['subjectid']) ?>">
+                                        <form method="POST" action="../new-test/index.php?id=<?php echo urlencode(isset($_GET['subjectid'])) ?>">
                                             <button class="btn btn-primary push-bottom">Add a Test <i class="fa fa-plus"></i></button>
                                         </form>
                                     </div>

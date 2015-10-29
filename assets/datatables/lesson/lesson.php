@@ -25,7 +25,7 @@ if($result > 0)
         $aaData["Lesson ID"] = $row["lesson_id"];
         $lessonId = $row["lesson_id"];
         $aaData["Lesson Title"] = $row["lesson_title"];
-        $aaData["Lesson Name"] = $row["lesson_name"];
+        $aaData["Lesson Name"] = '<a href="/portal/lesson/content/index.php">'.$row["lesson_name"].'</a>';
         $aaData["Lesson Description"] = $row["lesson_description"];
         $aaData["Lesson Concept"] = $row["lesson_concpet"];
         $aaData["Lesson Material"] = $row["lesson_material"];

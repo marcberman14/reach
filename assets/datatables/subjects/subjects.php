@@ -17,7 +17,7 @@ if ($result > 0) {
     //fetch associative array
     foreach ($result as $row) {
         $aaData["Subject ID"] = $row["subject_id"];
-        $subjectId = $row["subject_id"];
+        //$subjectId = $row["subject_id"];
         $aaData["Subject Name"] = $row["subject_name"];
         $aaData["Subject Code"] = $row["subject_code"];
         $aaData["Subject Grade"] = $row["subject_grade"];

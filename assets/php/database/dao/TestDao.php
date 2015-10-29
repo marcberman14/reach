@@ -121,6 +121,19 @@ final class TestDao extends Dao {
 }
     }
 	
+	public function getTesting($value){
+        try {
+            $temp = $this->db->query("select * from test t INNER JOIN result r on t.test_id =r.test_id where r.user_id =:user;",$value);
+            return $temp;
+} catch (DBException $e) {
+    echo "Error:<br/>" . $e->getMessage();
+    return null;
+} catch (Exception $e) {
+    echo "Error:<br/>" . $e->getMessage();
+    return null;
+}
+    }
+	
 	 public function getSingleTest($values){
         try {
             $temp = $this->db->row("select * from test where test_id =:testid", $values);

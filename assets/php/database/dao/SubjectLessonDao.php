@@ -13,7 +13,7 @@ require_once "Dao.php";
 
         try {
             //$temp = $this->db->query("DELETE FROM `lesson` WHERE `lesson_id` = :lessonid;", $values );
-			$temp = $this->db->query("DELETE FROM `reach`.`subjectlesson` WHERE `subjectlesson`.`lesson_id` = :lessonid;", $values );
+			$temp = $this->db->query("DELETE FROM reach.subjectlesson WHERE subjectlesson.lesson_id = :lessonid;", $values );
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -28,7 +28,9 @@ require_once "Dao.php";
 
         try {
             //$temp = $this->db->query("DELETE FROM `lesson` WHERE `lesson_id` = :lessonid;", $values );
-			$temp = $this->db->query("UPDATE  `reach`.`subjectlesson` SET  `subject_id` =  :subjectid WHERE  `subjectlesson`.`lesson_id` =:lessonid;", $values );
+			$temp = $this->db->query("UPDATE  reach.subjectlesson
+			                          SET  subject_id =  :subjectid
+			                          WHERE  subjectlesson.lesson_id =:lessonid;", $values );
             return $temp;
         } catch (DBException $e) {
             echo "Error finding member by code:<br/>" . $e->getMessage();
@@ -42,7 +44,9 @@ require_once "Dao.php";
 	public function add($value,$subjectid){
 
         try {
-			$lessnid = $this->db->query("SELECT lesson_id from lesson WHERE `lesson_title` =:title", $value);
+			$lessnid = $this->db->query("SELECT lesson_id
+			                             FROM lesson
+			                             WHERE lesson_title =:title", $value);
             //$temp = $this->db->query("DELETE FROM `lesson` WHERE `lesson_id` = :lessonid;", $values );
 			
 			//$lessnid = $lessnid['lesson_id'];
@@ -53,7 +57,7 @@ require_once "Dao.php";
 			
 			$array = array("subjectid"=>$subjectid,"lessonid"=>$less);
 			
-			$temp = $this->db->query("INSERT INTO  `reach`.`subjectlesson` (`subject_id` ,`lesson_id`) VALUES (:subjectid, :lessonid);", $array);
+			$temp = $this->db->query("INSERT INTO  reach.subjectlesson (subject_id ,lesson_id) VALUES (:subjectid, :lessonid);", $array);
             //$less = $lessnid[1];		
 			
 			

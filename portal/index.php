@@ -27,47 +27,30 @@ if($login['response'] != "error" && $state['response']== 'success') {
 
     include($_SERVER['DOCUMENT_ROOT'].$views->includeHeader($_SESSION['user']->getPermissionName()));
     include($_SERVER['DOCUMENT_ROOT'].$views->includeLeftNav($_SESSION['user']->getPermissionName()));
+    include($_SERVER['DOCUMENT_ROOT'].$views->dashboard($_SESSION['user']->getPermissionName()));
 ?>
-    <!-- begin: breadcrumbs -->
-    <section role="main" class="content-body">
-        <header class="page-header">
-            <h2>Admin Dashboard</h2>
-
-            <div class="right-wrapper pull-right">
-                <ol class="breadcrumbs">
-                   <li>
-                        <a  class="sidebar-right-toggle" href="/portal/">
-                            <i class="fa fa-home"></i>
-                        </a>
-                    </li>
-                </ol>
-
-                <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
-            </div>
-        </header>
-        <!-- end: breadcrumbs -->
-
-        <!-- start: page -->
-        <?php include($_SERVER['DOCUMENT_ROOT'].$views->dashboard($_SESSION['user']->getPermissionName())); ?>
-
-        <!-- end: page -->
-    </section>
     </div>
     </section>
 
 
 <?php
-echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
-    "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
-    "/assets/vendor/bootstrap/js/bootstrap.js",
-    "/assets/vendor/nanoscroller/nanoscroller.js",
-    "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
-    "/assets/vendor/magnific-popup/magnific-popup.js",
-    "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
-    "/assets/vendor/modernizr/modernizr.js",
-    "/assets/vendor/jquery-easypiechart/jquery.easypiechart.js",
-    "/assets/javascripts/theme.js",
-    "/assets/javascripts/theme.init.js"));
+echo $views->addStyle(Array("/assets/vendor/bootstrap-fileinput-master/css/fileinput.css"));
+
+    echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
+        "/assets/vendor/jquery-validation/jquery.validate.min.js",
+        "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
+        "/assets/vendor/bootstrap/js/bootstrap.js",
+        "/assets/vendor/nanoscroller/nanoscroller.js",
+        "/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js",
+        "/assets/vendor/magnific-popup/magnific-popup.js",
+        "/assets/vendor/jquery-placeholder/jquery.placeholder.js",
+        "/assets/vendor/modernizr/modernizr.js",
+        "/assets/javascripts/theme.js",
+        "/assets/vendor/bootstrap-fileinput-master/js/fileinput.min.js",
+        "/assets/ajax/shared/sha512.js",
+        "/assets/javascripts/theme.init.js"));
+
+
     } else {
         ?>
         <script>
@@ -76,5 +59,43 @@ echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
     <?php
     }
 ?>
+<script>
+    $("#profileupload").fileinput({
+        uploadUrl: "/assets/includes/upload.php", // server upload action
+        uploadAsync: true,
+        maxFileCount: 1,
+        maxFileSize: 500000,
+        allowedFileTypes: ['image'],
+        allowedFileExtensions: ['jpg', 'gif', 'png', 'jpeg'],
+        dropZoneTitle : "Drag and Drop",
+        indicatorSuccessTitle: "Successfully uploaded!",
+        dropZoneEnabled : false,
+        fileActionSettings: {
+            removeIcon: '<i class="glyphicon glyphicon-trash text-danger"></i>',
+            removeClass: 'btn btn-xs btn-default',
+            removeTitle: 'Remove file',
+            uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
+            uploadClass: 'btn btn-xs btn-default',
+            uploadTitle: 'Upload file',
+            indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
+            indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign file-icon-large text-success"></i> Your profile picture has been changed.',
+            indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
+            indicatorLoading: '<i class="glyphicon glyphicon-hand-up text-muted"></i>',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
+        }
+    });
+
+</script>
+
+<style>
+    body .btn {
+        white-space: nowrap;
+    }
+
+</style>
+
 </body>
 </html>

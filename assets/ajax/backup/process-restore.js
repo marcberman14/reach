@@ -5,7 +5,7 @@ $().ready(function() {
     $("#restoreform").validate({
         submitHandler: function(form) {
             $.ajax({
-                url: '/assets/php/processing/process-restore.php',
+                url: $(form).attr('action'),
                 type: "POST",
                 data: $(form).serialize(),
 
@@ -15,7 +15,6 @@ $().ready(function() {
                 },
 
                 success: function(data) {
-                    alert(data);
                     if (data.response == 'success') {
                         $('#contactSuccess').removeClass('hidden');
                         $('#contactError').addClass('hidden');

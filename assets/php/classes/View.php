@@ -59,13 +59,13 @@ class View
 
     public static function dashboard($userType){
         if($userType == "Student"){
-            return "/assets/php/views/dashboard-student.php";
+            return "/assets/php/views/dashboards/student.php";
         } elseif($userType == "Tutor"){
-            return "/assets/php/views/dashboard-tutor.php";
+            return "/assets/php/views/dashboards/tutor.php";
         } elseif($userType == "Teacher"){
-            return "/assets/php/views/dashboard-teacher.php";
+            return "/assets/php/views/dashboards/teacher.php";
         } elseif($userType == "Administrator"){
-            return "/assets/php/views/dashboard-admin.php";
+            return "/assets/php/views/dashboards/admin.php";
         }
 
     }

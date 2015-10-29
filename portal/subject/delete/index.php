@@ -71,7 +71,7 @@ if($login['response'] != "error" && $state['response']== 'success') {
                             <p><strong>Description</strong>: <?php echo $results['subject_description']; ?></p>
                             <p><strong>Grade</strong>: <?php echo $results['subject_grade']; ?></p>
                             <p><strong>Category</strong>: <?php echo $results['subject_category']; ?></p>
-                            <form method="POST" id="deleteform" action="/assets/includes/process_subjectdelete.php?id=<?php echo urlencode($_GET["id"]) ?>&token=<?php echo urlencode($_GET["token"]) ?>&subname=<?php echo urlencode($_GET["subname"])?>">
+                            <form method="POST" id="deleteform" action="/assets/includes/process_subjectdelete.php?id=<?php echo urlencode(isset($_GET["id"])) ?>&token=<?php echo urlencode(isset($_GET["token"])) ?>&subname=<?php echo urlencode(isset($_GET["subname"]))?>">
                                 <div class="form-group">
                                     <label class="checkbox-inline"><input type="checkbox" value="delete" id="confirm"  name="confirm">I confirm that the above details are correct.</label>
                                 </div>

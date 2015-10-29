@@ -34,7 +34,7 @@
                                 <a href="/portal/subject/enrol/">Add Enrolments</a>
                             </li>
                             <li>
-                                <a href="/portal/subject/enrol/view/">View Enrolments</a>
+                                <a href="/portal/subject/enrol/view">View Enrolments</a>
                             </li>
 
                         </ul>
@@ -42,10 +42,13 @@
 
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-book" aria-hidden="true"></i>
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                             <span>Assessment</span>
                         </a>
                         <ul class="nav nav-children">
+                            <li>
+                                <a href="/portal/lesson/student-view/">View Lessons</a>
+                            </li>
                             <li>
                                 <a href="/portal/test/view-tests/studenttest.php">View Tests</a>
                             </li>
@@ -60,7 +63,7 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/test/result/index.php/">View Results</a>
+                                <a href="/portal/test/result/student.php">View Results</a>
                             </li>
                         </ul>
                     </li>

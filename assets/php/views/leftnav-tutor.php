@@ -39,19 +39,19 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent">
+                    <!--<li class="nav-parent">
                         <a>
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>User Management</span>
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="/portal/test/result/"> View Students Grades</a>
+                                <a href="/portal/users/view"> View Students Enrolled</a>
                             </li>
 
 
                         </ul>
-                    </li>
+                    </li>-->
 
                     <li class="nav-parent">
                         <a>

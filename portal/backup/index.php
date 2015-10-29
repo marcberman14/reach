@@ -108,6 +108,7 @@ if($login['response'] != "error" && $state['response']== 'success') {
 
 <?php
 echo $views->addScript(Array("/assets/vendor/jquery/jquery.js",
+"/assets/vendor/jquery-validation/jquery.validate.min.js",
 "/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js",
 "/assets/vendor/bootstrap/js/bootstrap.js",
 "/assets/vendor/nanoscroller/nanoscroller.js",
