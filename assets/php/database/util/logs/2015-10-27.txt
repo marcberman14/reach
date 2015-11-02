@@ -1,0 +1,148 @@
+Time : 21:24:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ': salt, ?, ?, ?)' at line 2
+Raw SQL : INSERT INTO members(permission_id, firstname, lastname, email, password, salt, active, profilepicurl, gender) values
+            (:permissionid, :firstname, :lastname, :email, :password, : salt, :active, :profilepicurl, :gender)
+
+Time : 17:38:00
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id SET
+                        m.firstname = :fname,
+                        m.lastname = :sname,
+                        m.email = :mail,
+                        m.active = :active,
+                        m.gender = :gender,
+                        a.dob=:dob,
+                        a.streetnumber=:streetnumber,
+                        a.streetname=:streetname,
+                        a.suburb=:suburb,
+                        a.city=:city,
+                        a.country=:country,
+                        a.postalcode=:postalcode,
+                        a.homenumber=:homenumber,
+                        a.cellphone=:cellphone,
+                        a.worknumber=:worknumber,
+                        a.staffnumber=:staffnumber,
+                        a.jobdepartment=:jobdepartment,
+                        a.jobposition=:jobposition,
+                        a.monashmail=:monashemail,
+                        a.alternativeemail=:altemail,
+                        a.altcontactnum=altcontactnum
+                        WHERE m.user_id = :userid;
+
+Time : 17:37:44
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id SET
+                        m.firstname = :fname,
+                        m.lastname = :sname,
+                        m.email = :mail,
+                        m.active = :active,
+                        m.gender = :gender,
+                        a.dob=:dob,
+                        a.streetnumber=:streetnumber,
+                        a.streetname=:streetname,
+                        a.suburb=:suburb,
+                        a.city=:city,
+                        a.country=:country,
+                        a.postalcode=:postalcode,
+                        a.homenumber=:homenumber,
+                        a.cellphone=:cellphone,
+                        a.worknumber=:worknumber,
+                        a.staffnumber=:staffnumber,
+                        a.jobdepartment=:jobdepartment,
+                        a.jobposition=:jobposition,
+                        a.monashmail=:monashemail,
+                        a.alternativeemail=:altemail,
+                        a.altcontactnum=altcontactnum
+                        WHERE m.user_id = :userid;
+
+Time : 17:37:42
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id SET
+                        m.firstname = :fname,
+                        m.lastname = :sname,
+                        m.email = :mail,
+                        m.active = :active,
+                        m.gender = :gender,
+                        a.dob=:dob,
+                        a.streetnumber=:streetnumber,
+                        a.streetname=:streetname,
+                        a.suburb=:suburb,
+                        a.city=:city,
+                        a.country=:country,
+                        a.postalcode=:postalcode,
+                        a.homenumber=:homenumber,
+                        a.cellphone=:cellphone,
+                        a.worknumber=:worknumber,
+                        a.staffnumber=:staffnumber,
+                        a.jobdepartment=:jobdepartment,
+                        a.jobposition=:jobposition,
+                        a.monashmail=:monashemail,
+                        a.alternativeemail=:altemail,
+                        a.altcontactnum=altcontactnum
+                        WHERE m.user_id = :userid;
+
+Time : 17:37:04
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE members m JOIN tutor t ON m.user_id = t.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+											m.active = :active,
+                                            m.gender = :gender,
+                                            t.streetnumber = :strno,
+                                            t.streetname = :strname,
+                                            t.suburb = :suburb,
+                                            t.city = :city,
+                                            t.postalcode = :pcode,
+                                            t.cellnumber = :cellno,
+                                            t.alternativenumber = :altno,
+                                            t.studyarea = :studyarea,
+                                            t.studyyear = :studyyear,
+											t.country = :country,
+											t.nationality = :nationality,
+											t.countryresidence = :res,
+											t.studentnumber = :tutstuno,
+											t.monashemail = :mmail,
+											t.dob =:dob
+                                        WHERE m.user_id = :userid;
+
+Time : 17:35:15
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE members m JOIN tutor t ON m.user_id = t.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+											m.active = :active,
+                                            m.gender = :gender,
+                                            t.streetnumber = :strno,
+                                            t.streetname = :strname,
+                                            t.suburb = :suburb,
+                                            t.city = :city,
+                                            t.postalcode = :pcode,
+                                            t.cellnumber = :cellno,
+                                            t.alternativenumber = :altno,
+                                            t.studyarea = :studyarea,
+                                            t.studyyear = :studyyear,
+											t.country = :country,
+											t.nationality = :nationality,
+											t.countryresidence = :res,
+											t.studentnumber = :tutstuno,
+											t.monashemail = :mmail,
+											t.dob =:dob
+                                        WHERE m.user_id = :userid;
+
+Time : 14:13:05
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * from lesson_assets WHERE lesson_id = :lessonid;
+
+Time : 14:05:38
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * from lesson_assets WHERE lesson_id = :lessonid;
+
+Time : 13:59:25
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * from lesson_assets WHERE lesson_id = :lessonid;
+
+Time : 13:35:16
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * from lesson_assets WHERE lesson_id = :lessonid;

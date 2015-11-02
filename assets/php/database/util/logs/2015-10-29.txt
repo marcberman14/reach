@@ -1,0 +1,46 @@
+Time : 10:23:37
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`reach`.`student`, CONSTRAINT `student_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `members` (`user_id`))
+Raw SQL : DELETE FROM `reach`.`members` WHERE `members`.`user_id` =:userid;
+
+Time : 10:07:42
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                      FROM subjects sub
+                                      LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                      LEFT JOIN student st ON st.studentId = e.student_id
+                                      WHERE sub.subject_id = e.subject_id
+                                      AND st.studentId = :studid;
+
+Time : 09:36:08
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE  lesson SET  lesson_title =:title,lesson_name = :name,lesson_description = :description,lesson_concpet=:concept,lesson_material=:material WHERE  lesson_id = :lessonid;
+
+Time : 03:19:43
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.student_id' in 'where clause'
+Raw SQL : SELECT * 
+FROM  student as s join enrolment as e on e.student_id = s.studentId join test as t on t.subject_id = e.subject_id WHERE s.student_id = :user;
+
+Time : 02:39:05
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT *
+                                  FROM result
+                                  WHERE user_id=:user_id
+
+Time : 02:37:56
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT *
+                                  FROM result
+                                  WHERE user_id=:user_id
+
+Time : 02:31:44
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and result r where t.test_id =r.test_id' at line 1
+Raw SQL : select * from test t and result r where t.test_id =r.test_id
+
+Time : 00:42:19
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                      FROM subjects sub
+                                      LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                      LEFT JOIN student st ON st.studentId = e.student_id
+                                      WHERE sub.subject_id = e.subject_id
+                                      AND st.studentId = :stuid;

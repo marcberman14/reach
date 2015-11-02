@@ -1,0 +1,360 @@
+Time : 23:22:44
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from test where subject_id =:subjectid
+
+Time : 22:18:44
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`test`, CONSTRAINT `test_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO test (test_name,test_description,test_marks,subject_id) VALUES (:testname,:testdecr, :testmark,:subjectid);
+
+Time : 22:14:38
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT DISTINCT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                        FROM student st, subjects sub
+                                        LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                        WHERE sub.subject_id NOT IN (SELECT subject_id FROM enrolment WHERE student_id = :stuid)
+                                        AND st.grade = :grade;
+
+Time : 22:14:34
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT DISTINCT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                        FROM student st, subjects sub
+                                        LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                        WHERE sub.subject_id NOT IN (SELECT subject_id FROM enrolment WHERE student_id = :stuid)
+                                        AND st.grade = :grade;
+
+Time : 22:13:25
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT DISTINCT sub.subject_id, sub.subject_code, sub.subject_name, sub.subject_grade, st.grade, sub.subject_description, sub.subject_category
+                                        FROM student st, subjects sub
+                                        LEFT JOIN enrolment e ON sub.subject_id = e.subject_id
+                                        WHERE sub.subject_id NOT IN (SELECT subject_id FROM enrolment WHERE student_id = :stuid)
+                                        AND st.grade = :grade;
+
+Time : 21:37:52
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : UPDATE members m JOIN teacher t ON m.user_id = t.userId
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+											t.schoolemployed = :school,
+                                            t.teachinggrade = :tgrade,	
+											t.yearsexperience = :yearexp,
+											t.cellnumber = :cellno,
+                                            t.alternativenumber = :altno,								
+                                            t.streetnumber = :strno,
+                                            t.streetname = :strname,
+                                            t.suburb = :suburb,
+                                            t.city = :city,
+                                            t.postalcode = :pcode                                                                     
+                                        WHERE m.user_id = :userid;
+
+Time : 21:28:10
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`test`, CONSTRAINT `test_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO test (test_name,test_description,test_marks,subject_id) VALUES (:testname,:testdecr, :testmark,:subjectid);
+
+Time : 20:32:10
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+Raw SQL : SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, st.grade, s.subject_description, s.subject_category
+FROM subjects, enrolment AS s
+JOIN enrolment AS e ON e.student_id = :studid
+WHERE
+
+Time : 19:16:52
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:16:09
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:14:29
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:14:03
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:13:23
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:13:06
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:12:33
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:12:01
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:11:55
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:11:48
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:11:36
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 19:11:27
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM test AS t JOIN takentest AS tt ON t.test_id = tt.test_id WHERE t.subject_id =:studid && t.test_id <> tt.test_id;
+
+Time : 18:09:12
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`reach`.`student`, CONSTRAINT `student_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `members` (`user_id`))
+Raw SQL : DELETE FROM `reach`.`members` WHERE `members`.`user_id` =:userid;
+
+Time : 17:18:20
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category
+                                      FROM subjects AS s
+                                      JOIN enrolment AS e ON s.subject_id = e.subject_id
+                                      JOIN student AS st ON st.studentId = e.student_id
+                                      WHERE e.student_id <> :studid;
+
+Time : 17:10:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'JOIN student AS st ON st.studentId = e.student_id WHERE e.student_id <> ?' at line 2
+Raw SQL : SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category, st.grade
+from subjects AS s JOIN student as st ON st.userId = :user_id WHERE st.grade = s.subject_grade JOIN student AS st ON st.studentId = e.student_id WHERE e.student_id <> :studid;
+
+Time : 17:10:05
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'JOIN student AS st ON st.studentId = e.student_id WHERE e.student_id NOT ?' at line 2
+Raw SQL : SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category, st.grade
+from subjects AS s JOIN student as st ON st.userId = :user_id WHERE st.grade = s.subject_grade JOIN student AS st ON st.studentId = e.student_id WHERE e.student_id NOT :studid;
+
+Time : 16:27:04
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT *
+                                  FROM result
+                                  WHERE test_id=:test_id
+
+Time : 16:27:00
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT *
+                                  FROM result
+                                  WHERE test_id=:test_id
+
+Time : 16:26:32
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT answer FROM takentest WHERE test_id =:testid && user_id =:user;
+
+Time : 16:24:56
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT answer FROM takentest WHERE test_id =:testid && user_id =:user;
+
+Time : 16:03:24
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`tutorsubject`, CONSTRAINT `tutorsubject_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO tutorsubject (tutor_id ,subject_id) VALUES (:tutor_id, :subject_id);
+
+Time : 15:52:51
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`enrolment`, CONSTRAINT `enrolment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO enrolment (subject_id, student_id) VALUES (:subid, :studentid);
+
+Time : 15:52:13
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`enrolment`, CONSTRAINT `enrolment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO enrolment (subject_id, student_id) VALUES (:subid, :studentid);
+
+Time : 15:51:19
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`enrolment`, CONSTRAINT `enrolment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO enrolment (subject_id, student_id) VALUES (:subid, :studentid);
+
+Time : 15:46:24
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`enrolment`, CONSTRAINT `enrolment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO enrolment (subject_id, student_id) VALUES (:subid, :studentid);
+
+Time : 15:41:11
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`reach`.`enrolment`, CONSTRAINT `enrolment_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO enrolment (subject_id, student_id) VALUES (:subid, :studentid);
+
+Time : 15:35:38
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.studentId' in 'field list'
+Raw SQL : SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category, st.grade, s.studentId
+from subjects AS s JOIN student as st ON st.userId = :user_id WHERE st.grade = s.subject_grade;
+
+Time : 13:16:27
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellphone = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:15:22
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellphone = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:15:06
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellphone = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:13:02
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellphone = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:12:19
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellphone = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:09:12
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellphone = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:08:32
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.cellnumber' in 'field list'
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellnumber = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:07:44
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.cellnumber' in 'field list'
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellnumber = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 13:05:54
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.cellnumber' in 'field list'
+Raw SQL : UPDATE members m JOIN administrator a ON m.user_id = a.user_id
+                                        SET m.firstname = :fname,
+                                            m.lastname = :sname,
+                                            m.email = :mail,
+                                            a.streetnumber = :strno,
+                                            a.streetname = :strname,
+                                            a.suburb = :suburb,
+                                            a.city = :city,
+                                            a.postalcode = :pcode,
+                                            a.cellnumber = :cellno,
+                                            a.worknumber = :workno,	
+                                            a.homenumber = :homeno,
+                                            a.jobdepartment = :jobdept,											
+                                            a.jobposition = :jobpos,
+                                            a.alternativeemail = :altemail
+                                        WHERE m.user_id = :userid;
+
+Time : 12:41:41
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'st.user_id' in 'on clause'
+Raw SQL : SELECT s.subject_id, s.subject_code, s.subject_name, s.subject_grade, s.subject_description, s.subject_category, st.grade
+
+from subjects AS s JOIN student as st ON st.user_id = :user_id WHERE st.grade = s.subject_grade;
+
+Time : 01:40:10
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO takentest (question_id,answer,test_id,user_id) VALUES (:question_id,:answer,:test_id,:user);
